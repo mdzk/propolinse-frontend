@@ -1,0 +1,346 @@
+.top-banner {
+  position: relative;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 50px;
+  background-image: url('../images/pieras-propolinse.png');
+}
+
+.top-banner img {
+
+  height: auto;
+
+}
+
+.nav-link {
+  color: #333 !important;
+  font-weight: 500;
+  font-size: 1.4rem;
+  text-transform: uppercase;
+}
+
+.nav-link:hover {
+  color: #66f !important;
+}
+
+
+.dropdown-toggle,
+.dropdown-menu {
+  border-radius: 0px !important;
+}
+
+.dropdown-item:hover {
+  color: white;
+  background-color: #dc3545;
+}
+
+.btn-danger {
+  width: 55%;
+}
+
+.dropdown:hover>.dropdown-menu {
+  display: block;
+}
+
+.gallery {
+  height: auto;
+}
+
+.gallery img {
+  width: 66%;
+  /* height: 200px; */
+  margin-right: 10px;
+}
+
+.carousel {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.carousel-cell {
+  width: 100%;
+  height: auto;
+  padding: 0 60px;
+}
+
+.carousel-cell-img {
+  width: 100%;
+  height: auto;
+}
+
+.flickity-viewport {
+  height: 100%;
+  padding-top: 28%;
+}
+
+.flickity-slider {
+  margin-top: -28%;
+}
+
+/*Styling only, you can change this */
+.carousel-container {
+  display: flex;
+  margin: 0 auto;
+  width: auto;
+}
+
+/* ================================= */
+
+.top-findstore {
+  width: 100%;
+  height: 200px;
+  background-image: url('../images/demos/demo-22/find-store-header.png');
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-size: cover;
+  background-position: center;
+}
+
+.list-findstore {
+  position: relative;
+  margin-bottom: 5rem;
+  margin-top: 5rem;
+}
+
+.icon-tittle-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.text-findstore {
+  position: absolute;
+  top: 15px;
+  margin-left: 55rem;
+  color: rgb(15, 14, 14);
+  padding: 1.5rem;
+  text-align: right;
+
+}
+
+.text-faq {
+  position: absolute;
+  top: 50px;
+  color: rgb(15, 14, 14);
+  padding-left: 40rem;
+  text-align: right;
+}
+
+.slider {
+  /* height: 250px; */
+}
+
+.wrap {
+  display: flex;
+  animation: slide 15s infinite;
+}
+
+.wrap img {
+  height: 90%;
+  justify-content: center;
+  align-items: center;
+}
+
+@keyframes slide {
+  0% {
+    transform: translatex(0);
+  }
+
+  10% {
+    transform: translatex(0);
+  }
+
+  30% {
+    transform: translatex(-100%);
+  }
+
+  40% {
+    transform: translatex(-200%);
+  }
+
+  50% {
+    transform: translatex(-300%);
+  }
+}
+
+.text {
+  text-align: center;
+}
+
+.border-radius {
+  border-radius: 10px;
+
+}
+
+.border-radius img {
+  margin-top: -10px;
+}
+
+.paragraf {
+  text-align: justify;
+  font-size: 1.5 rem;
+}
+
+.top-privacy-policy {
+  margin-left: 15rem;
+  margin-right: 15rem;
+  margin-bottom: 5rem;
+}
+
+.judul-privacy-policy {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.subjudul-privacy-policy {
+  margin-bottom: 2rem;
+  margin-top: 2rem;
+  color: black;
+  font-weight: 700;
+}
+
+.list-privacypolicy {
+  font-weight: 400;
+  color: black;
+}
+
+.h2 {
+  font-size: 4.5rem;
+}
+
+.h6 {
+  font-size: 3rem;
+}
+
+.product-titlehome {
+  font-size: 1rem;
+  font-family: 'Roboto';
+  font-weight: 700;
+  letter-spacing: -.01rem;
+  color: rgb(125, 123, 123);
+  margin-bottom: 0
+}
+
+.header-login {
+  Margin-left: 10px;
+  Margin-right: 10px;
+  Margin-top: 10px;
+  Margin-bottom: 10px;
+}
+
+.conten-nav {
+  margin-left: 260px;
+  margin-top: 16px;
+}
+
+.box {
+  margin-bottom: 70px;
+  box-shadow: 1px 1px 10px;
+}
+
+.header-logo {
+  margin-top: 15px;
+}
+
+.bg-footer {
+  background: linear-gradient(#FFCBCB, #f6f4f4);
+  margin-top: 200pxpx
+}
+
+.bg-subcribe {
+  color: #FFFFFF;
+  background-color: #F86B86;
+  border-color: #F86B86;
+  border-radius: 10px;
+  width: 106.86px;
+  height: 40px;
+}
+
+.text-subcribe {
+  padding-top: 50px;
+}
+
+.bg-email {
+  border-color: #FFFFFF;
+  border-radius: 10px;
+  width: 217px;
+  height: 40px;
+}
+
+.container-footer {
+  margin-left: 130px;
+  margin-right: 130px;
+}
+
+.container-icon-footer {
+  margin-top: 50px;
+}
+
+.subcribe {
+  padding: 50px;
+}
+
+.img-home {
+  padding: 15px;
+  border-image-source: url(assets/images/border.png);
+}
+
+.hightlight-home {
+  background-color: #D9D9D9;
+  color: #000;
+  padding-top: 25px;
+  padding-bottom: 25px;
+  padding-left: 125px;
+  padding-right: 125px;
+}
+
+.margin-bestsellers {
+  margin-top: -50px;
+}
+
+.margin-deskripsi {
+  margin-left: 50px;
+  margin-right: 50px;
+}
+
+.line-deskripsi {
+  line-height: 50px;
+}
+
+.bg-deskripsi {
+  background-color: #FFF9F9;
+  padding-top: 60px;
+  padding-bottom: 80px;
+}
+
+.jarak-deskripsi {
+  margin-bottom: 20px;
+}
+
+.icon-faq {
+  width: 70px;
+  position: relative;
+  left: 23rem;
+
+}
+
+.text-faq {
+  margin-bottom: 0;
+  margin-left: 0rem;
+  font-weight: 500;
+  font-family: 'Poppins';
+  letter-spacing: 0;
+  color: rgb(1, 0, 0);
+}
+
+.tittle-icon-faq {
+  text-align: center !important;
+  padding-right: 83rem;
+  position: relative;
+
+}
+
+.productAdd {
+  margin: auto;
+}
