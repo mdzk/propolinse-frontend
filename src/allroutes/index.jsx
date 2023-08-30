@@ -15,10 +15,11 @@ import Findstore from "../pages/product/Findstore";
 import Privacypolicy from "../pages/product/Privacypolicy";
 import Becomereseller from "../pages/product/Becomereseller";
 
-import OriginalSize from "../pages/product/OriginalSize";
+import BigSize from "../pages/product/BigSize";
 import TravelSize from "../pages/product/TravelSize";
 import Home from "../pages/product/Home";
 import Holiday from "../pages/product/Holiday";
+import Collaboration from "../pages/product/Collaboration";
 import TemenFokus from "../pages/product/TemenFokus";
 import Bundling from "../pages/product/Bundling";
 import PastaGigi from "../pages/product/PastaGigi";
@@ -79,6 +80,15 @@ const AllRoutes = () => {
         <Route path="/privacypolicy" element={<Privacypolicy />} />
         <Route path="/loginpage" element={<Loginpage />} />
 
+        <Route path="/bigsize" element={<BigSize />} />
+        <Route path="/travelsize" element={<TravelSize />} />
+        <Route path="/home" element={<Home />} />
+        <Route path="/holiday" element={<Holiday />} />
+        <Route path="/collaboration" element={<Collaboration />} />
+        <Route path="/bundling" element={<Bundling />} />
+
+        <Route path="/temenfokus" element={<TemenFokus />} />
+
         <Route path="/blackoriginal" element={<Blackoriginal />} />
         <Route path="/sakuraoriginal" element={<Sakuraoriginal />} />
         <Route path="/yuzuoriginal" element={<Yuzuoriginal />} />
@@ -86,7 +96,6 @@ const AllRoutes = () => {
         <Route path="/matchaoriginal" element={<Matchaoriginal />} />
         <Route path="/whiteoriginal" element={<Whiteoriginal />} />
         <Route path="/orangeoriginal" element={<Orangeoriginal />} />
-        <Route path="/temenfokus" element={<TemenFokus />} />
       </Routes>
       {FooterToRender && <FooterToRender />}
     </div>

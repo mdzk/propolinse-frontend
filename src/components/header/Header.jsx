@@ -24,8 +24,8 @@ function Header(params) {
                 Mouthwash
               </a>
               <div className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                <a className="dropdown-item" href="/originalsize">Original Size</a>
-                <a className="dropdown-item" href="/travelsize">Travel Size</a>
+                <Link className="dropdown-item" to="/bigsize">Big Size</Link>
+                <Link className="dropdown-item" to="/travelsize">Travel Size</Link>
               </div>
             </li>
             <li className="nav-item dropdown mx-3">
@@ -33,21 +33,15 @@ function Header(params) {
                 Toothbrush
               </a>
               <div className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                <a className="dropdown-item" href="/home">Home</a>
-                <a className="dropdown-item" href="/holiday">Holiday</a>
+                <Link className="dropdown-item" to="/home">Home</Link>
+                <Link className="dropdown-item" to="/holiday">Holiday</Link>
               </div>
             </li>
-            <li className="nav-item dropdown mx-3">
-              <a className="nav-link text-uppercase" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Collaboration
-              </a>
-              <div className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                <a className="dropdown-item" href="/temenfokus">Temen Fokus</a>
-                <a className="dropdown-item" href="/pastagigi">Pasta Gigi</a>
-              </div>
+            <li className="nav-item mx-3">
+              <Link className="nav-link text-uppercase" to="/collaboration">Collaboration</Link>
             </li>
-            <li className="nav-item">
-              <a className="nav-link text-uppercase" href="#">Bundling</a>
+            <li className="nav-item mx-3">
+              <Link className="nav-link text-uppercase" to="/bundling">Bundling</Link>
             </li>
           </ul>
           <div className="header-right d-flex justify-content-end align-items-center">
@@ -67,14 +61,14 @@ function Header(params) {
             </div>
 
             <div className="header-login ml-3">
-              <Link to="/loginpage">
+              <a href="/loginpage">
                 <img
                   src="assets/images/login.png"
                   alt="color_atas"
                   width={22}
                   height={34}
                 />
-              </Link>
+              </a>
             </div>
 
             <div className="dropdown cart-dropdown mr-3">

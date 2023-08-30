@@ -1,164 +1,145 @@
 import React from "react";
-import Header from "../../components/header/Header";
-import Footer from "../../components/footer/Footer";
+import { Link } from "react-router-dom";
+
 
 const Home = () => {
   return (
     <>
-      <Header />
-      <div div className="container">
-        <main className="main">
-          <div className="container bestsellers">
-            <div className="heading">
-              <h2 className="title ">Toothbrush (4)</h2>
-            </div>
-            <div
-              className="owl-carousel  owl-loaded "
-              data-toggle="owl"
-              data-owl-options='{
-                  "nav": true, 
-                  "dots": false,
-                  "margin": 20,
-                  "loop": false,
-                  "responsive": {
-                      "0": {
-                          "items":2
-                      },
-                      "768": {
-                          "items":3
-                      },
-                      "992": {
-                          "items":4
-                      }
-                  }
-              }'
-            >
-              <div className="owl-stage-outer">
-                <div
-                  className="owl-stage"
-                  style={{
-                    transform: "translate3d(0px, 0px, 0px)",
-                    transition: "all 0s ease 0s",
-                    width: 1853,
-                  }}
-                >
-                  <div
-                    className="owl-item"
-                    style={{ width: "350.5px", marginRight: 20 }}
-                  >
-                    <div className="product demo21">
-                      <figure className="product-media">
-                        <a href="/homerefills">
-                          <img
-                            src="assets/images/demos/demo-20/toothbrush-home-refills.jpg"
-                            alt="Product image"
-                            className="product-image"
-                          />
-                        </a>
-                      </figure>
-                      <div className="product-body text-center mt-3">
-                        <div className="product-cat">
-                          <a href="#"> Electrick Toothbrush</a>
-                        </div>
-                        <h3 className="product-title">
-                          <a href="/homerefills">Home Refills</a>
-                        </h3>
-                        <div className="product-price">
-                          <span className="cur-price">Rp260.000</span>
-                        </div>
-                      </div>
-                    </div>
+      <main className="main">
+        <div className="container bestsellers">
+          <div className="heading">
+            <h2 className="title ">Toothbrush Home (5)</h2>
+          </div>
+
+          <div className="row">
+            <div className="col-md-3">
+              <div className="product demo21">
+                <figure className="product-media">
+                  <span className="product-label label-new">New</span>
+                  <Link className="d-flex justify-content-center" to="/sakuraoriginal">
+                    <img style={{ width: "500px" }}
+                      src="../../../public/assets/images/home/black.png"
+                      alt="Product image"
+                    />
+                  </Link>
+                </figure>
+                <div className="product-body text-center">
+                  <div className="product-cat mt-2">
+                    <a href="#">Electric Toothbrush</a>
                   </div>
-                  <div
-                    className="owl-item"
-                    style={{ width: "350.5px", marginRight: 20 }}
-                  >
-                    <div className="product demo21">
-                      <figure className="product-media">
-                        <span className="product-label label-new">New</span>
-                        <a href="/homediamond">
-                          <img
-                            src="assets/images/demos/demo-20/toothbrush-home-diamond.jpg"
-                            alt="Product image"
-                            className="product-image"
-                          />
-                        </a>
-                      </figure>
-                      <div className="product-body text-center mt-3">
-                        <div className="product-cat">
-                          <a href="#"> Electrick Toothbrush</a>
-                        </div>
-                        <h3 className="product-title">
-                          <a href="/homediamond">Home Diamond</a>
-                        </h3>
-                        <div className="product-price">
-                          <span className="cur-price">Rp899.000</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div
-                    className="owl-item"
-                    style={{ width: "350.5px", marginRight: 20 }}
-                  >
-                    <div className="product demo21">
-                      <figure className="product-media">
-                        <a href="/homeblack">
-                          <img
-                            src="assets/images/demos/demo-20/toothbrush-home-black.jpg"
-                            alt="Product image"
-                            className="product-image"
-                          />
-                        </a>
-                      </figure>
-                      <div className="product-body text-center mt-3">
-                        <div className="product-cat">
-                          <a href="#"> Electrick Tootbruhs</a>
-                        </div>
-                        <h3 className="product-title">
-                          <a href="product.html">Home Black</a>
-                        </h3>
-                        <div className="product-price">
-                          <span className="cur-price">R899.000</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div
-                    className="owl-item"
-                    style={{ width: "350.5px", marginRight: 20 }}
-                  >
-                    <div className="product demo21">
-                      <figure className="product-media">
-                        <a href="/homegold">
-                          <img
-                            src="assets/images/demos/demo-20/toothbrush-home-gold.jpg"
-                            alt="Product image"
-                            className="product-image"
-                          />
-                        </a>
-                      </figure>
-                      <div className="product-body text-center mt-3">
-                        <div className="product-cat">
-                          <a href="#">Electrick Toothbrus</a>
-                        </div>
-                        <h3 className="product-title">
-                          <a href="product.html">Home Gold</a>
-                        </h3>
-                        <div className="product-price">
-                          <span className="cur-price">Rp899.000</span>
-                        </div>
-                      </div>
-                    </div>
+                  <h3 className="product-title">
+                    <Link to="/sakuraoriginal">IONPA Home Black</Link>
+                  </h3>
+                  <div className="product-price">
+                    <span className="cur-price">Rp195.000</span>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-        </main>
 
-        <Footer />
-      </div>
+            <div className="col-md-3">
+              <div className="product demo21">
+                <figure className="product-media">
+                  <span className="product-label label-new">New</span>
+                  <Link className="d-flex justify-content-center" to="/orangeoriginal">
+                    <img
+                      src="../../../public/assets/images/home/gold.png"
+                      alt="Product image"
+                    />
+                  </Link>
+                </figure>
+                <div className="product-body text-center">
+                  <div className="product-cat mt-2">
+                    <a href="#">Electric Toothbrush</a>
+                  </div>
+                  <h3 className="product-title">
+                    <Link to="/orangeoriginal">IONPA Home Gold</Link>
+                  </h3>
+                  <div className="product-price">
+                    <span className="cur-price">Rp195.000</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="col-md-3">
+              <div className="product demo21">
+                <figure className="product-media">
+                  <span className="product-label label-new">New</span>
+                  <Link className="d-flex justify-content-center" to="/blackoriginal">
+                    <img
+                      src="../../../public/assets/images/home/white.png"
+                      alt="Product image"
+                    />
+                  </Link>
+                </figure>
+                <div className="product-body text-center">
+                  <div className="product-cat mt-2">
+                    <a href="#">Electric Toothbrush</a>
+                  </div>
+                  <h3 className="product-title">
+                    <Link to="/blackoriginal">IONPA Home White</Link>
+                  </h3>
+                  <div className="product-price">
+                    <span className="cur-price">Rp195.000</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="col-md-3">
+              <div className="product demo21">
+                <figure className="product-media">
+                  <span className="product-label label-new">New</span>
+                  <Link className="d-flex justify-content-center" to="/whiteoriginal">
+                    <img
+                      src="../../../public/assets/images/home/pink.png"
+                      alt="Product image"
+                    />
+                  </Link>
+                </figure>
+                <div className="product-body text-center">
+                  <div className="product-cat mt-2">
+                    <a href="#">Electric Toothbrush</a>
+                  </div>
+                  <h3 className="product-title">
+                    <Link to="/whiteoriginal">Head Refills Pink</Link>
+                  </h3>
+                  <div className="product-price">
+                    <span className="cur-price">Rp195.000</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="col-md-3">
+              <div className="product demo21">
+                <figure className="product-media">
+                  <span className="product-label label-new">New</span>
+                  <Link className="d-flex justify-content-center" to="/yuzuoriginal">
+                    <img
+                      src="../../../public/assets/images/home/green.png"
+                      alt="Product image"
+                    />
+                  </Link>
+                </figure>
+                <div className="product-body text-center">
+                  <div className="product-cat mt-2">
+                    <a href="#">Electric Toothbrush</a>
+                  </div>
+                  <h3 className="product-title">
+                    <Link to="/yuzuoriginal">Head Refills Green</Link>
+                  </h3>
+                  <div className="product-price">
+                    <span className="cur-price">Rp195.000</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </main>
     </>
   );
 };

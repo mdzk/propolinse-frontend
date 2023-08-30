@@ -1,11 +1,8 @@
 import React from "react";
-import Header from "../../components/header/Header";
-import Footer from "../../components/footer/Footer";
 
 const OriginalSize = () => {
   return (
     <>
-      <Header />
       <main className="main">
         {/* End .intro-slider-container */}
 
@@ -279,8 +276,6 @@ const OriginalSize = () => {
           </div>
         </div>
       </main>
-
-      <Footer />
     </>
   );
 };

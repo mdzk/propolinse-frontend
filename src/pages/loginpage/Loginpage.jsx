@@ -2,7 +2,7 @@ import React from 'react';
 
 const Loginpage = () => {
   return (
-    <div className="form-box">
+    <div className="form-box mt-5">
       <div className="form-tab">
         <ul className="nav nav-pills nav-fill" role="tablist">
           <li className="nav-item">

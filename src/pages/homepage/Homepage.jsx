@@ -64,7 +64,7 @@ const Homepage = () => {
               <div className="product demo21">
                 <figure className="">
                   <Link to="/blackoriginal">
-                    <img className="img-home" src="assets/images/demos/home/1.jpeg" alt="Product image" />
+                    <img className="img-home" src="assets/images/carousel/1.jpeg" alt="Product image" />
                   </Link>
                 </figure>
                 <div className="product-body text-center">
@@ -72,7 +72,7 @@ const Homepage = () => {
                     <Link to="/blackoriginal">Refresh Black</Link>
                   </h3>
                   <div className="product-price">
-                    <span className="hightlight-home">Rp380.000</span>
+                    <span className="hightlight-home">Rp385.000</span>
                   </div>
                 </div>
               </div>
@@ -82,7 +82,7 @@ const Homepage = () => {
               <div className="product demo21">
                 <figure className="">
                   <Link to="/sakuraoriginal">
-                    <img className="img-home" src="assets/images/demos/home/2.jpeg" alt="Product image" />
+                    <img className="img-home" src="assets/images/carousel/2.jpeg" alt="Product image" />
                   </Link>
                 </figure>
                 <div className="product-body text-center">
@@ -100,7 +100,7 @@ const Homepage = () => {
               <div className="product demo21">
                 <figure className="">
                   <Link to="/yuzuoriginal">
-                    <img className="img-home" src="assets/images/demos/home/3.jpeg" alt="Product image" />
+                    <img className="img-home" src="assets/images/carousel/3.jpeg" alt="Product image" />
                   </Link>
                 </figure>
                 <div className="product-body text-center">
@@ -118,7 +118,7 @@ const Homepage = () => {
               <div className="product demo21">
                 <figure className="">
                   <Link to="/purehoneyoriginal">
-                    <img className="img-home" src="assets/images/demos/home/4.jpeg" alt="Product image" />
+                    <img className="img-home" src="assets/images/carousel/4.jpeg" alt="Product image" />
                   </Link>
                 </figure>
                 <div className="product-body text-center">
@@ -136,7 +136,7 @@ const Homepage = () => {
               <div className="product demo21">
                 <figure className="">
                   <Link to="/matchaoriginal">
-                    <img className="img-home" src="assets/images/demos/home/5.jpeg" alt="Product image" />
+                    <img className="img-home" src="assets/images/carousel/5.jpeg" alt="Product image" />
                   </Link>
                 </figure>
                 <div className="product-body text-center">
@@ -154,7 +154,7 @@ const Homepage = () => {
               <div className="product demo21">
                 <figure className="">
                   <Link to="/whiteoriginal">
-                    <img className="img-home" src="assets/images/demos/home/6.jpeg" alt="Product image" />
+                    <img className="img-home" src="assets/images/carousel/6.jpeg" alt="Product image" />
                   </Link>
                 </figure>
                 <div className="product-body text-center">
@@ -172,7 +172,7 @@ const Homepage = () => {
               <div className="product demo21">
                 <figure className="">
                   <Link to="/orangeoriginal">
-                    <img className="img-home" src="assets/images/demos/home/7.jpeg" alt="Product image" />
+                    <img className="img-home" src="assets/images/carousel/7.jpeg" alt="Product image" />
                   </Link>
                 </figure>
                 <div className="product-body text-center">
@@ -189,13 +189,13 @@ const Homepage = () => {
             <div className="owl-item" style={{ width: "200.5px", marginRight: 20 }} >
               <div className="product demo21">
                 <figure className="">
-                  <Link to="/originalsize">
-                    <img className="img-home" src="assets/images/demos/home/8.jpeg" alt="Product image" />
+                  <Link to="/holiday">
+                    <img className="img-home" src="assets/images/carousel/8.jpeg" alt="Product image" />
                   </Link>
                 </figure>
                 <div className="product-body text-center">
                   <h3 className="product-title">
-                    <Link to="/yuzuoriginal">Toothbrush Electric Holiday</Link>
+                    <Link to="/holiday">Toothbrush Electric Holiday</Link>
                   </h3>
                   <div className="product-price">
                     <span className="hightlight-home">Rp799.000</span>
@@ -207,13 +207,13 @@ const Homepage = () => {
             <div className="owl-item" style={{ width: "200.5px", marginRight: 20 }} >
               <div className="product demo21">
                 <figure className="">
-                  <Link to="/originalsize">
-                    <img className="img-home" src="assets/images/demos/home/9.jpeg" alt="Product image" />
+                  <Link to="/home">
+                    <img className="img-home" src="assets/images/carousel/9.jpeg" alt="Product image" />
                   </Link>
                 </figure>
                 <div className="product-body text-center">
                   <h3 className="product-title">
-                    <Link to="/yuzuoriginal">Toothbrush Electric Home</Link>
+                    <Link to="/home">Toothbrush Electric Home</Link>
                   </h3>
                   <div className="product-price">
                     <span className="hightlight-home">Rp899.000</span>
@@ -226,7 +226,7 @@ const Homepage = () => {
               <div className="product demo21">
                 <figure className="">
                   <Link to="/temenfokus">
-                    <img className="img-home" src="assets/images/demos/home/10.jpeg" alt="Product image" />
+                    <img className="img-home" src="assets/images/carousel/10.jpeg" alt="Product image" />
                   </Link>
                 </figure>
                 <div className="product-body text-center">

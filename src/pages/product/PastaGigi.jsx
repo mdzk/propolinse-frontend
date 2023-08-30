@@ -5,7 +5,6 @@ import Footer from "../../components/footer/Footer";
 const PastaGigi = () => {
   return (
     <>
-      <Header />
       <main className="main">
         <div className="container bestsellers">
           <div className="heading">
@@ -131,8 +130,6 @@ const PastaGigi = () => {
           </div>
         </div>
       </main>
-
-      <Footer />
     </>
   );
 };

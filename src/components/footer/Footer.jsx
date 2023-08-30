@@ -57,7 +57,7 @@ const Footer = () => {
             </div>
           </div>
 
-          <div className=" text-center">
+          <div className="container text-center">
             <p>
               "Produk yang asli sudah ber-BPOM dan memiliki kadaluarsa hanya di
               Pieras propolinse indonesia. Jangan sampai salah beli karena

@@ -85,6 +85,70 @@
   width: auto;
 }
 
+.product-count {
+  background-color: #f6f1f1;
+  display: flex;
+  width: 200px;
+}
+
+.product-count input {
+  background-color: transparent;
+  border: none;
+  width: 100%;
+}
+
+.product-count input:focus-visible {
+  background-color: transparent;
+  border: none;
+}
+
+.product-count a {
+  text-decoration: none;
+  font-weight: 700;
+  color: black;
+}
+
+.button-count {
+  display: inline-block;
+  width: 30px;
+  background-color: transparent;
+  color: black;
+  text-align: center;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.number-product {
+  display: inline-block;
+  width: 46px;
+  border: 1px solid silver;
+  text-align: center;
+}
+
+.btn-add {
+  transition: all .35s ease;
+  font-weight: 800;
+  font-size: 1.3rem;
+  color: #fff;
+  background-color: #F25170;
+  border: 1px solid #F25170;
+}
+
+.btn-add:hover {
+  transition: all .35s ease;
+  color: #F25170;
+  background-color: #fff;
+  border: 1px solid #F25170;
+}
+
+.product-media {
+  background-color: transparent;
+}
+
 /* ================================= */
 
 .top-findstore {
@@ -310,8 +374,6 @@
 
 .bg-deskripsi {
   background-color: #FFF9F9;
-  padding-top: 60px;
-  padding-bottom: 80px;
 }
 
 .jarak-deskripsi {
