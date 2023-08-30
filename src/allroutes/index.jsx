@@ -67,7 +67,7 @@ const AllRoutes = () => {
   const FooterToRender = isAdminPath ? AdminFooter : (shouldRenderHeaderFooter && Footer);
 
   return (
-    <div>
+    <div className='d-flex flex-column min-vh-100'>
       {HeaderToRender && <HeaderToRender />}
       <ScrollToTopOnNavigation />
       <Routes>

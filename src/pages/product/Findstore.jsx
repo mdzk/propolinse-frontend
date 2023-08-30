@@ -4,18 +4,18 @@ const Findstore = () => {
   return (
     <>
       <main className="main">
-        <div className=" bg-light ">
-          <div class="top-findstore">
-            <img src="assets/images/demos/demo-22/find-store-header.png" />
-            <div class="text-findstore">
-              <h3 className="page-title text-black">MARKET PLACE</h3>
-            </div>
+        <div className="bg-light ">
+
+          <div class="top-findstore d-flex align-items-center justify-content-center">
+            <h3 className="page-title text-black mb-0 font-weight-bold">
+              MARKETPLACE
+            </h3>
           </div>
 
-          <div className="brands-display">
-            <div className="row">
-              <div className="col-2">
-                <a href="#" className="brand">
+          <div className="container py-5">
+            <div className="row d-flex justify-content-center">
+              <div className="col-md-2 col-sm-4 d-flex justify-content-center m-4">
+                <a href="#" className="brand-logo">
                   <img
                     src="assets/images/demos/demo-22/kkv.png"
                     alt="Brand Name"
@@ -23,8 +23,8 @@ const Findstore = () => {
                 </a>
               </div>
 
-              <div className="col-2">
-                <a href="#" className="brand">
+              <div className="col-md-2 col-sm-4 d-flex justify-content-center m-4">
+                <a href="#" className="brand-logo">
                   <img
                     src="assets/images/demos/demo-22/ranch-market.png"
                     alt="Brand Name"
@@ -32,17 +32,17 @@ const Findstore = () => {
                 </a>
               </div>
 
-              <div className="col-2">
-                <a href="#" className="brand">
+              <div className="col-md-2 col-sm-4 d-flex justify-content-center m-4">
+                <a href="#" className="brand-logo">
                   <img
                     src="assets/images/demos/demo-22/grand-lucky.png"
                     alt="Brand Name"
                   />
                 </a>
               </div>
-              {/* End .col-sm-4 */}
-              <div className="col-2">
-                <a href="#" className="brand">
+
+              <div className="col-md-2 col-sm-4 d-flex justify-content-center m-4">
+                <a href="#" className="brand-logo">
                   <img
                     src="assets/images/demos/demo-22/foodhall.png"
                     alt="Brand Name"
@@ -50,104 +50,111 @@ const Findstore = () => {
                 </a>
               </div>
 
-              {/* End .col-sm-4 */}
-              <div className="col-2">
-                <a href="#" className="brand">
-                  <img
+              <div className="col-md-2 col-sm-4 d-flex justify-content-center m-4">
+                <a href="#" className="brand-logo">
+                  <img style={{ height: "93px" }}
                     src="assets/images/demos/demo-22/bintang.png"
                     alt="Brand Name"
                   />
                 </a>
               </div>
-              {/* End .col-sm-4 */}
-              <div className="col-2">
-                <a href="#" className="brand">
+
+              <div className="col-md-2 col-sm-4 d-flex justify-content-center m-4">
+                <a href="#" className="brand-logo">
                   <img
                     src="assets/images/demos/demo-22/growell.png"
                     alt="Brand Name"
                   />
                 </a>
               </div>
-              {/* End .col-sm-4 */}
-              <div className="col-2">
-                <a href="#" className="brand">
+
+              <div className="col-md-2 col-sm-4 d-flex justify-content-center m-4">
+                <a href="#" className="brand-logo">
                   <img
                     src="assets/images/demos/demo-22/sociolla.png"
                     alt="Brand Name"
                   />
                 </a>
               </div>
-              {/* End .col-sm-4 */}
-              <div className="col-2">
-                <a href="#" className="brand">
+
+              <div className="col-md-2 col-sm-4 d-flex justify-content-center m-4">
+                <a href="#" className="brand-logo">
                   <img
                     src="assets/images/demos/demo-22/yogya.png"
                     alt="Brand Name"
                   />
                 </a>
               </div>
-              {/* End .col-sm-4 */}
-              <div className="col-2">
-                <a href="#" className="brand">
+
+              <div className="col-md-2 col-sm-4 d-flex justify-content-center m-4">
+                <a href="#" className="brand-logo">
                   <img
                     src="assets/images/demos/demo-22/istana-buah.png"
                     alt="Brand Name"
                   />
                 </a>
               </div>
-              <div className="col-2">
-                <a href="#" className="brand">
+
+              <div className="col-md-2 col-sm-4 d-flex justify-content-center m-4">
+                <a href="#" className="brand-logo">
                   <img
                     src="assets/images/demos/demo-22/tododo.png"
                     alt="Brand Name"
                   />
                 </a>
               </div>
-              <div className="col-2">
-                <a href="#" className="brand">
+
+              <div className="col-md-2 col-sm-4 d-flex justify-content-center m-4">
+                <a href="#" className="brand-logo">
                   <img
                     src="assets/images/demos/demo-22/pelita.png"
                     alt="Brand Name"
                   />
                 </a>
               </div>
-              <div className="col-2">
-                <a href="#" className="brand">
+
+              <div className="col-md-2 col-sm-4 d-flex justify-content-center m-4">
+                <a href="#" className="brand-logo">
                   <img
                     src="assets/images/demos/demo-22/tokopedia.png"
                     alt="Brand Name"
                   />
                 </a>
               </div>
-              <div className="col-2">
-                <a href="#" className="brand">
+
+              <div className="col-md-2 col-sm-4 d-flex justify-content-center m-4">
+                <a href="#" className="brand-logo">
                   <img
                     src="assets/images/demos/demo-22/shopee.png"
                     alt="Brand Name"
                   />
                 </a>
               </div>
-              <div className="col-2">
-                <a href="#" className="brand">
+
+              <div className="col-md-2 col-sm-4 d-flex justify-content-center m-4">
+                <a href="#" className="brand-logo">
                   <img
                     src="assets/images/demos/demo-22/tiktok.png"
                     alt="Brand Name"
                   />
                 </a>
               </div>
+
             </div>
           </div>
         </div>
 
-        <div className="list-findstore">
-          <div className="row">
-            <img
-              src="assets/images/demos/demo-22/kkv.png"
-              width={450}
-              height={450}
-              alt=""
-            ></img>
-            <div className=" col-xl-5col ">
+        <div className="container">
+          <div className="row p-5">
+            <div className="col-md-3 d-flex justify-content-center">
+              <img
+                src="assets/images/demos/demo-22/kkv.png"
+                width={450}
+                height={450}
+                alt=""
+              ></img>
+            </div>
+            <div className="col-md-3">
               <h5>
                 <strong>Jabodetabek</strong>
               </h5>
@@ -181,10 +188,9 @@ const Findstore = () => {
                 </li>
               </ul>
             </div>
-            <div className=" col-xl-5col ">
-              <h5>
-                <strong>Karawang</strong>
-              </h5>
+            <div className="col-md-3"><h5>
+              <strong>Karawang</strong>
+            </h5>
               <ul className="">
                 <li>
                   <a href="#">•KKV Resinda Park Mall</a>
@@ -205,12 +211,10 @@ const Findstore = () => {
                 <li>
                   <a href="#">•KKV Pakuan Mall</a>
                 </li>
-              </ul>
-            </div>
-            <div className="col-xl-5col ">
-              <h5>
-                <strong>Surabaya</strong>
-              </h5>
+              </ul></div>
+            <div className="col-md-3"><h5>
+              <strong>Surabaya</strong>
+            </h5>
               <ul className="widget-list">
                 <li>
                   <a href="about.html">•KKV Tunjungan Plaza 3</a>
@@ -225,17 +229,19 @@ const Findstore = () => {
             </div>
           </div>
         </div>
-        <hr className="" />
+        <hr />
 
-        <div className="list-findstore">
-          <div className="row">
-            <img
-              src="assets/images/demos/demo-22/ranch-market.png"
-              width={450}
-              height={450}
-              alt=""
-            ></img>
-            <div className=" col-xl-5col ">
+        <div className="container">
+          <div className="row p-5">
+            <div className="col-md-3 d-flex justify-content-center">
+              <img
+                src="assets/images/demos/demo-22/ranch-market.png"
+                width={450}
+                height={450}
+                alt=""
+              ></img>
+            </div>
+            <div className="col-md-3">
               <h5>
                 <strong>Jabodetabek</strong>
               </h5>
@@ -269,7 +275,7 @@ const Findstore = () => {
                 </li>
               </ul>
             </div>
-            <div className=" col-xl-5col ">
+            <div className="col-md-3">
               <h5>
                 <strong>Surabaya</strong>
               </h5>
@@ -293,19 +299,23 @@ const Findstore = () => {
                 </li>
               </ul>
             </div>
+
           </div>
         </div>
-        <hr className="" />
+        <hr />
 
-        <div className="list-findstore">
-          <div className="row">
-            <img
-              src="assets/images/demos/demo-22/grand-lucky.png"
-              width={450}
-              height={450}
-              alt=""
-            ></img>
-            <div className=" col-xl-5col ">
+        <div className="container">
+          <div className="row p-5">
+            <div className="col-md-3 d-flex justify-content-center">
+              <img
+                src="assets/images/demos/demo-22/grand-lucky.png"
+                width={450}
+                height={450}
+                alt=""
+              ></img>
+            </div>
+
+            <div className="col-md-3">
               <h5>
                 <strong>Jabodetabek</strong>
               </h5>
@@ -321,7 +331,8 @@ const Findstore = () => {
                 </li>
               </ul>
             </div>
-            <div className=" col-xl-5col ">
+
+            <div className="col-md-3">
               <h5>
                 <strong>Bali</strong>
               </h5>
@@ -334,19 +345,27 @@ const Findstore = () => {
                 </li>
               </ul>
             </div>
+
+            <div className="col-md-3">
+
+            </div>
+
           </div>
         </div>
-        <hr className="" />
+        <hr />
 
-        <div className="list-findstore">
-          <div className="row">
-            <img
-              src="assets/images/demos/demo-22/foodhall.png"
-              width={450}
-              height={450}
-              alt=""
-            ></img>
-            <div className=" col-xl-5col ">
+        <div className="container">
+          <div className="row p-5">
+            <div className="col-md-3 d-flex justify-content-center">
+              <img
+                src="assets/images/demos/demo-22/foodhall.png"
+                width={450}
+                height={450}
+                alt=""
+              ></img>
+            </div>
+
+            <div className="col-md-3">
               <h5>
                 <strong>Jabodetabek</strong>
               </h5>
@@ -371,19 +390,30 @@ const Findstore = () => {
                 </li>
               </ul>
             </div>
+
+            <div className="col-md-3">
+
+            </div>
+
+            <div className="col-md-3">
+
+            </div>
+
           </div>
         </div>
-        <hr className="" />
+        <hr />
 
-        <div className="list-findstore">
-          <div className="row">
-            <img
-              src="assets/images/demos/demo-22/bintang.png"
-              width={450}
-              height={450}
-              alt=""
-            ></img>
-            <div className=" col-xl-5col ">
+        <div className="container">
+          <div className="row p-5">
+            <div className="col-md-3 d-flex justify-content-center">
+              <img
+                src="assets/images/demos/demo-22/bintang.png"
+                style={{ width:"450px",height:"240px" }}
+                alt=""
+              ></img>
+            </div>
+
+            <div className="col-md-3">
               <h5>
                 <strong>Bali</strong>
               </h5>
@@ -396,18 +426,30 @@ const Findstore = () => {
                 </li>
               </ul>
             </div>
+
+            <div className="col-md-3">
+
+            </div>
+
+            <div className="col-md-3">
+
+            </div>
+
           </div>
         </div>
-        <hr className="" />
-        <div className="list-findstore">
-          <div className="row">
-            <img
-              src="assets/images/demos/demo-22/growell.png"
-              width={450}
-              height={450}
-              alt=""
-            ></img>
-            <div className=" col-xl-5col ">
+        <hr />
+
+        <div className="container">
+          <div className="row p-5">
+            <div className="col-md-3 d-flex justify-content-center">
+              <img
+                src="assets/images/demos/demo-22/growell.png"
+                style={{ width: "450px"}}
+                alt=""
+              ></img>
+            </div>
+
+            <div className="col-md-3">
               <h5>
                 <strong>Jabodetabek</strong>
               </h5>
@@ -420,18 +462,30 @@ const Findstore = () => {
                 </li>
               </ul>
             </div>
+
+            <div className="col-md-3">
+
+            </div>
+
+            <div className="col-md-3">
+
+            </div>
+
           </div>
         </div>
-        <hr className="" />
-        <div className="list-findstore">
-          <div className="row">
-            <img
-              src="assets/images/demos/demo-22/sociolla.png"
-              width={450}
-              height={450}
-              alt=""
-            ></img>
-            <div className=" col-xl-5col ">
+        <hr />
+
+        <div className="container">
+          <div className="row p-5">
+            <div className="col-md-3 d-flex justify-content-center">
+              <img
+                src="assets/images/demos/demo-22/sociolla.png"
+                style={{ width: "450px" }}
+                alt=""
+              ></img>
+            </div>
+
+            <div className="col-md-3">
               <h5>
                 <strong>Jabodetabek</strong>
               </h5>
@@ -441,18 +495,30 @@ const Findstore = () => {
                 </li>
               </ul>
             </div>
+
+            <div className="col-md-3">
+
+            </div>
+
+            <div className="col-md-3">
+
+            </div>
+
           </div>
         </div>
-        <hr className="" />
-        <div className="list-findstore">
-          <div className="row">
-            <img
-              src="assets/images/demos/demo-22/yogya.png"
-              width={450}
-              height={450}
-              alt=""
-            ></img>
-            <div className=" col-xl-5col ">
+        <hr />
+
+        <div className="container">
+          <div className="row p-5">
+            <div className="col-md-3 d-flex justify-content-center">
+              <img
+                src="assets/images/demos/demo-22/yogya.png"
+                style={{ width: "450px" }}
+                alt=""
+              ></img>
+            </div>
+
+            <div className="col-md-3">
               <h5>
                 <strong>Jabodetabek</strong>
               </h5>
@@ -462,18 +528,30 @@ const Findstore = () => {
                 </li>
               </ul>
             </div>
+
+            <div className="col-md-3">
+
+            </div>
+
+            <div className="col-md-3">
+
+            </div>
+
           </div>
         </div>
-        <hr className="" />
-        <div className="list-findstore">
-          <div className="row">
-            <img
-              src="assets/images/demos/demo-22/istana-buah.png"
-              width={450}
-              height={450}
-              alt=""
-            ></img>
-            <div className=" col-xl-5col ">
+        <hr />
+
+        <div className="container">
+          <div className="row p-5">
+            <div className="col-md-3 d-flex justify-content-center">
+              <img
+                src="assets/images/demos/demo-22/istana-buah.png"
+                style={{ width: "450px" }}
+                alt=""
+              ></img>
+            </div>
+
+            <div className="col-md-3">
               <h5>
                 <strong>Jabodetabek</strong>
               </h5>
@@ -483,18 +561,30 @@ const Findstore = () => {
                 </li>
               </ul>
             </div>
+
+            <div className="col-md-3">
+
+            </div>
+
+            <div className="col-md-3">
+
+            </div>
+
           </div>
         </div>
-        <hr className="" />
-        <div className="list-findstore">
-          <div className="row">
-            <img
-              src="assets/images/demos/demo-22/tododo.png"
-              width={450}
-              height={450}
-              alt=""
-            ></img>
-            <div className=" col-xl-5col ">
+        <hr />
+
+        <div className="container">
+          <div className="row p-5">
+            <div className="col-md-3 d-flex justify-content-center">
+              <img
+                src="assets/images/demos/demo-22/tododo.png"
+                style={{ width: "450px" }}
+                alt=""
+              ></img>
+            </div>
+
+            <div className="col-md-3">
               <h5>
                 <strong>Jabodetabek</strong>
               </h5>
@@ -504,18 +594,30 @@ const Findstore = () => {
                 </li>
               </ul>
             </div>
+
+            <div className="col-md-3">
+
+            </div>
+
+            <div className="col-md-3">
+
+            </div>
+
           </div>
         </div>
-        <hr className="" />
-        <div className="list-findstore">
-          <div className="row">
-            <img
-              src="assets/images/demos/demo-22/pelita.png"
-              width={450}
-              height={450}
-              alt=""
-            ></img>
-            <div className=" col-xl-5col ">
+        <hr />
+
+        <div className="container">
+          <div className="row p-5">
+            <div className="col-md-3 d-flex justify-content-center">
+              <img
+                src="assets/images/demos/demo-22/pelita.png"
+                style={{ width: "450px" }}
+                alt=""
+              ></img>
+            </div>
+
+            <div className="col-md-3">
               <h5>
                 <strong>Samarinda</strong>
               </h5>
@@ -525,27 +627,15 @@ const Findstore = () => {
                 </li>
               </ul>
             </div>
-          </div>
-        </div>
-        <hr className="" />
-        <div className="list-findstore">
-          <div className="row">
-            <img
-              src="assets/images/demos/demo-22/pelita.png"
-              width={450}
-              height={450}
-              alt=""
-            ></img>
-            <div className=" col-xl-5col ">
-              <h5>
-                <strong>Samarinda</strong>
-              </h5>
-              <ul className="">
-                <li>
-                  <a href="#">•Pelita Organik</a>
-                </li>
-              </ul>
+
+            <div className="col-md-3">
+
             </div>
+
+            <div className="col-md-3">
+
+            </div>
+
           </div>
         </div>
       </main>

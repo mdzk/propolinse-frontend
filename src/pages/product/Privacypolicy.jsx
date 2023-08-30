@@ -3,7 +3,7 @@ import React from "react";
 const Privacypolicy = () => {
   return (
     <>
-      <div className="top-privacy-policy">
+      <div className="container mb-5">
         <h5 div className="judul-privacy-policy">
           KEBIJAKAN PRIVASI
         </h5>

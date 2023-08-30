@@ -149,6 +149,14 @@
   background-color: transparent;
 }
 
+.brand-logo img {
+  height: 93px;
+}
+
+.about-list > li {
+  list-style: initial;
+  font-size: 16px;
+}
 /* ================================= */
 
 .top-findstore {

@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 function Header(params) {
     return (
         <>
-            <link href="/assets/css/main.css?url" rel="stylesheet" />
 
             <div class="top-banner d-flex align-items-center justify-content-center">
                 <img src="assets/images/PIERAS PROPOLINSE.png" alt="color_atas" />

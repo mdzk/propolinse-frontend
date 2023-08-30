@@ -4,132 +4,115 @@ import { Link } from 'react-router-dom';
 const About = () => {
   return (
     <main className="main">
-      <div className="container">{/* End .page-header */}</div>
-      {/* End .container */}
-      <div className="page-content pb-0">
-        <div className="container">
-          <div className="row">
-            <div className="col-lg-6 mb-3 mb-lg-0">
-              <h2 className="title">Our Vision</h2>
-              {/* End .title */}
-              <p>
-                Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
-                Phasellus hendrerit. Pellentesque aliquet nibh nec urna. In
-                nisi neque, aliquet vel, dapibus id, mattis vel, nisi. Sed
-                pretium, ligula sollicitudin laoreet viverra, tortor libero
-                sodales leo, eget blandit nunc tortor eu nibh.{" "}
-              </p>
-            </div>
-            {/* End .col-lg-6 */}
-            <div className="col-lg-6">
-              <h2 className="title">Our Mission</h2>
-              {/* End .title */}
-              <p>
-                Sed egestas, ante et vulputate volutpat, eros pede semper est,
-                vitae luctus metus libero eu augue. Morbi purus libero,
-                faucibus adipiscing, commodo quis, gravida id, est. Sed
-                lectus. <br />
-                Praesent elementum hendrerit tortor. Sed semper lorem at
-                felis.{" "}
-              </p>
-            </div>
-            {/* End .col-lg-6 */}
+      <div className="container mb-4">
+        <div className="row d-flex align-items-center justify-content-center">
+          <div className="col-md-3 my-3 d-flex justify-content-center">
+            <img src="../../../public/assets/images/about/left.png" alt="" />
           </div>
-          {/* End .row */}
-          <div className="mb-5" />
-          {/* End .mb-4 */}
-        </div>
-        {/* End .container */}
+          <div className="col-md-6 my-3">
+            <h5>
+              Obat kumur Jepang No. 1 yang sudah terjual 50Jt botol di seluruh dunia.
+            </h5>
 
-        <>
-          <div className="about-testimonials bg-light-2 pt-6 pb-6">
-            <div className="container">
-              <div className="row">
-                <div className="col-lg-3 col-sm-6">
-                  <div className="icon-box icon-box-sm  text-center">
-                    <span className="icon-box-icon">
-                      <i className="icon-puzzle-piece" />
-                    </span>
-                    <div className="icon-box-content">
-                      <h3 className="icon-box-title">Design Quality</h3>
-                      {/* End .icon-box-title */}
-                      <p>
-                        Sed egestas, ante et vulputate volutpat, eros pede
-                        semper est, vitae luctus metus libero <br />
-                        eu augue.
-                      </p>
-                    </div>
-                    {/* End .icon-box-content */}
-                  </div>
-                  {/* End .icon-box */}
-                </div>
-                {/* End .col-lg-4 col-sm-6 */}
-                <div className="col-lg-3 col-sm-6">
-                  <div className="icon-box icon-box-sm  text-center">
-                    <span className="icon-box-icon">
-                      <i className="icon-puzzle-piece" />
-                    </span>
-                    <div className="icon-box-content">
-                      <h3 className="icon-box-title">Design Quality</h3>
-                      {/* End .icon-box-title */}
-                      <p>
-                        Sed egestas, ante et vulputate volutpat, eros pede
-                        semper est, vitae luctus metus libero <br />
-                        eu augue.
-                      </p>
-                    </div>
-                    {/* End .icon-box-content */}
-                  </div>
-                  {/* End .icon-box */}
-                </div>
-                {/* End .col-lg-4 col-sm-6 */}
-                <div className="col-lg-3 col-sm-6">
-                  <div className="icon-box icon-box-sm text-center">
-                    <span className="icon-box-icon">
-                      <i className="icon-life-ring" />
-                    </span>
-                    <div className="icon-box-content">
-                      <h3 className="icon-box-title">Professional Support</h3>
-                      {/* End .icon-box-title */}
-                      <p>
-                        Praesent dapibus, neque id cursus faucibus, <br />
-                        tortor neque egestas augue, eu vulputate <br />
-                        magna eros eu erat.{" "}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="col-lg-3 col-sm-6">
-                  <div className="icon-box icon-box-sm text-center">
-                    <span className="icon-box-icon">
-                      <i className="icon-heart-o" />
-                    </span>
-                    <div className="icon-box-content">
-                      <h3 className="icon-box-title">Made With Love</h3>
-                      {/* End .icon-box-title */}
-                      <p>
-                        Pellentesque a diam sit amet mi ullamcorper <br />
-                        vehicula. Nullam quis massa sit amet <br />
-                        nibh viverra malesuada.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <p>obat kumur ini tersebar di Indonesia berkat kerja keras PT Permata Berlian Perkasa yang memiliki Izin Resmi untuk mengedarkan di negara Indonesia. Obat kumur satu satunya yang memiliki rasa seperti jus buah dan tidak pedas sama sekali ketika berkumur</p>
           </div>
-        </>
-
-        <div className="mb-2" />
-        <div className="about-testimonials bg-light-2 pt-6 pb-6">
-          <div className="container">
-            <h2 className="title text-center mb-3">
-              What Customer Say About Us
-            </h2>
+          <div className="col-md-3 my-3 d-flex justify-content-center">
+            <img src="../../../public/assets/images/about/right.png" alt="" />
           </div>
         </div>
       </div>
+
+      <div className='bg-light p-5'>
+        <div className="container">
+          <h5 className='text-center'>Keaslian Produk</h5>
+          <div className="row">
+            <div className="col-md-4 p-5">
+              <div className="bg-white h-100 text-center d-flex flex-column justify-content-center align-items-center p-5">
+                <img src="../../../public/assets/images/about/bpom.png" alt="" />
+                <b>Sertifikat BPOM</b>
+                <p>Hanya Official Stores Pieras Propolinse yang miliki izin BPOM</p>
+              </div>
+            </div>
+            <div className="col-md-4 p-5">
+              <div className="bg-white h-100 text-center d-flex flex-column justify-content-center align-items-center p-5">
+                <img src="../../../public/assets/images/about/date.png" alt="" />
+                <b>Memiliki Expiry Date</b>
+                <p>Hanya Official Stores Pieras Propolinse yang memiliki tanggal kadaluarsa</p>
+              </div>
+            </div>
+            <div className="col-md-4 p-5">
+              <div className="bg-white h-100 text-center d-flex flex-column justify-content-center align-items-center p-5">
+                <img src="../../../public/assets/images/about/bpom.png" alt="" />
+                <b>Memiliki Kode Keaslian</b>
+                <p>Produk yang asli memiliki QR Kode keaslian yang langsung terhubung dengan Instragram resmi Pieras Propolinse Official Stores</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div style={{ backgroundColor: "#F2F1EE", }} className='p-5'>
+        <div className="container">
+          <div className="row py-3">
+            <div className="col-md-12 text-center py-5">
+              <h5>Hati-hati Produk Palsu</h5>
+              <p>Jangan tertipu dengan barang tiruan yang terlihat lebih murah. Hati-hati barang palsu / barang sudah kadaluarsa karna bisa menyebabkan <b>KANKER MULUT</b> Pastikan untuk beli dari Official Store kami ya. Karna banyak barang tiruan tanpa BPOM & sudah kadarluarsa beredar. Mohon extra berhati hati.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className='p-5 bg-light'>
+        <div className="container">
+          <div className="row py-3">
+            <div className="col-md-12 py-5">
+              <h5 className='text-center mb-3' style={{ color:"#ED2A50" }}>Apa sih bedanya Pieras Propolinse <br />
+                Mouthwash ✨ dengan obat kumur lain? </h5>
+
+              <ul className='about-list'>
+                <li>
+                  Mengandung bahan alami dan organik yaitu ekstrak propolis, ekstrak teh hijau Jepang dan ekstrak bunga sakura Jepang yang memberikan sensasi gentle seperti jus apel. Pieras Propolinse mouthwash tidak menimbulkan sensasi pedas dan terbakar pada mulut
+                </li>
+                <li>
+                  Unique user experience: dimana setelah dikumur selama 30 detik sampai 1 menit, anda dapat melihatsisa-sisa plak gigi dan kotoran kotoran yang tidak terjangkau oleh sikat gigi akan berhasil rontok sempurna. Kotoran-kotoran ini jika tidak dihilangkan maka akan menumpuk dan menjadi karang gigi.
+                </li>
+                <li>
+                  Menyembuhkan sariawan secara cepat
+                </li>
+                <li>
+                  Menyembuhkan masalah gusi seperti gusi berdarah, gusi bengkak, radang gusi, gusi bernanah
+                </li>
+                <li>
+                  Menghilangkan bau mulut selama lebih dari 12 jam (jika tidak makan atau minum)
+                </li>
+                <li>
+                  Mengandung xylitol yang dapat melindungi gigi dari kerusakan, menjadikan gigi lebih sehat dan kuat
+                </li>
+                <li>
+                  Mencegah karies gigi
+                </li>
+                <li>
+                  Mempercepat penyembuhan saraf pada gigi berlubang
+                </li>
+                <li>
+                  Melindungi gigi dari pertumbuhan bakteri berbahaya termasuk yang dapat menyebabkan bau mulut tidak sedap
+                </li>
+                <li>
+                  Memelihara kebersihan dan kesehatan gigi, gusi dan mulut secara keseluruhan
+                </li>
+                <li>
+                  Meredakan nyeri dan efek lainnya setelah proses implan gigi
+                </li>
+                <li>
+                  Aman untuk dipakai sehari dua kali atau tanpa batasan jika memang ada keluhan yang mau disembuhkan dengan cepat
+                </li>
+              </ul>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
     </main>
   );
 };
