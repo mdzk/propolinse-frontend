@@ -157,6 +157,10 @@
   list-style: initial;
   font-size: 16px;
 }
+
+.card-title {
+  font-size: 14px;
+}
 /* ================================= */
 
 .top-findstore {
