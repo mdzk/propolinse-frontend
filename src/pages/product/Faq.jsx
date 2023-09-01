@@ -3,7 +3,7 @@ import React from "react";
 const Faq = () => {
   return (
     <>
-      <div class="top-findstore d-flex align-items-center justify-content-center">
+      <div className="top-findstore d-flex align-items-center justify-content-center">
         <h6 className="page-title text-black mb-0">
           We are available in more than 100 stores throughout
           Indonesia

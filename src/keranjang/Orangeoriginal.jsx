@@ -35,9 +35,9 @@ const Orangeoriginal = () => {
                 <div className="row">
 
                   <div className="w-100 col-lg-3 col-sm-12 col-xs-12 mt-2 mx-3 product-count p-3">
-                    <button onClick={handleClick2} class="button-count">-</button>
-                    <input type="text" readonly class="number-product" value={counter} />
-                    <button onClick={handleClick1} class="button-count">+</button>
+                    <button onClick={handleClick2} className="button-count">-</button>
+                    <input type="text" readonly className="number-product" value={counter} />
+                    <button onClick={handleClick1} className="button-count">+</button>
                   </div>
 
                   <div className="col-lg-3 col-sm-12 col-xs-12 mt-2 p-0 mx-3">

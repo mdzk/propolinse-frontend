@@ -408,7 +408,7 @@ const Findstore = () => {
             <div className="col-md-3 d-flex justify-content-center">
               <img
                 src="assets/images/demos/demo-22/bintang.png"
-                style={{ width:"450px",height:"240px" }}
+                style={{ width: "450px", height: "240px" }}
                 alt=""
               ></img>
             </div>
@@ -444,7 +444,7 @@ const Findstore = () => {
             <div className="col-md-3 d-flex justify-content-center">
               <img
                 src="assets/images/demos/demo-22/growell.png"
-                style={{ width: "450px"}}
+                style={{ width: "450px" }}
                 alt=""
               ></img>
             </div>

@@ -122,23 +122,23 @@ const Footer = () => {
                     <div className="footer-bottom">
                         <div className="container">
                             <p className="footer-copyright">© PBP Group 2023 |</p>
-                            <div class="social-icons social-icons-color">
+                            <div className="social-icons social-icons-color">
                                 <a
                                     href="https://www.facebook.com/pieraspropolinseindonesia?mibextid=ZbWKwL"
-                                    class="social-icon social-facebook"
+                                    className="social-icon social-facebook"
                                     title="Facebook"
                                     target="_blank"
                                 >
-                                    <i class="icon-facebook-f"></i>
+                                    <i className="icon-facebook-f"></i>
                                 </a>
 
                                 <a
                                     href="https://instagram.com/propolinseindonesia?igshid=MzRlODBiNWFlZA=="
-                                    class="social-icon social-instagram"
+                                    className="social-icon social-instagram"
                                     title="Instagram"
                                     target="_blank"
                                 >
-                                    <i class="icon-instagram"></i>
+                                    <i className="icon-instagram"></i>
                                 </a>
 
                                 <a
@@ -155,11 +155,11 @@ const Footer = () => {
 
                                 <a
                                     href="https://wa.me/6289504869238"
-                                    class="social-icon social-whatsapp"
+                                    className="social-icon social-whatsapp"
                                     title="whatsapp"
                                     target="_blank"
                                 >
-                                    <i class="icon-whatsapp"></i>
+                                    <i className="icon-whatsapp"></i>
                                 </a>
 
                                 <a

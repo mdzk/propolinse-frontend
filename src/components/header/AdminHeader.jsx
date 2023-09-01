@@ -5,48 +5,48 @@ function Header(params) {
     return (
         <>
 
-            <div class="top-banner d-flex align-items-center justify-content-center">
+            <div className="top-banner d-flex align-items-center justify-content-center">
                 <img src="assets/images/PIERAS PROPOLINSE.png" alt="color_atas" />
             </div>
 
-            <nav class="box navbar navbar-expand-lg navbar-light bg-white sticky-header">
-                <a class="navbar-brand" href="/">
+            <nav className="box navbar navbar-expand-lg navbar-light bg-white sticky-header">
+                <a className="navbar-brand" href="/">
                     <img src="./public/logo.png" width="94" height="118" alt="" />
                 </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
+                <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                    <span className="navbar-toggler-icon"></span>
                 </button>
-                <div class="collapse navbar-collapse justify-content-between" id="navbarNavDropdown">
-                    <ul class="navbar-nav w-100 nav justify-content-center">
-                        <li class="nav-item dropdown mx-3">
-                            <a class="nav-link text-uppercase" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <div className="collapse navbar-collapse justify-content-between" id="navbarNavDropdown">
+                    <ul className="navbar-nav w-100 nav justify-content-center">
+                        <li className="nav-item dropdown mx-3">
+                            <a className="nav-link text-uppercase" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 Mouthwash
                             </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                <a class="dropdown-item" href="/originalsize">Original Size</a>
-                                <a class="dropdown-item" href="/travelsize">Travel Size</a>
+                            <div className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <a className="dropdown-item" href="/originalsize">Original Size</a>
+                                <a className="dropdown-item" href="/travelsize">Travel Size</a>
                             </div>
                         </li>
-                        <li class="nav-item dropdown mx-3">
-                            <a class="nav-link text-uppercase" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <li className="nav-item dropdown mx-3">
+                            <a className="nav-link text-uppercase" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 Toothbrush
                             </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                <a class="dropdown-item" href="/home">Home</a>
-                                <a class="dropdown-item" href="/holiday">Holiday</a>
+                            <div className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <a className="dropdown-item" href="/home">Home</a>
+                                <a className="dropdown-item" href="/holiday">Holiday</a>
                             </div>
                         </li>
-                        <li class="nav-item dropdown mx-3">
-                            <a class="nav-link text-uppercase" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <li className="nav-item dropdown mx-3">
+                            <a className="nav-link text-uppercase" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 Collaboration
                             </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                <a class="dropdown-item" href="/temenfokus">Temen Fokus</a>
-                                <a class="dropdown-item" href="/pastagigi">Pasta Gigi</a>
+                            <div className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <a className="dropdown-item" href="/temenfokus">Temen Fokus</a>
+                                <a className="dropdown-item" href="/pastagigi">Pasta Gigi</a>
                             </div>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-uppercase" href="#">Bundling</a>
+                        <li className="nav-item">
+                            <a className="nav-link text-uppercase" href="#">Bundling</a>
                         </li>
                     </ul>
                     <div className="header-right d-flex justify-content-end align-items-center">
