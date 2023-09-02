@@ -103,7 +103,7 @@ function Header(params) {
                       <figure className="product-image-container">
                         <a href="product.html" className="product-image">
                           <img
-                            src="assets/images/products/cart/product-1.jpg"
+                            src="assets/images/carousel/1.jpeg"
                             alt="product"
                           />
                         </a>
@@ -132,7 +132,7 @@ function Header(params) {
                       <figure className="product-image-container">
                         <a href="product.html" className="product-image">
                           <img
-                            src="assets/images/products/cart/product-2.jpg"
+                            src="assets/images/carousel/2.jpeg"
                             alt="product"
                           />
                         </a>

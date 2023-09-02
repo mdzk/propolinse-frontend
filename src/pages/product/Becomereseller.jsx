@@ -2,145 +2,98 @@ import React from "react";
 
 const Becomereseller = () => {
   return (
-    <>
-      <main className="main">
-        <div className="container">{/* End .page-header */}</div>
-        {/* End .container */}
-        <div className="page-content pb-0">
-          <div className="container">
-            <div className="row">
-              <div className="col-lg-6 mb-3 mb-lg-0">
-                <h2 className="title">Our Vision</h2>
-                {/* End .title */}
-                <p>
-                  Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
-                  Phasellus hendrerit. Pellentesque aliquet nibh nec urna. In
-                  nisi neque, aliquet vel, dapibus id, mattis vel, nisi. Sed
-                  pretium, ligula sollicitudin laoreet viverra, tortor libero
-                  sodales leo, eget blandit nunc tortor eu nibh.{" "}
-                </p>
-              </div>
-              {/* End .col-lg-6 */}
-              <div className="col-lg-6">
-                <h2 className="title">Our Mission</h2>
-                {/* End .title */}
-                <p>
-                  Sed egestas, ante et vulputate volutpat, eros pede semper est,
-                  vitae luctus metus libero eu augue. Morbi purus libero,
-                  faucibus adipiscing, commodo quis, gravida id, est. Sed
-                  lectus. <br />
-                  Praesent elementum hendrerit tortor. Sed semper lorem at
-                  felis.{" "}
-                </p>
-              </div>
-              {/* End .col-lg-6 */}
+    <main className="main">
+      <div className="container mb-4">
+        <div className="row">
+          <div className="col-md-12 my-3 text-center">
+            <h4 className="text-black">
+              Banyak Duit + Mulut Bersih & <br />
+              Sehat ✨ Bareng PROPOLINSE?
+            </h4>
+            <div className="d-flex justify-content-center my-5">
+              <img src="./../../public/assets/images/reseller.png" alt="" />
             </div>
-            {/* End .row */}
-            <div className="mb-5" />
-            {/* End .mb-4 */}
+            <a href="" className="btn-join">Join Now</a>
+            <p className="mt-4">Mumpung slot kuota stockist masih ada kuyy join</p>
           </div>
-          {/* End .container */}
+        </div>
+      </div>
 
-          <>
-            <div className="about-testimonials bg-light-2 pt-6 pb-6">
-              <div className="container">
-                <div className="row">
-                  <div className="col-lg-3 col-sm-6">
-                    <div className="icon-box icon-box-sm  text-center">
-                      <span className="icon-box-icon">
-                        {" "}
-                        <img src="assets/images/gambar-becomereseller-1.png"></img>
-                      </span>
-                      <div className="icon-box-content">
-                        <h3 className="icon-box-title">
-                          Materi Posting Lengkap
-                        </h3>
-                        {/* End .icon-box-title */}
-                        <p>
-                          Kamu tinggal post foto dan ekukasinya doang. DIJAMIN
-                          SIAP <br />
-                          JUALAN.
-                        </p>
-                      </div>
-                      {/* End .icon-box-content */}
-                    </div>
-                    {/* End .icon-box */}
-                  </div>
-                  {/* End .col-lg-4 col-sm-6 */}
-                  <div className="col-lg-3 col-sm-6">
-                    <div className="icon-box icon-box-sm  text-center">
-                      <span className="icon-box-icon">
-                        <img src="assets/images/gambar-becomereseller-2.png"></img>
-                      </span>
-                      <div className="icon-box-content">
-                        <h3 className="icon-box-title">
-                          Harga Stabil Dipasaran
-                        </h3>
-                        {/* End .icon-box-title */}
-                        <p>
-                          Sistem kami akan melakukan punishment jika ada
-                          stockits yang menjual <br />
-                          harga dibawah pasar.
-                        </p>
-                      </div>
-                      {/* End .icon-box-content */}
-                    </div>
-                    {/* End .icon-box */}
-                  </div>
-                  {/* End .col-lg-4 col-sm-6 */}
-                  <div className="col-lg-3 col-sm-6">
-                    <div className="icon-box icon-box-sm text-center">
-                      <span className="icon-box-icon">
-                        <img src="assets/images/gambar-becomereseller-3.png"></img>
-                      </span>
-                      <div className="icon-box-content">
-                        <h3 className="icon-box-title brand">
-                          Cashback dan Reward
-                        </h3>
-                        {/* End .icon-box-title */}
-                        <p>
-                          Untuk stockist yang paling aktif berjualan akan
-                          mendapatkan cashback dan hadiah menarik dari <br />
-                          PIERAS PROPOLINSE.{" "}
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="col-lg-3 col-sm-6">
-                    <div className="icon-box icon-box-sm text-center">
-                      <span className="icon-box-icon">
-                        <img src="assets/images/gambar-becomereseller-4.png"></img>
-                      </span>
-                      <div className="icon-box-content">
-                        <h3 className="icon-box-title">
-                          BPOM dan Halal Certificat
-                        </h3>
-                        {/* End .icon-box-title */}
-                        <p>
-                          BUKAN PRODUK ABAL-ABAL <br />
-                          Kualitas propolinse yang bercanda. Seluruh produk
-                          propolinse sudah melalui uji klinis lab.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+      <div className='bg-light p-5'>
+        <div className="container">
+          <h5 className='text-center'>100% Full Support and Rewards for Every Stockist</h5>
+          <div className="row">
+            <div className="col-md-3 p-5">
+              <div className="bg-white h-100 text-center d-flex flex-column justify-content-center align-items-center p-5">
+                <img src="../../../public/assets/images/gambar-becomereseller-1.png" alt="" />
+                <b>Sertifikat BPOM</b>
+                <p>Hanya Official Stores Pieras Propolinse yang miliki izin BPOM</p>
               </div>
             </div>
-          </>
-
-          <div className="mb-2" />
-          <div className="about-testimonials bg-light-2 pt-6 pb-6">
-            <div className="container">
-              <h2 className="title text-center mb-3">
-                What Customer Say About Us
-              </h2>
+            <div className="col-md-3 p-5">
+              <div className="bg-white h-100 text-center d-flex flex-column justify-content-center align-items-center p-5">
+                <img src="../../../public/assets/images/gambar-becomereseller-2.png" alt="" />
+                <b>Sertifikat BPOM</b>
+                <p>Hanya Official Stores Pieras Propolinse yang miliki izin BPOM</p>
+              </div>
+            </div>
+            <div className="col-md-3 p-5">
+              <div className="bg-white h-100 text-center d-flex flex-column justify-content-center align-items-center p-5">
+                <img src="../../../public/assets/images/gambar-becomereseller-3.png" alt="" />
+                <b>Memiliki Expiry Date</b>
+                <p>Hanya Official Stores Pieras Propolinse yang memiliki tanggal kadaluarsa</p>
+              </div>
+            </div>
+            <div className="col-md-3 p-5">
+              <div className="bg-white h-100 text-center d-flex flex-column justify-content-center align-items-center p-5">
+                <img src="../../../public/assets/images/gambar-becomereseller-4.png" alt="" />
+                <b>Memiliki Kode Keaslian</b>
+                <p>Produk yang asli memiliki QR Kode keaslian yang langsung terhubung dengan Instragram resmi Pieras Propolinse Official Stores</p>
+              </div>
             </div>
           </div>
         </div>
-      </main>
-    </>
+      </div>
+
+      <div style={{ backgroundColor: "#F2F1EE", }} className='p-5'>
+        <div className="container">
+          <div className="row py-3">
+            <div className="col-md-12 text-center py-5">
+              <h4 className="text-black">
+                Become Our Stockist
+              </h4>
+              <div class="row">
+                <div class="col">
+                </div>
+                <div class="col-md-5">
+                  <div className="form-group">
+                    <input type="text" className="form-control" placeholder="Email Address" />
+                  </div>
+                  <div className="form-group">
+                    <input type="text" className="form-control" placeholder="Phone Number" />
+                  </div>
+                  <div className="form-group">
+                    <input type="text" className="form-control" placeholder="Alamat Store" />
+                  </div>
+                  <div className="form-group">
+                    <input type="text" className="form-control" placeholder="City" />
+                  </div>
+                  <div className="form-group">
+                    <input type="text" className="form-control" placeholder="Zip Code" />
+                  </div>
+                  <div className="form-group">
+                    <textarea name="" id="" cols="30" rows="10" className="form-control" placeholder="Alamat Pengiriman"></textarea>
+                  </div>
+                </div>
+                <div class="col">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </main>
   );
 };
 
