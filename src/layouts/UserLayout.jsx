@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { useAssets } from "../components/AssetsContext";
+import { useAssets } from "../utilities/AssetsContext";
 
 function UserLayout({ children }) { // Ambil children sebagai argumen dari komponen
     const { assets } = useAssets();

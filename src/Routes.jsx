@@ -1,6 +1,6 @@
 import React from 'react';
 import { Route, Routes, useLocation } from 'react-router-dom';
-import ScrollToTopOnNavigation from './components/ScrollToTopOnNavigation';
+import ScrollToTopOnNavigation from './utilities/ScrollToTopOnNavigation';
 
 import Homepage from './pages/user/Homepage';
 import Contact from "./pages/user/Contact";
@@ -26,7 +26,8 @@ import Yuzuoriginal from "./pages/user/Yuzuoriginal";
 import Whiteoriginal from "./pages/user/Whiteoriginal";
 import Matchaoriginal from "./pages/user/Matchaoriginal";
 import Blackoriginal from "./pages/user/Blackoriginal";
-import { AssetsProvider } from './components/AssetsContext';
+import { AssetsProvider } from './utilities/AssetsContext';
+import Dashboard from './pages/admin/Dashboard';
 
 const AllRoutes = () => {
 
@@ -61,6 +62,11 @@ const AllRoutes = () => {
             <Route path="matchaoriginal" element={<Matchaoriginal />} />
             <Route path="whiteoriginal" element={<Whiteoriginal />} />
             <Route path="orangeoriginal" element={<Orangeoriginal />} />
+          </Route>
+
+          <Route path="/admin">
+            <Route index element={<Dashboard />} />
+            <Route path="about" element={<About />} />
           </Route>
         </Routes>
       </AssetsProvider>
