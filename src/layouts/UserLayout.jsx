@@ -72,14 +72,14 @@ function UserLayout({ children }) { // Ambil children sebagai argumen dari kompo
                             </div>
 
                             <div className="header-login ml-3">
-                                <a href="/loginpage">
+                                <Link to="/loginpage">
                                     <img
                                         src="assets/images/login.png"
                                         alt="color_atas"
                                         width={22}
                                         height={34}
                                     />
-                                </a>
+                                </Link>
                             </div>
 
                             <div className="dropdown cart-dropdown mr-3">
