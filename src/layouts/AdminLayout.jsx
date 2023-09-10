@@ -1,25 +1,175 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useLayoutEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { useAssets } from "../utilities/AssetsContext";
+import "../../public/assets/compiled/js/app.js";
+
+function Nt(window) {
+    return window.innerWidth <= 768;
+}
+
+function toggleSubmenu(submenu) {
+    if (submenu.classList.contains("submenu-open")) {
+        submenu.classList.remove("submenu-open");
+        submenu.classList.add("submenu-closed");
+    } else {
+        submenu.classList.remove("submenu-closed");
+        submenu.classList.add("submenu-open");
+    }
+}
+
+function initSidebar(k, a = {}) {
+    const sidebarEL = k instanceof HTMLElement ? k : document.querySelector(k);
+    const options = a;
+
+    function toggle() {
+        if (sidebarEL.classList.contains("active")) {
+            hide();
+        } else {
+            show();
+        }
+    }
+
+    function show() {
+        sidebarEL.classList.add("active");
+        sidebarEL.classList.remove("inactive");
+        createBackdrop();
+        toggleOverflowBody();
+    }
+
+    function hide() {
+        sidebarEL.classList.remove("active");
+        sidebarEL.classList.add("inactive");
+        deleteBackdrop();
+        toggleOverflowBody();
+    }
+
+    function createBackdrop() {
+        if (Nt(window)) return;
+        deleteBackdrop();
+        const backdrop = document.createElement("div");
+        backdrop.classList.add("sidebar-backdrop");
+        backdrop.addEventListener("click", hide);
+        document.body.appendChild(backdrop);
+    }
+
+    function deleteBackdrop() {
+        const backdrop = document.querySelector(".sidebar-backdrop");
+        if (backdrop) {
+            backdrop.remove();
+        }
+    }
+
+    function toggleOverflowBody(k) {
+        if (Nt(window)) return;
+        const isActive = sidebarEL.classList.contains("active");
+        const body = document.querySelector("body");
+        if (typeof k !== "undefined") {
+            body.style.overflowY = k ? "auto" : "hidden";
+        } else {
+            body.style.overflowY = isActive ? "hidden" : "auto";
+        }
+    }
+
+    function isElementInViewport(element) {
+        var rect = element.getBoundingClientRect();
+        return (
+            rect.top >= 0 &&
+            rect.left >= 0 &&
+            rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+            rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+        );
+    }
+
+    function forceElementVisibility(element) {
+        if (!isElementInViewport(element)) {
+            element.scrollIntoView(false);
+        }
+    }
+
+    function onResize() {
+        if (Nt(window)) {
+            sidebarEL.classList.add("active");
+        } else {
+            sidebarEL.classList.remove("active");
+        }
+        deleteBackdrop();
+        toggleOverflowBody(true);
+    }
+
+    document.querySelectorAll(".burger-btn").forEach(function (button) {
+        button.addEventListener("click", toggle);
+    });
+
+    document.querySelectorAll(".sidebar-hide").forEach(function (button) {
+        button.addEventListener("click", toggle);
+    });
+
+    window.addEventListener("resize", onResize);
+
+    let sidebarItems = document.querySelectorAll(".sidebar-item.has-sub");
+
+    sidebarItems.forEach(function (item) {
+        item.querySelector(".sidebar-link").addEventListener("click", function (event) {
+            event.preventDefault();
+            let submenu = item.querySelector(".submenu");
+            toggleSubmenu(submenu);
+        });
+
+        item.querySelectorAll(".submenu-item.has-sub").forEach(function (subItem) {
+            subItem.addEventListener("click", function () {
+                const submenu = subItem.querySelector(".submenu");
+                toggleSubmenu(submenu);
+                Kn(subItem.parentElement, true);
+            });
+        });
+    });
+
+    setTimeout(function () {
+        forceElementVisibility(document.querySelector(".sidebar-item.active"));
+    }, 300);
+}
+
+function initializeSidebar() {
+    let yt = document.getElementById("sidebar");
+    const Bn = (G) => {
+        if (!yt) return;
+        Nt(window) && (G.classList.add("sidebar-desktop"));
+        let k = document.querySelectorAll(".sidebar-item.has-sub .submenu");
+        for (var a = 0; a < k.length; a++) {
+            let f = k[a];
+            const r = f.parentElement;
+            f.clientHeight,
+                r.classList.contains("active") ? f.classList.add("submenu-open") : f.classList.add("submenu-closed"),
+                setTimeout(() => {
+                    Kn(f, true);
+                }, 50);
+        }
+    };
+    document.readyState !== "loading" ? Bn(yt) : window.addEventListener("DOMContentLoaded", () => Bn(yt));
+    yt && (window.sidebar = initSidebar(yt));
+}
 
 function AdminLayout({ children }) {
     const { assets } = useAssets();
     const location = useLocation();
     const isActive = (path) => location.pathname === path;
-    useEffect(() => {
-        const script = document.createElement("script");
-        script.src = "/public/assets/compiled/js/app.js";
-        script.async = true;
+    useLayoutEffect(() => {
+        initializeSidebar();
+    });
+    // useEffect(() => {
+    //     const script = document.createElement("script");
+    //     script.src = "/public/assets/compiled/js/app.js";
+    //     script.async = true;
 
-        script.onload = () => {
-            initializeSidebar();
-        };
+    //     script.onload = () => {
+    //         initializeSidebar();
+    //     };
 
-        document.body.appendChild(script);
-        return () => {
-            document.body.removeChild(script);
-        };
-    }, []);
+    //     document.body.appendChild(script);
+    //     return () => {
+    //         document.body.removeChild(script);
+    //     };
+    // }, []);
     return (
         <>
             {assets && (
