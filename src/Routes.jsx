@@ -27,7 +27,21 @@ import Whiteoriginal from "./pages/user/Whiteoriginal";
 import Matchaoriginal from "./pages/user/Matchaoriginal";
 import Blackoriginal from "./pages/user/Blackoriginal";
 import { AssetsProvider } from './utilities/AssetsContext';
+
 import Dashboard from './pages/admin/Dashboard';
+import KategoriProduk from './pages/admin/KategoriProduk';
+import Pesanan from './pages/admin/Pesanan';
+import Pembayaran from './pages/admin/Pembayaran';
+import Pelanggan from './pages/admin/Pelanggan';
+import AdminCollaboration from './pages/admin/AdminCollaboration';
+import UbahData from './pages/admin/UbahData';
+import TambahData from './pages/admin/TambahData';
+import AdminBundling from './pages/admin/AdminBundling';
+import AdminHoliday from './pages/admin/AdminHoliday';
+import AdminBigSize from './pages/admin/AdminBigSize';
+import AdminTravelSize from './pages/admin/AdminTravelSize';
+import AdminHome from './pages/admin/AdminHome';
+import AdminLogin from './pages/admin/AdminLogin';
 
 const AllRoutes = () => {
 
@@ -66,8 +80,24 @@ const AllRoutes = () => {
 
           <Route path="/admin">
             <Route index element={<Dashboard />} />
-            <Route path="about" element={<About />} />
+            <Route path="kategori" element={<KategoriProduk />} />
+            <Route path="pesanan" element={<Pesanan />} />
+            <Route path="pembayaran" element={<Pembayaran />} />
+            <Route path="pelanggan" element={<Pelanggan />} />
+
+            <Route path="collaboration" element={<AdminCollaboration />} />
+            <Route path="bundling" element={<AdminBundling />} />
+            <Route path="home" element={<AdminHome />} />
+            <Route path="holiday" element={<AdminHoliday />} />
+            <Route path="bigsize" element={<AdminBigSize />} />
+            <Route path="travelsize" element={<AdminTravelSize />} />
+
+            <Route path="edit" element={<UbahData />} />
+            <Route path="add" element={<TambahData />} />
+
+            <Route path="login" element={<AdminLogin />} />
           </Route>
+
         </Routes>
       </AssetsProvider>
     </div>

@@ -22,7 +22,7 @@ const Dashboard = () => {
                                                 <div className="ms-4">
                                                     <h6 className="text-muted font-semibold">Produk</h6>
                                                     <h6 className="font-extrabold mb-0">4 Kategori</h6>
-                                                    <Link to={"/"}>More info ...</Link>
+                                                    <Link to={"/admin/kategori"}>More info ...</Link>
                                                 </div>
                                             </div>
                                         </div>
@@ -42,7 +42,7 @@ const Dashboard = () => {
                                                 <div className="ms-4">
                                                     <h6 className="text-muted font-semibold">Pesanan</h6>
                                                     <h6 className="font-extrabold mb-0">2 Orders</h6>
-                                                    <Link to={"/"}>More info ...</Link>
+                                                    <Link to={"/admin/pesanan"}>More info ...</Link>
                                                 </div>
                                             </div>
                                         </div>
@@ -62,7 +62,7 @@ const Dashboard = () => {
                                                 <div className="ms-4">
                                                     <h6 className="text-muted font-semibold">Pembayaran</h6>
                                                     <h6 className="font-extrabold mb-0">1 Konfirmasi</h6>
-                                                    <Link to={"/"}>More info ...</Link>
+                                                    <Link to={"/admin/pembayaran"}>More info ...</Link>
                                                 </div>
                                             </div>
                                         </div>
@@ -82,7 +82,7 @@ const Dashboard = () => {
                                                 <div className="ms-4">
                                                     <h6 className="text-muted font-semibold">Pelanggan</h6>
                                                     <h6 className="font-extrabold mb-0">1 Users</h6>
-                                                    <Link to={"/"}>More info ...</Link>
+                                                    <Link to={"/admin/pelanggan"}>More info ...</Link>
                                                 </div>
                                             </div>
                                         </div>

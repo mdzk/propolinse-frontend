@@ -1,28 +1,38 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useAssets } from "../utilities/AssetsContext";
 import "../../public/assets/extensions/perfect-scrollbar/perfect-scrollbar.min.js";
 import "../../public/assets/compiled/js/app.js";
 
 function AdminLayout({ children }) {
     const { assets } = useAssets();
-
+    const location = useLocation();
+    const isActive = (path) => location.pathname === path;
     return (
         <>
-            {assets && <link rel="stylesheet" href="./public/assets/compiled/css/app.css" />}
-            {assets && <link rel="stylesheet" href="./public/assets/compiled/css/iconly.css" />}
-
+            {assets && (
+                <link
+                    rel="stylesheet"
+                    href={`${window.location.origin}/public/assets/compiled/css/app.css`}
+                />
+            )}
+            {assets && (
+                <link
+                    rel="stylesheet"
+                    href={`${window.location.origin}/public/assets/compiled/css/iconly.css`}
+                />
+            )}
             <div id="app">
                 <div id="sidebar">
                     <div className="sidebar-wrapper active">
                         <div className="sidebar-header position-relative">
                             <div className="d-flex justify-content-between align-items-center">
                                 <div className="logo">
-                                    <a href="index.html"
-                                    ><img
-                                            src="./assets/compiled/svg/logo.svg"
-                                            alt="Logo"
-                                        /></a>
+                                    <Link to="/"
+                                    ><img style={{ width: "70px", height: "60px" }}
+                                        src={`${window.location.origin}/logo.png`}
+                                        alt="Logo"
+                                        /></Link>
                                 </div>
                                 <div className="sidebar-toggler x">
                                     <a href="#" className="sidebar-hide d-xl-none d-block"
@@ -33,39 +43,39 @@ function AdminLayout({ children }) {
                         </div>
                         <div className="sidebar-menu">
                             <ul className="menu">
-                                <li className="sidebar-item active">
-                                    <a href="index.html" className="sidebar-link">
+                                <li className={`sidebar-item ${isActive('/admin') ? 'active' : ''}`} >
+                                    <Link to="/admin" className="sidebar-link">
                                         <i className="bi bi-grid-fill"></i>
                                         <span>Dashboard</span>
-                                    </a>
+                                    </Link>
                                 </li>
 
-                                <li className="sidebar-item">
-                                    <a href="index.html" className="sidebar-link">
+                                <li className={`sidebar-item ${isActive('/admin/kategori') ? 'active' : ''}`}>
+                                    <Link to={"/admin/kategori"} className="sidebar-link">
                                         <i className="bi bi-layers-fill"></i>
                                         <span>Kategori Produk</span>
-                                    </a>
+                                    </Link>
                                 </li>
 
-                                <li className="sidebar-item">
-                                    <a href="index.html" className="sidebar-link">
+                                <li className={`sidebar-item ${isActive('/admin/pesanan') ? 'active' : ''}`}>
+                                    <Link to={"/admin/pesanan"} className="sidebar-link">
                                         <i className="bi bi-cart-fill"></i>
                                         <span>Pesanan</span>
-                                    </a>
+                                    </Link>
                                 </li>
 
-                                <li className="sidebar-item">
-                                    <a href="index.html" className="sidebar-link">
+                                <li className={`sidebar-item ${isActive('/admin/pembayaran') ? 'active' : ''}`}>
+                                    <Link to={"/admin/pembayaran"} className="sidebar-link">
                                         <i className="bi bi-wallet-fill"></i>
                                         <span>Pembayaran</span>
-                                    </a>
+                                    </Link>
                                 </li>
 
-                                <li className="sidebar-item">
-                                    <a href="index.html" className="sidebar-link">
+                                <li className={`sidebar-item ${isActive('/admin/pelanggan') ? 'active' : ''}`}>
+                                    <Link to={"/admin/pelanggan"} className="sidebar-link">
                                         <i className="bi bi-people-fill"></i>
                                         <span>Pelanggan</span>
-                                    </a>
+                                    </Link>
                                 </li>
 
                             </ul>
@@ -103,7 +113,7 @@ function AdminLayout({ children }) {
                                                 </div>
                                                 <div className="user-img d-flex align-items-center">
                                                     <div className="avatar avatar-md">
-                                                        <img src="./assets/compiled/jpg/1.jpg" />
+                                                        <img src={`${window.location.origin}/assets/compiled/jpg/1.jpg`} />
                                                     </div>
                                                 </div>
                                             </div>
@@ -113,32 +123,9 @@ function AdminLayout({ children }) {
                                             aria-labelledby="dropdownMenuButton"
                                             style={{ minWidth: "11rem" }}>
                                             <li>
-                                                <h6 className="dropdown-header">Hello, John!</h6>
-                                            </li>
-                                            <li>
-                                                <a className="dropdown-item" href="#"
-                                                ><i className="icon-mid bi bi-person me-2"></i> My
-                                                    Profile</a
-                                                >
-                                            </li>
-                                            <li>
-                                                <a className="dropdown-item" href="#"
-                                                ><i className="icon-mid bi bi-gear me-2"></i> Settings</a
-                                                >
-                                            </li>
-                                            <li>
-                                                <a className="dropdown-item" href="#"
-                                                ><i className="icon-mid bi bi-wallet me-2"></i> Wallet</a
-                                                >
-                                            </li>
-                                            <li>
-                                                <hr className="dropdown-divider" />
-                                            </li>
-                                            <li>
-                                                <a className="dropdown-item" href="#"
+                                                <Link className="dropdown-item" to="/admin/login"
                                                 ><i className="icon-mid bi bi-box-arrow-left me-2"></i>
-                                                    Logout</a
-                                                >
+                                                    Logout</Link>
                                             </li>
                                         </ul>
                                     </div>
