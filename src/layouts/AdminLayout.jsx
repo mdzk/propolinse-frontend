@@ -155,21 +155,13 @@ function AdminLayout({ children }) {
     const isActive = (path) => location.pathname === path;
     useLayoutEffect(() => {
         initializeSidebar();
+        const backdrop = document.querySelector(".sidebar-backdrop");
+        if (backdrop) {
+            backdrop.remove();
+        }
+        const body = document.querySelector("body");
+        body.style.overflowY = "auto";
     });
-    // useEffect(() => {
-    //     const script = document.createElement("script");
-    //     script.src = "/public/assets/compiled/js/app.js";
-    //     script.async = true;
-
-    //     script.onload = () => {
-    //         initializeSidebar();
-    //     };
-
-    //     document.body.appendChild(script);
-    //     return () => {
-    //         document.body.removeChild(script);
-    //     };
-    // }, []);
     return (
         <>
             {assets && (
