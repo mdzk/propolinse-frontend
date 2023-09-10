@@ -64,10 +64,10 @@ const Becomereseller = () => {
                 <h4 className="text-black">
                   Become Our Stockist
                 </h4>
-                <div class="row">
-                  <div class="col">
+                <div className="row">
+                  <div className="col">
                   </div>
-                  <div class="col-md-5">
+                  <div className="col-md-5">
                     <div className="form-group">
                       <input type="text" className="form-control" placeholder="Email Address" />
                     </div>
@@ -87,7 +87,7 @@ const Becomereseller = () => {
                       <textarea name="" id="" cols="30" rows="10" className="form-control" placeholder="Alamat Pengiriman"></textarea>
                     </div>
                   </div>
-                  <div class="col">
+                  <div className="col">
                   </div>
                 </div>
               </div>

@@ -7,7 +7,7 @@ const Findstore = () => {
       <main className="main">
         <div className="bg-light ">
 
-          <div class="top-findstore d-flex align-items-center justify-content-center">
+          <div className="top-findstore d-flex align-items-center justify-content-center">
             <h3 className="page-title text-black mb-0 font-weight-bold">
               MARKETPLACE
             </h3>

@@ -1,13 +1,25 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { useAssets } from "../utilities/AssetsContext";
-import "../../public/assets/extensions/perfect-scrollbar/perfect-scrollbar.min.js";
-import "../../public/assets/compiled/js/app.js";
 
 function AdminLayout({ children }) {
     const { assets } = useAssets();
     const location = useLocation();
     const isActive = (path) => location.pathname === path;
+    useEffect(() => {
+        const script = document.createElement("script");
+        script.src = "/public/assets/compiled/js/app.js";
+        script.async = true;
+
+        script.onload = () => {
+            initializeSidebar();
+        };
+
+        document.body.appendChild(script);
+        return () => {
+            document.body.removeChild(script);
+        };
+    }, []);
     return (
         <>
             {assets && (

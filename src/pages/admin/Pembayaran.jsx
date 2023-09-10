@@ -16,15 +16,17 @@ const Pembayaran = () => {
                                 <div className="table-responsive">
                                     <table className='table'>
                                         <thead>
-                                            <th>Nama Pelanggan</th>
-                                            <th>Nama Produk</th>
-                                            <th>Kategori Produk</th>
-                                            <th>Metode Pembayaran</th>
-                                            <th>Tanggal Pembayaran</th>
-                                            <th>Jumlah</th>
-                                            <th>Total</th>
-                                            <th>Bukti Pembayaran</th>
-                                            <th>Detail</th>
+                                            <tr>
+                                                <th>Nama Pelanggan</th>
+                                                <th>Nama Produk</th>
+                                                <th>Kategori Produk</th>
+                                                <th>Metode Pembayaran</th>
+                                                <th>Tanggal Pembayaran</th>
+                                                <th>Jumlah</th>
+                                                <th>Total</th>
+                                                <th>Bukti Pembayaran</th>
+                                                <th>Detail</th>
+                                            </tr>
                                         </thead>
                                         <tbody>
                                             <tr>

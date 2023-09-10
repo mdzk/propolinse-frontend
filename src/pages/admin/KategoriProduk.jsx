@@ -15,22 +15,24 @@ const KategoriProduk = () => {
                             <div className="card-body px-4 py-4-5">
                                 <table className='table'>
                                     <thead>
-                                        <th>No</th>
-                                        <th>Nama</th>
-                                        <th>Action</th>
+                                        <tr>
+                                            <th>No</th>
+                                            <th>Nama</th>
+                                            <th>Action</th>
+                                        </tr>
                                     </thead>
                                     <tbody>
                                         <tr>
                                             <td>1</td>
                                             <td>Mouthwash</td>
                                             <td>
-                                                <div class="dropdown">
-                                                    <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                                <div className="dropdown">
+                                                    <button className="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                                                         Size
                                                     </button>
-                                                    <ul class="dropdown-menu">
-                                                        <li><Link class="dropdown-item" to={"/admin/bigsize"}>600ml</Link></li>
-                                                        <li><Link class="dropdown-item" to={"/admin/travelsize"}>150ml</Link></li>
+                                                    <ul className="dropdown-menu">
+                                                        <li><Link className="dropdown-item" to={"/admin/bigsize"}>600ml</Link></li>
+                                                        <li><Link className="dropdown-item" to={"/admin/travelsize"}>150ml</Link></li>
                                                     </ul>
                                                 </div>
                                             </td>
@@ -39,13 +41,13 @@ const KategoriProduk = () => {
                                             <td>2</td>
                                             <td>Toothbrush</td>
                                             <td>
-                                                <div class="dropdown">
-                                                    <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                                <div className="dropdown">
+                                                    <button className="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                                                         Type
                                                     </button>
-                                                    <ul class="dropdown-menu">
-                                                        <li><Link class="dropdown-item" to={"/admin/home"}>Home</Link></li>
-                                                        <li><Link class="dropdown-item" to={"/admin/holiday"}>Holiday</Link></li>
+                                                    <ul className="dropdown-menu">
+                                                        <li><Link className="dropdown-item" to={"/admin/home"}>Home</Link></li>
+                                                        <li><Link className="dropdown-item" to={"/admin/holiday"}>Holiday</Link></li>
                                                     </ul>
                                                 </div>
                                             </td>
