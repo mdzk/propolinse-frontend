@@ -5,7 +5,7 @@ import axios from "axios";
 import ProductCard from "../../components/ProductCard";
 
 const BigSize = () => {
-    const apiUrl = import.meta.env.VITE_API_URL;
+    const apiUrl = import.meta.env.VITE_API_URL + "api/";
     const [data, setdata] = useState({
         barang: [],
     });
@@ -35,12 +35,16 @@ const BigSize = () => {
                         <h2 className="title ">Mouthwash Big Size (7)</h2>
                     </div>
 
-                    {data.barang.map((category) => (
-                        <p>{category.nm_brg}</p>
-                    ))}
-
                     <div className="row">
-                        <ProductCard title="hell" />
+                        {data.barang.map((product) => (
+                            <ProductCard
+                                id={product.id}
+                                title={product.nm_brg}
+                                category={product.jenis_brg}
+                                price={product.hrg_brg}
+                                image={product.image}
+                            />
+                        ))}
                     </div>
                 </div>
             </main>

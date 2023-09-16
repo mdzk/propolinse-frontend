@@ -7,23 +7,23 @@ function UserLayout({ children }) { // Ambil children sebagai argumen dari kompo
 
     return (
         <>
-            {assets && <link rel="stylesheet" href="./public/assets/css/bootstrap.min.css" />}
-            {assets && <link rel="stylesheet" href="./public/assets/css/plugins/owl-carousel/owl.carousel.css" />}
-            {assets && <link rel="stylesheet" href="./public/assets/css/plugins/flickity.css" />}
-            {assets && <link rel="stylesheet" href="./public/assets/css/plugins/magnific-popup/magnific-popup.css" />}
-            {assets && <link rel="stylesheet" href="./public/assets/css/style.css" />}
-            {assets && <link rel="stylesheet" href="./public/assets/css/demos/demo-21.css" />}
-            {assets && <link rel="stylesheet" href="./public/assets/css/main.css" />}
+            {assets && <link rel="stylesheet" href={`${window.location.origin}/public/assets/css/bootstrap.min.css`} />}
+            {assets && <link rel="stylesheet" href={`${window.location.origin}/public/assets/css/plugins/owl-carousel/owl.carousel.css`} />}
+            {assets && <link rel="stylesheet" href={`${window.location.origin}/public/assets/css/plugins/flickity.css`} />}
+            {assets && <link rel="stylesheet" href={`${window.location.origin}/public/assets/css/plugins/magnific-popup/magnific-popup.css`} />}
+            {assets && <link rel="stylesheet" href={`${window.location.origin}/public/assets/css/style.css`} />}
+            {assets && <link rel="stylesheet" href={`${window.location.origin}/public/assets/css/demos/demo-21.css`} />}
+            {assets && <link rel="stylesheet" href={`${window.location.origin}/public/assets/css/main.css`} />}
 
             <div className="top-banner d-flex align-items-center justify-content-center">
-                <img src="assets/images/PIERAS PROPOLINSE.png" alt="color_atas" />
+                <img src={`${window.location.origin}/assets/images/PIERAS PROPOLINSE.png`} alt="color_atas" />
             </div>
 
             <nav className="box navbar navbar-expand-lg navbar-light bg-white sticky-header">
 
                 <div className="container">
                     <Link className="navbar-brand" to="/">
-                        <img src="./public/logo.png" width="94" height="118" alt="" />
+                        <img src={`${window.location.origin}/public/logo.png`} width="94" height="118" alt="" />
                     </Link>
                     <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>
@@ -74,7 +74,7 @@ function UserLayout({ children }) { // Ambil children sebagai argumen dari kompo
                             <div className="header-login ml-3">
                                 <Link to="/loginpage">
                                     <img
-                                        src="assets/images/login.png"
+                                        src={`${window.location.origin}/assets/images/login.png`}
                                         alt="color_atas"
                                         width={22}
                                         height={34}
@@ -89,7 +89,7 @@ function UserLayout({ children }) { // Ambil children sebagai argumen dari kompo
                                     data-display="static"
                                 >
                                     <img
-                                        src="assets/images/keranjang.png"
+                                        src={`${window.location.origin}/assets/images/keranjang.png`}
                                         alt="color_atas"
                                         width={19}
                                         height={20}
@@ -192,7 +192,7 @@ function UserLayout({ children }) { // Ambil children sebagai argumen dari kompo
                             <div className="my-5 d-flex justify-content-center align-items-center">
                                 <span className="icon-box-icon mr-3 mb-0">
                                     <Link to="/findstore">
-                                        <img src="assets/images/find-store.png" />
+                                        <img src={`${window.location.origin}/assets/images/find-store.png`} />
                                     </Link>
                                 </span>
                                 <div className="icon-box-content">
@@ -207,7 +207,7 @@ function UserLayout({ children }) { // Ambil children sebagai argumen dari kompo
                             <div className="my-5 d-flex justify-content-center align-items-center">
                                 <span className="icon-box-icon mr-3 mb-0">
                                     <Link to="/becomereseller">
-                                        <img src="assets/images/become-reseller.png" />
+                                        <img src={`${window.location.origin}/assets/images/become-reseller.png`} />
                                     </Link>
                                 </span>
                                 <div className="icon-box-content">
@@ -222,7 +222,7 @@ function UserLayout({ children }) { // Ambil children sebagai argumen dari kompo
                             <div className="my-5 d-flex justify-content-center align-items-center">
                                 <span className="icon-box-icon text-dark mr-3 mb-0">
                                     <Link to="/faq">
-                                        <img src="assets/images/faq.png" />
+                                        <img src={`${window.location.origin}/assets/images/faq.png`} />
                                     </Link>
                                 </span>
                                 <div className="icon-box-content">
@@ -372,16 +372,16 @@ function UserLayout({ children }) { // Ambil children sebagai argumen dari kompo
                 </div>
             </div>
 
-            {assets && <script src="./public/assets/js/jquery.min.js"></script>}
-            {assets && <script src="./public/assets/js/bootstrap.bundle.min.js"></script>}
-            {assets && <script src="./public/assets/js/jquery.hoverIntent.min.js"></script>}
-            {assets && <script src="./public/assets/js/jquery.waypoints.min.js"></script>}
-            {assets && <script src="./public/assets/js/superfish.min.js"></script>}
-            {assets && <script src="./public/assets/js/owl.carousel.min.js"></script>}
-            {assets && <script src="./public/assets/js/jquery.magnific-popup.min.js"></script>}
-            {assets && <script src="./public/assets/js/demos/demo-21.js"></script>}
-            {assets && <script src="./public/assets/js/flickity.js"></script>}
-            {assets && <script src="./public/assets/js/main.js"></script>}
+            {assets && <script src={`${window.location.origin}/public/assets/js/jquery.min.`}></script>}
+            {assets && <script src={`${window.location.origin}/public/assets/js/bootstrap.bundle.min.`}></script>}
+            {assets && <script src={`${window.location.origin}/public/assets/js/jquery.hoverIntent.min.`}></script>}
+            {assets && <script src={`${window.location.origin}/public/assets/js/jquery.waypoints.min.`}></script>}
+            {assets && <script src={`${window.location.origin}/public/assets/js/superfish.min.`}></script>}
+            {assets && <script src={`${window.location.origin}/public/assets/js/owl.carousel.min.`}></script>}
+            {assets && <script src={`${window.location.origin}/public/assets/js/jquery.magnific-popup.min.`}></script>}
+            {assets && <script src={`${window.location.origin}/public/assets/js/demos/demo-21.`}></script>}
+            {assets && <script src={`${window.location.origin}/public/assets/js/flickity.`}></script>}
+            {assets && <script src={`${window.location.origin}/public/assets/js/main.`}></script>}
         </>
     );
 }

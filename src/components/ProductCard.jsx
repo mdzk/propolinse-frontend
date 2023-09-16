@@ -1,7 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import CurrencyFormat from 'react-currency-format';
 
 function ProductCard(props) {
+    const apiUrl = import.meta.env.VITE_API_URL + "storage/posts/";
     return (
         <div className="col-md-3">
             <div className="product demo21">
@@ -9,20 +11,23 @@ function ProductCard(props) {
                     <span className="product-label label-new">New</span>
                     <Link className="d-flex justify-content-center" to="/sakuraoriginal">
                         <img
-                            src="../../../public/assets/images/big/sakura.png"
+                            src={apiUrl + props.image}
                             alt="Product image"
+                            style={{ height: "230px" }}
                         />
                     </Link>
                 </figure>
                 <div className="product-body text-center">
                     <div className="product-cat mt-2">
-                        <a href="#">Pieras Propolinse</a>
+                        <a href="#">{props.category}</a>
                     </div>
                     <h3 className="product-title">
-                        <Link to="/sakuraoriginal">{props.title}</Link>
+                        <Link to={"/detail/" + props.id}>{props.title}</Link>
                     </h3>
                     <div className="product-price">
-                        <span className="cur-price">Rp195.000</span>
+                        <span className="cur-price">
+                            <CurrencyFormat value={props.price} displayType={'text'} thousandSeparator={true} prefix={'Rp'} />
+                        </span>
                     </div>
                 </div>
             </div>

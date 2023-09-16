@@ -43,6 +43,8 @@ import AdminTravelSize from './pages/admin/AdminTravelSize';
 import AdminHome from './pages/admin/AdminHome';
 import AdminLogin from './pages/admin/AdminLogin';
 
+import DetailProduct from './pages/user/DetailProduct';
+
 const AllRoutes = () => {
 
   return (
@@ -68,6 +70,8 @@ const AllRoutes = () => {
             <Route path="bundling" element={<Bundling />} />
 
             <Route path="temenfokus" element={<TemenFokus />} />
+
+            <Route path="detail/:id" element={<DetailProduct />} />
 
             <Route path="blackoriginal" element={<Blackoriginal />} />
             <Route path="sakuraoriginal" element={<Sakuraoriginal />} />
