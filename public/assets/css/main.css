@@ -171,6 +171,64 @@
   margin-top: 300px;
 }
 
+.btn-pink {
+  font-size: 14px;
+  color: #fff !important;
+  background-color: #F25170;
+  border: 1px solid #F25170;
+}
+
+.btn-pink:hover {
+  color: #F25170 !important;
+  background-color: #fff !important;
+  border: 1px solid #F25170 !important;
+}
+
+.btn-outline-pink {
+  font-size: 14px;
+  color: #F25170 !important;
+  background-color: #fff !important;
+  border: 1px solid #F25170 !important;
+}
+
+.btn-outline-pink:hover {
+  color: #fff !important;
+  background-color: #F25170 !important;
+  border: 1px solid #F25170 !important;
+}
+
+/* Radio Button */
+.radio-button {
+  display: inline-block;
+  cursor: pointer;
+  padding: 10px 20px;
+  /* Sesuaikan ukuran padding sesuai kebutuhan Anda */
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  text-align: center;
+  width: inherit;
+}
+
+.radio-button input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* Style ketika radio button dipilih */
+.radio-button.active {
+  background-color: #007bff;
+  color: #fff;
+  border: 1px solid #007bff;
+}
+
+/* Style ketika radio button tidak dipilih */
+.radio-button:not(.active):hover {
+  background-color: #f8f9fa;
+  border: 1px solid #ccc;
+  color: #000;
+}
+
 /* ================================= */
 
 .top-findstore {

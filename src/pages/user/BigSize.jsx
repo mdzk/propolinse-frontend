@@ -26,7 +26,6 @@ const BigSize = () => {
             });
     }, []);
 
-    if (isLoading) return <h1>Loading data</h1>;
     return (
         <UserLayout>
             <main className="main">
@@ -36,15 +35,21 @@ const BigSize = () => {
                     </div>
 
                     <div className="row">
-                        {data.barang.map((product) => (
-                            <ProductCard
-                                id={product.id}
-                                title={product.nm_brg}
-                                category={product.jenis_brg}
-                                price={product.hrg_brg}
-                                image={product.image}
-                            />
-                        ))}
+
+                        {isLoading ? (
+                            <p>Loading data ...</p>
+                        ) : (
+                            data.barang.map((product) => (
+                                <ProductCard
+                                    key={product.id}
+                                    id={product.id}
+                                    title={product.nm_brg}
+                                    category={product.jenis_brg}
+                                    price={product.hrg_brg}
+                                    image={product.image}
+                                />
+                            ))
+                        )}
                     </div>
                 </div>
             </main>

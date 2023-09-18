@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from 'react-router-dom';
 import UserLayout from "../../layouts/UserLayout";
 import axios from "axios";
+import CurrencyFormat from 'react-currency-format';
 
 const DetailProduct = () => {
     const { id } = useParams();
@@ -22,7 +23,7 @@ const DetailProduct = () => {
     const [data, setData] = useState({
         id: null,
         email: null,
-        hrg_brg: null,
+        hrg_brg: 0,
         stok: null,
         nm_brg: null,
         ket_brg: null,
@@ -47,14 +48,13 @@ const DetailProduct = () => {
             });
     }, []);
 
-    if (isLoading) return <h1>Loading data</h1>;
-
     return (
         <UserLayout>
+            {isLoading ? <p>Loading data</p> : null}
             <main className="main">
                 <div className="container">
                     <div className="row d-flex align-items-center">
-                        <div className="col-md-4 product-gallery">
+                        <div className="col-md-4 product-gallery d-flex justify-content-center">
                             <img style={{ maxHeight: "313px" }} src={apiUrl + "storage/posts/" + data.image} alt="sakura"></img>
                         </div>
                         <div className="col-md-8 p-5">
@@ -67,12 +67,14 @@ const DetailProduct = () => {
                                         teh hijau Jepang berkualitas tinggi dan xylitol alami.{" "}
                                     </p>
                                 </div>
-                                <h4>Rp385.000</h4>
+                                <h4>
+                                    <CurrencyFormat value={data.hrg_brg} displayType={'text'} thousandSeparator={true} prefix={'Rp'} />
+                                </h4>
                                 <div className="row">
 
                                     <div className="w-100 col-lg-3 col-sm-12 col-xs-12 mt-2 mx-3 product-count p-3">
                                         <button onClick={handleClick2} className="button-count">-</button>
-                                        <input type="text" readonly className="number-product" value={counter} />
+                                        <input type="text" className="number-product" value={counter} />
                                         <button onClick={handleClick1} className="button-count">+</button>
                                     </div>
 

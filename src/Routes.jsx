@@ -1,5 +1,8 @@
-import React from 'react';
-import { Route, Routes, useLocation } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { Route, Routes } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
+
 import ScrollToTopOnNavigation from './utilities/ScrollToTopOnNavigation';
 
 import Homepage from './pages/user/Homepage';
@@ -44,8 +47,43 @@ import AdminHome from './pages/admin/AdminHome';
 import AdminLogin from './pages/admin/AdminLogin';
 
 import DetailProduct from './pages/user/DetailProduct';
+import User from './pages/user/User';
+import axios from 'axios';
 
 const AllRoutes = () => {
+
+  const [userRole, setUserRole] = useState(null);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const authToken = localStorage.getItem('auth_token');
+
+    if (authToken) {
+      axios.get(import.meta.env.VITE_API_URL + 'api/user', {
+        headers: {
+          'Authorization': `Bearer ${authToken}`,
+          'Content-Type': 'application/json',
+        },
+      })
+        .then(response => {
+          setUserRole(response.data.data.role);
+        })
+        .catch(error => {
+          console.error('Error fetching user data:', error);
+          navigate('/');
+        });
+    } else {
+      navigate('/');
+    }
+  }, [navigate]);
+
+  // function auth($element, $role) {
+  //   if (userRole === $role) {
+  //     return $element;
+  //   } else {
+  //     return <Navigate to={"/"} />;
+  //   }
+  // }
 
   return (
     <div className='d-flex flex-column min-vh-100'>
@@ -61,18 +99,14 @@ const AllRoutes = () => {
             <Route path="findstore" element={<Findstore />} />
             <Route path="privacypolicy" element={<Privacypolicy />} />
             <Route path="loginpage" element={<Loginpage />} />
-
             <Route path="bigsize" element={<BigSize />} />
             <Route path="travelsize" element={<TravelSize />} />
             <Route path="home" element={<Home />} />
             <Route path="holiday" element={<Holiday />} />
             <Route path="collaboration" element={<Collaboration />} />
             <Route path="bundling" element={<Bundling />} />
-
             <Route path="temenfokus" element={<TemenFokus />} />
-
             <Route path="detail/:id" element={<DetailProduct />} />
-
             <Route path="blackoriginal" element={<Blackoriginal />} />
             <Route path="sakuraoriginal" element={<Sakuraoriginal />} />
             <Route path="yuzuoriginal" element={<Yuzuoriginal />} />
@@ -80,25 +114,23 @@ const AllRoutes = () => {
             <Route path="matchaoriginal" element={<Matchaoriginal />} />
             <Route path="whiteoriginal" element={<Whiteoriginal />} />
             <Route path="orangeoriginal" element={<Orangeoriginal />} />
+            <Route path="user" element={<User />} />
           </Route>
 
-          <Route path="/admin">
+          <Route path="/admin" >
             <Route index element={<Dashboard />} />
             <Route path="kategori" element={<KategoriProduk />} />
             <Route path="pesanan" element={<Pesanan />} />
             <Route path="pembayaran" element={<Pembayaran />} />
             <Route path="pelanggan" element={<Pelanggan />} />
-
             <Route path="collaboration" element={<AdminCollaboration />} />
             <Route path="bundling" element={<AdminBundling />} />
             <Route path="home" element={<AdminHome />} />
             <Route path="holiday" element={<AdminHoliday />} />
             <Route path="bigsize" element={<AdminBigSize />} />
             <Route path="travelsize" element={<AdminTravelSize />} />
-
             <Route path="edit" element={<UbahData />} />
             <Route path="add" element={<TambahData />} />
-
             <Route path="login" element={<AdminLogin />} />
           </Route>
 

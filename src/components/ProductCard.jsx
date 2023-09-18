@@ -9,7 +9,7 @@ function ProductCard(props) {
             <div className="product demo21">
                 <figure className="product-media">
                     <span className="product-label label-new">New</span>
-                    <Link className="d-flex justify-content-center" to="/sakuraoriginal">
+                    <Link className="d-flex justify-content-center" to={"/detail/" + props.id}>
                         <img
                             src={apiUrl + props.image}
                             alt="Product image"

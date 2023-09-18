@@ -1,7 +1,8 @@
-import React, { useEffect, useLayoutEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
+import React, { useEffect, useLayoutEffect, useState } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useAssets } from "../utilities/AssetsContext";
 import "../../public/assets/compiled/js/app.js";
+import axios from "axios";
 
 function Nt(window) {
     return window.innerWidth <= 768;
@@ -150,18 +151,40 @@ function initializeSidebar() {
 }
 
 function AdminLayout({ children }) {
+    const backdrop = document.querySelector(".sidebar-backdrop");
+    if (backdrop) {
+        backdrop.remove();
+    }
     const { assets } = useAssets();
     const location = useLocation();
     const isActive = (path) => location.pathname === path;
     useLayoutEffect(() => {
         initializeSidebar();
-        const backdrop = document.querySelector(".sidebar-backdrop");
-        if (backdrop) {
-            backdrop.remove();
-        }
+
         const body = document.querySelector("body");
         body.style.overflowY = "auto";
     });
+
+    // Logout
+    const handleLogout = async () => {
+        try {
+            const authToken = localStorage.getItem('auth_token');
+
+            if (authToken) {
+                await axios.get(import.meta.env.VITE_API_URL + 'api/logout', {
+                    headers: {
+                        'Authorization': `Bearer ${authToken}`,
+                        'Content-Type': 'application/json',
+                    },
+                });
+                localStorage.removeItem('auth_token');
+                window.location.href = '/';
+            }
+        } catch (error) {
+            console.error('Logout error:', error);
+        }
+    };
+
     return (
         <>
             {assets && (
@@ -277,9 +300,10 @@ function AdminLayout({ children }) {
                                             aria-labelledby="dropdownMenuButton"
                                             style={{ minWidth: "11rem" }}>
                                             <li>
-                                                <Link className="dropdown-item" to="/admin/login"
-                                                ><i className="icon-mid bi bi-box-arrow-left me-2"></i>
-                                                    Logout</Link>
+                                                <button className="dropdown-item" onClick={handleLogout}>
+                                                    <i className="icon-mid bi bi-box-arrow-left me-2"></i>
+                                                    Logout
+                                                </button>
                                             </li>
                                         </ul>
                                     </div>

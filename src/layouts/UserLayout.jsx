@@ -1,9 +1,42 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useAssets } from "../utilities/AssetsContext";
+import Login from "../components/LoginModal"
+import Register from "../components/RegisterModal"
+import LupaPassword from "../components/LupaPasswordModal"
 
-function UserLayout({ children }) { // Ambil children sebagai argumen dari komponen
+function UserLayout({ children }) {
     const { assets } = useAssets();
+
+    const [showLogin, setShowLogin] = useState(true);
+    const [showRegister, setShowRegister] = useState(false);
+    const [showLupaPasswordModal, setShowLupaPasswordModal] = useState(false);
+
+    const toggleForm = () => {
+        setShowLogin(!showLogin);
+        setShowRegister(false);
+        setShowLupaPasswordModal(false);
+    };
+
+    const showLupaPassword = () => {
+        setShowLogin(false);
+        setShowLupaPasswordModal(true);
+    };
+
+    const showRegistration = () => {
+        setShowLogin(false);
+        setShowRegister(true);
+    };
+
+    const showLoginFromRegister = () => {
+        setShowLogin(true);
+        setShowRegister(false);
+    };
+
+    const showLoginFromLupaPassword = () => {
+        setShowLogin(true);
+        setShowLupaPasswordModal(false);
+    };
 
     return (
         <>
@@ -72,14 +105,35 @@ function UserLayout({ children }) { // Ambil children sebagai argumen dari kompo
                             </div>
 
                             <div className="header-login ml-3">
-                                <Link to="/loginpage">
+                                <a type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">
                                     <img
                                         src={`${window.location.origin}/assets/images/login.png`}
                                         alt="color_atas"
                                         width={22}
                                         height={34}
                                     />
-                                </Link>
+                                </a>
+
+                                <div className="modal fade" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div className="modal-dialog">
+                                        {showLogin && (
+                                            <Login
+                                                showRegistration={showRegistration}
+                                                showLupaPassword={showLupaPassword}
+                                            />
+                                        )}
+                                        {showRegister && (
+                                            <Register
+                                                showLoginFromRegister={showLoginFromRegister}
+                                            />
+                                        )}
+                                        {showLupaPasswordModal && (
+                                            <LupaPassword
+                                                showLoginFromLupaPassword={showLoginFromLupaPassword}
+                                            />
+                                        )}
+                                    </div>
+                                </div>
                             </div>
 
                             <div className="dropdown cart-dropdown mr-3">
@@ -372,16 +426,16 @@ function UserLayout({ children }) { // Ambil children sebagai argumen dari kompo
                 </div>
             </div>
 
-            {assets && <script src={`${window.location.origin}/public/assets/js/jquery.min.`}></script>}
-            {assets && <script src={`${window.location.origin}/public/assets/js/bootstrap.bundle.min.`}></script>}
-            {assets && <script src={`${window.location.origin}/public/assets/js/jquery.hoverIntent.min.`}></script>}
-            {assets && <script src={`${window.location.origin}/public/assets/js/jquery.waypoints.min.`}></script>}
-            {assets && <script src={`${window.location.origin}/public/assets/js/superfish.min.`}></script>}
-            {assets && <script src={`${window.location.origin}/public/assets/js/owl.carousel.min.`}></script>}
-            {assets && <script src={`${window.location.origin}/public/assets/js/jquery.magnific-popup.min.`}></script>}
-            {assets && <script src={`${window.location.origin}/public/assets/js/demos/demo-21.`}></script>}
-            {assets && <script src={`${window.location.origin}/public/assets/js/flickity.`}></script>}
-            {assets && <script src={`${window.location.origin}/public/assets/js/main.`}></script>}
+            {assets && <script src={`${window.location.origin}/public/assets/js/jquery.min.js`}></script>}
+            {assets && <script src={`${window.location.origin}/public/assets/js/bootstrap.bundle.min.js`}></script>}
+            {assets && <script src={`${window.location.origin}/public/assets/js/jquery.hoverIntent.min.js`}></script>}
+            {assets && <script src={`${window.location.origin}/public/assets/js/jquery.waypoints.min.js`}></script>}
+            {assets && <script src={`${window.location.origin}/public/assets/js/superfish.min.js`}></script>}
+            {assets && <script src={`${window.location.origin}/public/assets/js/owl.carousel.min.js`}></script>}
+            {assets && <script src={`${window.location.origin}/public/assets/js/jquery.magnific-popup.min.js`}></script>}
+            {assets && <script src={`${window.location.origin}/public/assets/js/demos/demo-21.js`}></script>}
+            {assets && <script src={`${window.location.origin}/public/assets/js/flickity.js`}></script>}
+            {assets && <script src={`${window.location.origin}/public/assets/js/main.js`}></script>}
         </>
     );
 }
