@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import UserLayout from "../../layouts/UserLayout";
 import axios from "axios";
 import ProductCard from "../../components/ProductCard";
@@ -15,7 +14,7 @@ const BigSize = () => {
     useEffect(() => {
         setisLoading(true);
         axios
-            .get(apiUrl + "kategori?category_name=Home")
+            .get(apiUrl + "kategori?category_name=bigsize")
             .then((response) => {
                 setdata(response.data);
                 setisLoading(false);

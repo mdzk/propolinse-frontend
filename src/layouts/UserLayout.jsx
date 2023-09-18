@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useAssets } from "../utilities/AssetsContext";
 import Login from "../components/LoginModal"
 import Register from "../components/RegisterModal"
 import LupaPassword from "../components/LupaPasswordModal"
+import axios from "axios";
 
 function UserLayout({ children }) {
     const { assets } = useAssets();
@@ -37,6 +38,31 @@ function UserLayout({ children }) {
         setShowLogin(true);
         setShowLupaPasswordModal(false);
     };
+
+    // cek login
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
+    const [userRole, setUserRole] = useState(null);
+
+    useEffect(() => {
+        const authToken = localStorage.getItem('auth_token');
+
+        if (authToken) {
+            axios.get(import.meta.env.VITE_API_URL + 'api/user', {
+                headers: {
+                    'Authorization': `Bearer ${authToken}`,
+                    'Content-Type': 'application/json',
+                },
+            })
+                .then(response => {
+                    const { data } = response;
+                    setUserRole(data.data.role);
+                    setIsLoggedIn(true);
+                })
+                .catch(error => {
+                    console.error('Error fetching user data:', error);
+                });
+        }
+    }, []);
 
     return (
         <>
@@ -105,35 +131,51 @@ function UserLayout({ children }) {
                             </div>
 
                             <div className="header-login ml-3">
-                                <a type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                    <img
-                                        src={`${window.location.origin}/assets/images/login.png`}
-                                        alt="color_atas"
-                                        width={22}
-                                        height={34}
-                                    />
-                                </a>
 
-                                <div className="modal fade" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                    <div className="modal-dialog">
-                                        {showLogin && (
-                                            <Login
-                                                showRegistration={showRegistration}
-                                                showLupaPassword={showLupaPassword}
+                                {isLoggedIn && userRole === 'user' ? (
+                                    <Link to={"/user"}>
+                                        <img
+                                            src={`${window.location.origin}/assets/images/login.png`}
+                                            alt="color_atas"
+                                            width={22}
+                                            height={34}
+                                        />
+                                    </Link>
+                                ) : (
+                                    <>
+                                        <a type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                            <img
+                                                src={`${window.location.origin}/assets/images/login.png`}
+                                                alt="color_atas"
+                                                width={22}
+                                                height={34}
                                             />
-                                        )}
-                                        {showRegister && (
-                                            <Register
-                                                showLoginFromRegister={showLoginFromRegister}
-                                            />
-                                        )}
-                                        {showLupaPasswordModal && (
-                                            <LupaPassword
-                                                showLoginFromLupaPassword={showLoginFromLupaPassword}
-                                            />
-                                        )}
-                                    </div>
-                                </div>
+                                        </a>
+
+                                        <div className="modal fade" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                            <div className="modal-dialog">
+                                                {showLogin && (
+                                                    <Login
+                                                        showRegistration={showRegistration}
+                                                        showLupaPassword={showLupaPassword}
+                                                    />
+                                                )}
+                                                {showRegister && (
+                                                    <Register
+                                                        showLoginFromRegister={showLoginFromRegister}
+                                                    />
+                                                )}
+                                                {showLupaPasswordModal && (
+                                                    <LupaPassword
+                                                        showLoginFromLupaPassword={showLoginFromLupaPassword}
+                                                    />
+                                                )}
+                                            </div>
+                                        </div>
+                                    </>
+                                )}
+
+
                             </div>
 
                             <div className="dropdown cart-dropdown mr-3">

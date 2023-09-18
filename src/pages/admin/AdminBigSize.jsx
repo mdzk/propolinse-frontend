@@ -1,8 +1,30 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import AdminLayout from '../../layouts/AdminLayout';
+import ProductRow from '../../components/ProductRow';
+import axios from 'axios';
 
 const AdminBigSize = () => {
+    const apiUrl = import.meta.env.VITE_API_URL + "api/";
+    const [data, setdata] = useState({
+        barang: [],
+    });
+    const [isLoading, setisLoading] = useState(false);
+    const [isError, setisError] = useState(false);
+
+    useEffect(() => {
+        setisLoading(true);
+        axios
+            .get(apiUrl + "kategori?category_name=home")
+            .then((response) => {
+                setdata(response.data);
+                setisLoading(false);
+            })
+            .catch((err) => {
+                setisError(true);
+                setisLoading(false);
+            });
+    }, []);
     return (
         <AdminLayout>
             <div className="page-heading d-flex justify-content-between">
@@ -21,43 +43,32 @@ const AdminBigSize = () => {
                                             <tr>
                                                 <th>No</th>
                                                 <th>Judul Produk</th>
+                                                <th>Hastag</th>
                                                 <th>Deskripsi</th>
                                                 <th>Harga</th>
+                                                <th>Deskripsi Lengkap</th>
+                                                <th>Gambar</th>
                                                 <th className='text-center'>Aksi</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td>1</td>
-                                                <td>Temen Fokus</td>
-                                                <td>Lorem ipsum dolor sit amet consectetur adipisicing elit.</td>
-                                                <td>Rp 199.000</td>
-                                                <td className='d-flex justify-content-evenly'>
-                                                    <Link to="/admin/edit" className='btn btn-primary'>Ubah</Link>
-
-                                                    <button type="button" className="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                                        Hapus
-                                                    </button>
-
-                                                    <div className="modal fade" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                                        <div className="modal-dialog">
-                                                            <div className="modal-content">
-                                                                <div className="modal-header">
-                                                                    <h1 className="modal-title fs-5" id="exampleModalLabel">Peringatan</h1>
-                                                                    <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                                </div>
-                                                                <div className="modal-body">
-                                                                    Data akan dihapus secara permanen, Apakah anda yakin ingin menghapus?
-                                                                </div>
-                                                                <div className="modal-footer">
-                                                                    <button type="button" className="btn btn-primary" data-bs-dismiss="modal">Batal</button>
-                                                                    <button type="button" className="btn btn-success">Iya</button>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                            </tr>
+                                            {isLoading ? (
+                                                <p>Loading data ...</p>
+                                            ) : (
+                                                data.barang.map((product, index) => (
+                                                    <ProductRow
+                                                        index={index + 1}
+                                                        key={product.id}
+                                                        id={product.id}
+                                                        title={product.nm_brg}
+                                                        tag={product.tag}
+                                                        description={product.ket_brg}
+                                                        category={product.jenis_brg}
+                                                        price={product.hrg_brg}
+                                                        image={product.image}
+                                                    />
+                                                ))
+                                            )}
                                         </tbody>
                                     </table>
                                 </div>

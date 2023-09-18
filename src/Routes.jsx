@@ -19,16 +19,8 @@ import TravelSize from "./pages/user/TravelSize";
 import Home from "./pages/user/Home";
 import Holiday from "./pages/user/Holiday";
 import Collaboration from "./pages/user/Collaboration";
-import TemenFokus from "./pages/user/TemenFokus";
 import Bundling from "./pages/user/Bundling";
 
-import Sakuraoriginal from "./pages/user/Sakuraoriginal";
-import Purehoneyoriginal from "./pages/user/Purehoneyoriginal";
-import Orangeoriginal from "./pages/user/Orangeoriginal";
-import Yuzuoriginal from "./pages/user/Yuzuoriginal";
-import Whiteoriginal from "./pages/user/Whiteoriginal";
-import Matchaoriginal from "./pages/user/Matchaoriginal";
-import Blackoriginal from "./pages/user/Blackoriginal";
 import { AssetsProvider } from './utilities/AssetsContext';
 
 import Dashboard from './pages/admin/Dashboard';
@@ -72,18 +64,19 @@ const AllRoutes = () => {
           console.error('Error fetching user data:', error);
           navigate('/');
         });
-    } else {
-      navigate('/');
     }
+    // else {
+    //   navigate('/');
+    // }
   }, [navigate]);
+  function auth(element, role) {
+    if (userRole === null) {
+      return <p>Loading...</p>;
+    }
 
-  // function auth($element, $role) {
-  //   if (userRole === $role) {
-  //     return $element;
-  //   } else {
-  //     return <Navigate to={"/"} />;
-  //   }
-  // }
+    return userRole === role ? element : <Navigate to="/" />;
+  }
+
 
   return (
     <div className='d-flex flex-column min-vh-100'>
@@ -105,20 +98,12 @@ const AllRoutes = () => {
             <Route path="holiday" element={<Holiday />} />
             <Route path="collaboration" element={<Collaboration />} />
             <Route path="bundling" element={<Bundling />} />
-            <Route path="temenfokus" element={<TemenFokus />} />
             <Route path="detail/:id" element={<DetailProduct />} />
-            <Route path="blackoriginal" element={<Blackoriginal />} />
-            <Route path="sakuraoriginal" element={<Sakuraoriginal />} />
-            <Route path="yuzuoriginal" element={<Yuzuoriginal />} />
-            <Route path="purehoneyoriginal" element={<Purehoneyoriginal />} />
-            <Route path="matchaoriginal" element={<Matchaoriginal />} />
-            <Route path="whiteoriginal" element={<Whiteoriginal />} />
-            <Route path="orangeoriginal" element={<Orangeoriginal />} />
-            <Route path="user" element={<User />} />
+            <Route path="user" element={auth(<User />, "user")} />
           </Route>
 
           <Route path="/admin" >
-            <Route index element={<Dashboard />} />
+            <Route index element={auth(<Dashboard />, "admin")} />
             <Route path="kategori" element={<KategoriProduk />} />
             <Route path="pesanan" element={<Pesanan />} />
             <Route path="pembayaran" element={<Pembayaran />} />
