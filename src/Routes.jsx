@@ -71,12 +71,16 @@ const AllRoutes = () => {
   }, [navigate]);
   function auth(element, role) {
     if (userRole === null) {
-      return <p>Loading...</p>;
+      const authToken = localStorage.getItem('auth_token');
+      if (authToken) {
+        return <p>Loading...</p>;
+      } else {
+        return <Navigate to="/" />;
+      }
     }
 
     return userRole === role ? element : <Navigate to="/" />;
   }
-
 
   return (
     <div className='d-flex flex-column min-vh-100'>
