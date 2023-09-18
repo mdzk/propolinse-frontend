@@ -71,21 +71,21 @@ function initSidebar(k, a = {}) {
         }
     }
 
-    function isElementInViewport(element) {
-        var rect = element.getBoundingClientRect();
-        return (
-            rect.top >= 0 &&
-            rect.left >= 0 &&
-            rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-            rect.right <= (window.innerWidth || document.documentElement.clientWidth)
-        );
-    }
+    // function isElementInViewport(element) {
+    //     var rect = element.getBoundingClientRect();
+    //     return (
+    //         rect.top >= 0 &&
+    //         rect.left >= 0 &&
+    //         rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+    //         rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+    //     );
+    // }
 
-    function forceElementVisibility(element) {
-        if (!isElementInViewport(element)) {
-            element.scrollIntoView(false);
-        }
-    }
+    // function forceElementVisibility(element) {
+    //     if (!isElementInViewport(element)) {
+    //         element.scrollIntoView(false);
+    //     }
+    // }
 
     function onResize() {
         if (Nt(window)) {
@@ -125,9 +125,9 @@ function initSidebar(k, a = {}) {
         });
     });
 
-    setTimeout(function () {
-        forceElementVisibility(document.querySelector(".sidebar-item.active"));
-    }, 300);
+    // setTimeout(function () {
+    //     forceElementVisibility(document.querySelector(".sidebar-item.active"));
+    // }, 300);
 }
 
 function initializeSidebar() {
@@ -184,6 +184,31 @@ function AdminLayout({ children }) {
             console.error('Logout error:', error);
         }
     };
+
+    // Data Profile
+    // const [userData, setUserData] = useState(null);
+
+    // useEffect(() => {
+    //     const authToken = localStorage.getItem('auth_token');
+    //     if (authToken) {
+    //         axios.get(import.meta.env.VITE_API_URL + 'api/user', {
+    //             headers: {
+    //                 'Authorization': `Bearer ${authToken}`,
+    //                 'Content-Type': 'application/json',
+    //             },
+    //         })
+    //             .then(response => {
+    //                 const { data } = response;
+    //                 setUserData(data.data);
+    //             })
+    //             .catch(error => {
+    //                 console.error('Error fetching user data:', error);
+    //             });
+    //     }
+    // }, []);
+    // if (!userData) {
+    //     return <div>Loading...</div>;
+    // }
 
     return (
         <>
@@ -286,7 +311,7 @@ function AdminLayout({ children }) {
                                             <div className="user-menu d-flex">
                                                 <div className="user-name text-end me-3">
                                                     <h6 className="mb-0 text-gray-600">John Ducky</h6>
-                                                    <p className="mb-0 text-sm text-gray-600">Administrator</p>
+                                                    {/* <p className="mb-0 text-sm text-gray-600">{userData.name}</p> */}
                                                 </div>
                                                 <div className="user-img d-flex align-items-center">
                                                     <div className="avatar avatar-md">

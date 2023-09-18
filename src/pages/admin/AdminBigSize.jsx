@@ -29,7 +29,7 @@ const AdminBigSize = () => {
         <AdminLayout>
             <div className="page-heading d-flex justify-content-between">
                 <h3>Big Size 600ml</h3>
-                <Link to={"/admin/add"} className='btn btn-primary'>Tambah</Link>
+                <Link to={"/admin/add/bigsize"} className='btn btn-primary'>Tambah</Link>
             </div>
             <div className="page-content">
                 <section className="row">

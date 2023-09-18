@@ -65,9 +65,6 @@ const AllRoutes = () => {
           navigate('/');
         });
     }
-    // else {
-    //   navigate('/');
-    // }
   }, [navigate]);
   function auth(element, role) {
     if (userRole === null) {
@@ -119,7 +116,7 @@ const AllRoutes = () => {
             <Route path="bigsize" element={<AdminBigSize />} />
             <Route path="travelsize" element={<AdminTravelSize />} />
             <Route path="edit" element={<UbahData />} />
-            <Route path="add" element={<TambahData />} />
+            <Route path="add/:tipe" element={<TambahData />} />
             <Route path="login" element={<AdminLogin />} />
           </Route>
 
