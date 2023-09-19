@@ -6,25 +6,33 @@ import axios from 'axios';
 
 const AdminBigSize = () => {
     const apiUrl = import.meta.env.VITE_API_URL + "api/";
-    const [data, setdata] = useState({
+    const [data, setData] = useState({
         barang: [],
     });
-    const [isLoading, setisLoading] = useState(false);
-    const [isError, setisError] = useState(false);
+    const [isLoading, setIsLoading] = useState(false);
+    const [isError, setIsError] = useState(false);
 
     useEffect(() => {
-        setisLoading(true);
+        setIsLoading(true);
         axios
             .get(apiUrl + "kategori?category_name=bigsize")
             .then((response) => {
-                setdata(response.data);
-                setisLoading(false);
+                setData(response.data);
+                setIsLoading(false);
             })
             .catch((err) => {
-                setisError(true);
-                setisLoading(false);
+                setIsError(true);
+                setIsLoading(false);
             });
     }, []);
+
+    // Fungsi untuk menghapus item dari state data.barang
+    const handleDeleteItem = (itemId) => {
+        // Membuat salinan array barang yang tidak mencakup item yang dihapus
+        const updatedBarang = data.barang.filter((barang) => barang.id !== itemId);
+        setData({ ...data, barang: updatedBarang });
+    };
+
     return (
         <AdminLayout>
             <div className="page-heading d-flex justify-content-between">
@@ -37,7 +45,6 @@ const AdminBigSize = () => {
                         <div className="card">
                             <div className="card-body px-4 py-4-5">
                                 <div className="table-responsive">
-
                                     <table className='table'>
                                         <thead>
                                             <tr>
@@ -53,7 +60,9 @@ const AdminBigSize = () => {
                                         </thead>
                                         <tbody>
                                             {isLoading ? (
-                                                <p>Loading data ...</p>
+                                                <tr>
+                                                    <td><p>Loading data ...</p></td>
+                                                </tr>
                                             ) : (
                                                 data.barang.map((product, index) => (
                                                     <ProductRow
@@ -66,13 +75,13 @@ const AdminBigSize = () => {
                                                         category={product.jenis_brg}
                                                         price={product.hrg_brg}
                                                         image={product.image}
+                                                        onDelete={() => handleDeleteItem(product.id)} // Fungsi onDelete untuk menghapus item
                                                     />
                                                 ))
                                             )}
                                         </tbody>
                                     </table>
                                 </div>
-
                             </div>
                         </div>
                     </div>

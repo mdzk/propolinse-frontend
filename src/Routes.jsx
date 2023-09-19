@@ -115,7 +115,7 @@ const AllRoutes = () => {
             <Route path="holiday" element={<AdminHoliday />} />
             <Route path="bigsize" element={<AdminBigSize />} />
             <Route path="travelsize" element={<AdminTravelSize />} />
-            <Route path="edit" element={<UbahData />} />
+            <Route path="edit/:id" element={<UbahData />} />
             <Route path="add/:tipe" element={<TambahData />} />
             <Route path="login" element={<AdminLogin />} />
           </Route>

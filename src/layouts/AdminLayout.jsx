@@ -310,7 +310,7 @@ function AdminLayout({ children }) {
                                         <a href="#" data-bs-toggle="dropdown" aria-expanded="false">
                                             <div className="user-menu d-flex">
                                                 <div className="user-name text-end me-3">
-                                                    <h6 className="mb-0 text-gray-600">John Ducky</h6>
+                                                    {/* <h6 className="mb-0 text-gray-600">John Ducky</h6> */}
                                                     {/* <p className="mb-0 text-sm text-gray-600">{userData.name}</p> */}
                                                 </div>
                                                 <div className="user-img d-flex align-items-center">

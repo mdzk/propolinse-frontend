@@ -1,28 +1,30 @@
 import React, { useState } from 'react';
-import { Link, redirect, useParams } from 'react-router-dom';
+import { Link, useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import AdminLayout from '../../layouts/AdminLayout';
 
 const TambahData = () => {
     const { tipe } = useParams();
+    const navigate = useNavigate();
     const [formData, setFormData] = useState({
-        harga: '',
-        stok: '',
+        kodeBarang: '',
         judulProduk: '',
+        stok: '',
         hastag: '',
         deskripsi: '',
+        harga: '',
+        gambar: null,
         deskripsiUmum: '',
-        kodeBarang: '',
-        gambar: null, // Ini akan berisi file gambar yang diunggah
     });
 
+    const [apiErrors, setApiErrors] = useState({});
     const handleChange = (e) => {
         const { name, value, files } = e.target;
 
         if (name === 'gambar') {
             setFormData({
                 ...formData,
-                [name]: files[0], // Mengambil file pertama dari input gambar
+                [name]: files[0],
             });
         } else {
             setFormData({
@@ -30,6 +32,7 @@ const TambahData = () => {
                 [name]: value,
             });
         }
+        setApiErrors({ ...apiErrors, [name]: '' });
     };
 
     const handleSubmit = async (e) => {
@@ -39,7 +42,7 @@ const TambahData = () => {
             const authToken = localStorage.getItem('auth_token');
             const headers = {
                 'Authorization': `Bearer ${authToken}`,
-                'Content-Type': 'multipart/form-data', // Set tipe konten sebagai multipart/form-data
+                'Content-Type': 'multipart/form-data',
             };
 
             const data = new FormData();
@@ -53,14 +56,15 @@ const TambahData = () => {
             data.append('desk_umum', formData.deskripsiUmum);
             data.append('berat_brg', 600);
             data.append('jenis_brg', "Mouthwash");
-            data.append('image', formData.gambar); // Mengirim file gambar
+            data.append('image', formData.gambar);
 
             const response = await axios.post(import.meta.env.VITE_API_URL + 'api/barang', data, { headers });
             console.log('success');
-            window.location.href = '/admin/' + tipe;
+            navigate('/admin/' + tipe);
         } catch (error) {
             if (error.response) {
                 console.error('Error:', error.response.data);
+                setApiErrors(error.response.data.errors);
             } else if (error.request) {
                 console.error('Network Error:', error.request);
             } else {
@@ -92,10 +96,13 @@ const TambahData = () => {
                                                         <input
                                                             type="text"
                                                             name="kodeBarang"
-                                                            className="form-control"
+                                                            className={`form-control ${apiErrors.kd_brg && 'is-invalid'}`}
                                                             placeholder="Teman Fokus"
                                                             onChange={handleChange}
                                                         />
+                                                        {apiErrors.kd_brg && (
+                                                            <div className="invalid-feedback">{apiErrors.kd_brg[0]}</div>
+                                                        )}
                                                     </div>
                                                 </div>
                                                 <div className="col-12">
@@ -107,10 +114,13 @@ const TambahData = () => {
                                                         <input
                                                             type="text"
                                                             name="judulProduk"
-                                                            className="form-control"
+                                                            className={`form-control ${apiErrors.nm_brg && 'is-invalid'}`}
                                                             placeholder="Teman Fokus"
                                                             onChange={handleChange}
                                                         />
+                                                        {apiErrors.nm_brg && (
+                                                            <div className="invalid-feedback">{apiErrors.nm_brg[0]}</div>
+                                                        )}
                                                     </div>
                                                 </div>
                                                 <div className="col-12">
@@ -122,10 +132,13 @@ const TambahData = () => {
                                                         <input
                                                             type="text"
                                                             name="stok"
-                                                            className="form-control"
+                                                            className={`form-control ${apiErrors.stok && 'is-invalid'}`}
                                                             placeholder="10"
                                                             onChange={handleChange}
                                                         />
+                                                        {apiErrors.stok && (
+                                                            <div className="invalid-feedback">{apiErrors.stok[0]}</div>
+                                                        )}
                                                     </div>
                                                 </div>
                                                 <div className="col-12">
@@ -137,22 +150,28 @@ const TambahData = () => {
                                                         <input
                                                             type="text"
                                                             name="hastag"
-                                                            className="form-control"
+                                                            className={`form-control ${apiErrors.tag && 'is-invalid'}`}
                                                             placeholder="#mantap"
                                                             onChange={handleChange}
                                                         />
+                                                        {apiErrors.tag && (
+                                                            <div className="invalid-feedback">{apiErrors.tag[0]}</div>
+                                                        )}
                                                     </div>
                                                 </div>
                                                 <div className="col-12">
                                                     <div className="form-group">
                                                         <label htmlFor="email-id-vertical">Deskripsi</label>
                                                         <textarea
-                                                            className="form-control"
+                                                            className={`form-control ${apiErrors.ket_brg && 'is-invalid'}`}
                                                             placeholder='Berguna untuk ...'
                                                             onChange={handleChange}
                                                             name="deskripsi"
                                                         >
                                                         </textarea>
+                                                        {apiErrors.ket_brg && (
+                                                            <div className="invalid-feedback">{apiErrors.ket_brg[0]}</div>
+                                                        )}
                                                     </div>
                                                 </div>
                                                 <div className="col-12">
@@ -165,10 +184,13 @@ const TambahData = () => {
                                                                 <input
                                                                     type="text"
                                                                     name="harga"
-                                                                    className="form-control"
+                                                                    className={`form-control ${apiErrors.hrg_brg && 'is-invalid'}`}
                                                                     placeholder="120.000"
                                                                     onChange={handleChange}
                                                                 />
+                                                                {apiErrors.hrg_brg && (
+                                                                    <div className="invalid-feedback">{apiErrors.hrg_brg[0]}</div>
+                                                                )}
                                                             </div>
                                                         </div>
                                                         <div className="col-md-6">
@@ -179,10 +201,13 @@ const TambahData = () => {
                                                                 <input
                                                                     type="file"
                                                                     name="gambar"
-                                                                    className="form-control"
+                                                                    className={`form-control ${apiErrors.image && 'is-invalid'}`}
                                                                     accept="image/*"
                                                                     onChange={handleChange}
                                                                 />
+                                                                {apiErrors.image && (
+                                                                    <div className="invalid-feedback">{apiErrors.image[0]}</div>
+                                                                )}
                                                             </div>
                                                         </div>
                                                     </div>
@@ -192,12 +217,15 @@ const TambahData = () => {
                                                         <label htmlFor="email-id-vertical">Deskripsi Umum</label>
                                                         <textarea
                                                             rows={5}
-                                                            className="form-control"
+                                                            className={`form-control ${apiErrors.desk_umum && 'is-invalid'}`}
                                                             name='deskripsiUmum'
                                                             placeholder='Berguna untuk ...'
                                                             onChange={handleChange}
                                                         >
                                                         </textarea>
+                                                        {apiErrors.desk_umum && (
+                                                            <div className="invalid-feedback">{apiErrors.desk_umum[0]}</div>
+                                                        )}
                                                     </div>
                                                 </div>
                                                 <div className="col-12 d-flex justify-content-end">
