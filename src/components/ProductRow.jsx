@@ -22,7 +22,7 @@ function ProductRow(props) {
                     style={{ height: "230px" }}
                 />
             </td>
-            <td className='d-flex justify-content-evenly'>
+            <td>
                 <Link to="/admin/edit" className='btn btn-primary'>Ubah</Link>
 
                 <button type="button" className="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">

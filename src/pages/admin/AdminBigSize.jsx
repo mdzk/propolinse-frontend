@@ -15,7 +15,7 @@ const AdminBigSize = () => {
     useEffect(() => {
         setisLoading(true);
         axios
-            .get(apiUrl + "kategori?category_name=home")
+            .get(apiUrl + "kategori?category_name=bigsize")
             .then((response) => {
                 setdata(response.data);
                 setisLoading(false);

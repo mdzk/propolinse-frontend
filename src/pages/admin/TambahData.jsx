@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Link, redirect, useParams } from 'react-router-dom';
 import axios from 'axios';
 import AdminLayout from '../../layouts/AdminLayout';
 
@@ -12,6 +12,7 @@ const TambahData = () => {
         hastag: '',
         deskripsi: '',
         deskripsiUmum: '',
+        kodeBarang: '',
         gambar: null, // Ini akan berisi file gambar yang diunggah
     });
 
@@ -42,7 +43,7 @@ const TambahData = () => {
             };
 
             const data = new FormData();
-            data.append('kd_brg', 91);
+            data.append('kd_brg', formData.kodeBarang);
             data.append('hrg_brg', formData.harga);
             data.append('stok', formData.stok);
             data.append('nm_brg', formData.judulProduk);
@@ -55,11 +56,16 @@ const TambahData = () => {
             data.append('image', formData.gambar); // Mengirim file gambar
 
             const response = await axios.post(import.meta.env.VITE_API_URL + 'api/barang', data, { headers });
-            if (response.status === 200) {
-                console.log('Berhasil mengunggah gambar:', response.data);
-            }
+            console.log('success');
+            window.location.href = '/admin/' + tipe;
         } catch (error) {
-            console.error('Error mengunggah gambar:', error.response.data);
+            if (error.response) {
+                console.error('Error:', error.response.data);
+            } else if (error.request) {
+                console.error('Network Error:', error.request);
+            } else {
+                console.error('Error:', error.message);
+            }
         }
     };
 
@@ -68,6 +74,21 @@ const TambahData = () => {
             <form onSubmit={handleSubmit} className="form form-vertical" encType="multipart/form-data">
                 <div className="form-body">
                     <div className="row">
+                        <div className="col-12">
+                            <div className="form-group">
+                                <label htmlFor="first-name-vertical"
+                                >Kode Barang</label
+                                >
+
+                                <input
+                                    type="text"
+                                    name="kodeBarang"
+                                    className="form-control"
+                                    placeholder="Teman Fokus"
+                                    onChange={handleChange}
+                                />
+                            </div>
+                        </div>
                         <div className="col-12">
                             <div className="form-group">
                                 <label htmlFor="first-name-vertical"
