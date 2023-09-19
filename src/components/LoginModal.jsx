@@ -18,12 +18,22 @@ function LoginModal({ showRegistration, showLupaPassword }) {
         });
     };
 
+    const [message, setMessage] = useState('');
+    const [alertType, setAlertType] = useState('');
+
     const handleSubmit = async (e) => {
         e.preventDefault();
 
         try {
             const response = await axios.post(import.meta.env.VITE_API_URL + 'api/login', formData);
             const { data } = response;
+
+            if (!data || !data.data || !data.data.token) {
+                setMessage(data.message || 'Unknown error');
+                setAlertType('danger');
+                return;
+            }
+
             localStorage.setItem('auth_token', data.data.token);
             const authToken = localStorage.getItem('auth_token');
             const userResponse = await axios.get(import.meta.env.VITE_API_URL + 'api/user', {
@@ -32,14 +42,18 @@ function LoginModal({ showRegistration, showLupaPassword }) {
                     'Content-Type': 'application/json',
                 },
             });
+
             const userData = userResponse.data.data;
             setUserRole(userData.role);
+
             if (userData.role === 'admin') {
                 window.location.href = '/admin';
             } else if (userData.role === 'user') {
                 window.location.href = '/user';
             }
         } catch (error) {
+            setMessage('An error occurred while processing your request.');
+            setAlertType('danger');
             console.error('Login error:', error);
         }
     };
@@ -59,6 +73,13 @@ function LoginModal({ showRegistration, showLupaPassword }) {
             </div>
             <div className="modal-body p-3">
                 <h6>Welcome Back!</h6>
+                <div>
+                    {message && (
+                        <div className={`mb-3 alert alert-${alertType}`} role="alert">
+                            {message}
+                        </div>
+                    )}
+                </div>
                 <form onSubmit={handleSubmit}>
                     <input type="text" name="email" value={formData.email} onChange={handleChange} placeholder="Email Address" className="form-control" />
                     <input type="password" name="password" value={formData.password} onChange={handleChange} placeholder="Password" className="form-control" />
