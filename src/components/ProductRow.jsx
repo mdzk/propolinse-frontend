@@ -1,9 +1,39 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import CurrencyFormat from 'react-currency-format';
+import axios from "axios";
 
 function ProductRow(props) {
+    const [isDeleting, setIsDeleting] = useState(false);
     const apiUrl = import.meta.env.VITE_API_URL + "storage/posts/";
+    const navigate = useNavigate();
+
+    const handleDelete = () => {
+        setIsDeleting(true);
+
+        const apiUrl = `${import.meta.env.VITE_API_URL}api/delete/${props.id}`;
+
+        axios
+            .delete(apiUrl)
+            .then((response) => {
+                // Penanganan jika penghapusan berhasil
+                console.log('Data berhasil dihapus:', response);
+
+                // Kembali ke halaman /admin/bigsize setelah penghapusan berhasil
+                navigate('/admin/bigsize');
+
+                setIsDeleting(false);
+            })
+            .catch((error) => {
+                // Penanganan jika ada kesalahan saat penghapusan
+                console.error('Kesalahan saat menghapus data:', error.response.data);
+
+                // Lainnya: Tindakan yang perlu Anda lakukan jika penghapusan gagal
+
+                setIsDeleting(false);
+            });
+    };
+
     return (
 
         <tr>
@@ -41,7 +71,7 @@ function ProductRow(props) {
                             </div>
                             <div className="modal-footer">
                                 <button type="button" className="btn btn-primary" data-bs-dismiss="modal">Batal</button>
-                                <button type="button" className="btn btn-success">Iya</button>
+                                <button type="button" onClick={handleDelete} disabled={isDeleting} className="btn btn-success">{isDeleting ? 'Menghapus...' : 'Iya'}</button>
                             </div>
                         </div>
                     </div>

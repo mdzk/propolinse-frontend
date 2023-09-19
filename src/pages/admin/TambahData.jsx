@@ -71,145 +71,160 @@ const TambahData = () => {
 
     return (
         <AdminLayout>
-            <form onSubmit={handleSubmit} className="form form-vertical" encType="multipart/form-data">
-                <div className="form-body">
-                    <div className="row">
-                        <div className="col-12">
-                            <div className="form-group">
-                                <label htmlFor="first-name-vertical"
-                                >Kode Barang</label
-                                >
+            <div className="page-heading">
+                <h3>Tambah Data Produk</h3>
+            </div>
+            <div className="page-content">
+                <section className="row">
+                    <div className="col-12 col-lg-12">
+                        <div className="card">
+                            <div className="card-content">
+                                <div className="card-body">
+                                    <form onSubmit={handleSubmit} className="form form-vertical" encType="multipart/form-data">
+                                        <div className="form-body">
+                                            <div className="row">
+                                                <div className="col-12">
+                                                    <div className="form-group">
+                                                        <label htmlFor="first-name-vertical"
+                                                        >Kode Barang</label
+                                                        >
 
-                                <input
-                                    type="text"
-                                    name="kodeBarang"
-                                    className="form-control"
-                                    placeholder="Teman Fokus"
-                                    onChange={handleChange}
-                                />
-                            </div>
-                        </div>
-                        <div className="col-12">
-                            <div className="form-group">
-                                <label htmlFor="first-name-vertical"
-                                >Judul Produk</label
-                                >
+                                                        <input
+                                                            type="text"
+                                                            name="kodeBarang"
+                                                            className="form-control"
+                                                            placeholder="Teman Fokus"
+                                                            onChange={handleChange}
+                                                        />
+                                                    </div>
+                                                </div>
+                                                <div className="col-12">
+                                                    <div className="form-group">
+                                                        <label htmlFor="first-name-vertical"
+                                                        >Judul Produk</label
+                                                        >
 
-                                <input
-                                    type="text"
-                                    name="judulProduk"
-                                    className="form-control"
-                                    placeholder="Teman Fokus"
-                                    onChange={handleChange}
-                                />
-                            </div>
-                        </div>
-                        <div className="col-12">
-                            <div className="form-group">
-                                <label htmlFor="first-name-vertical"
-                                >Stok Produk</label
-                                >
+                                                        <input
+                                                            type="text"
+                                                            name="judulProduk"
+                                                            className="form-control"
+                                                            placeholder="Teman Fokus"
+                                                            onChange={handleChange}
+                                                        />
+                                                    </div>
+                                                </div>
+                                                <div className="col-12">
+                                                    <div className="form-group">
+                                                        <label htmlFor="first-name-vertical"
+                                                        >Stok Produk</label
+                                                        >
 
-                                <input
-                                    type="text"
-                                    name="stok"
-                                    className="form-control"
-                                    placeholder="10"
-                                    onChange={handleChange}
-                                />
-                            </div>
-                        </div>
-                        <div className="col-12">
-                            <div className="form-group">
-                                <label htmlFor="first-name-vertical">
-                                    Hastag
-                                </label>
+                                                        <input
+                                                            type="text"
+                                                            name="stok"
+                                                            className="form-control"
+                                                            placeholder="10"
+                                                            onChange={handleChange}
+                                                        />
+                                                    </div>
+                                                </div>
+                                                <div className="col-12">
+                                                    <div className="form-group">
+                                                        <label htmlFor="first-name-vertical">
+                                                            Hastag
+                                                        </label>
 
-                                <input
-                                    type="text"
-                                    name="hastag"
-                                    className="form-control"
-                                    placeholder="#mantap"
-                                    onChange={handleChange}
-                                />
-                            </div>
-                        </div>
-                        <div className="col-12">
-                            <div className="form-group">
-                                <label htmlFor="email-id-vertical">Deskripsi</label>
-                                <textarea
-                                    className="form-control"
-                                    placeholder='Berguna untuk ...'
-                                    onChange={handleChange}
-                                    name="deskripsi"
-                                >
-                                </textarea>
-                            </div>
-                        </div>
-                        <div className="col-12">
-                            <div className="row">
-                                <div className="col-md-6">
-                                    <div className="form-group">
-                                        <label htmlFor="first-name-vertical"
-                                        >Harga</label
-                                        >
-                                        <input
-                                            type="text"
-                                            name="harga"
-                                            className="form-control"
-                                            placeholder="120.000"
-                                            onChange={handleChange}
-                                        />
-                                    </div>
+                                                        <input
+                                                            type="text"
+                                                            name="hastag"
+                                                            className="form-control"
+                                                            placeholder="#mantap"
+                                                            onChange={handleChange}
+                                                        />
+                                                    </div>
+                                                </div>
+                                                <div className="col-12">
+                                                    <div className="form-group">
+                                                        <label htmlFor="email-id-vertical">Deskripsi</label>
+                                                        <textarea
+                                                            className="form-control"
+                                                            placeholder='Berguna untuk ...'
+                                                            onChange={handleChange}
+                                                            name="deskripsi"
+                                                        >
+                                                        </textarea>
+                                                    </div>
+                                                </div>
+                                                <div className="col-12">
+                                                    <div className="row">
+                                                        <div className="col-md-6">
+                                                            <div className="form-group">
+                                                                <label htmlFor="first-name-vertical"
+                                                                >Harga</label
+                                                                >
+                                                                <input
+                                                                    type="text"
+                                                                    name="harga"
+                                                                    className="form-control"
+                                                                    placeholder="120.000"
+                                                                    onChange={handleChange}
+                                                                />
+                                                            </div>
+                                                        </div>
+                                                        <div className="col-md-6">
+                                                            <div className="form-group">
+                                                                <label htmlFor="contact-info-vertical"
+                                                                >Gambar</label
+                                                                >
+                                                                <input
+                                                                    type="file"
+                                                                    name="gambar"
+                                                                    className="form-control"
+                                                                    accept="image/*"
+                                                                    onChange={handleChange}
+                                                                />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div className="col-12">
+                                                    <div className="form-group">
+                                                        <label htmlFor="email-id-vertical">Deskripsi Umum</label>
+                                                        <textarea
+                                                            rows={5}
+                                                            className="form-control"
+                                                            name='deskripsiUmum'
+                                                            placeholder='Berguna untuk ...'
+                                                            onChange={handleChange}
+                                                        >
+                                                        </textarea>
+                                                    </div>
+                                                </div>
+                                                <div className="col-12 d-flex justify-content-end">
+                                                    <Link to={"/admin/" + tipe}
+                                                        type="reset"
+                                                        className="btn btn-primary me-1 mb-1"
+                                                    >
+                                                        Batal
+                                                    </Link>
+                                                    <button
+                                                        type="submit"
+                                                        className="btn btn-success me-1 mb-1"
+                                                    >
+                                                        Simpan
+                                                    </button>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
                                 </div>
-                                <div className="col-md-6">
-                                    <div className="form-group">
-                                        <label htmlFor="contact-info-vertical"
-                                        >Gambar</label
-                                        >
-                                        <input
-                                            type="file"
-                                            name="gambar"
-                                            className="form-control"
-                                            accept="image/*"
-                                            onChange={handleChange}
-                                        />
-                                    </div>
-                                </div>
                             </div>
-                        </div>
-                        <div className="col-12">
-                            <div className="form-group">
-                                <label htmlFor="email-id-vertical">Deskripsi Umum</label>
-                                <textarea
-                                    rows={5}
-                                    className="form-control"
-                                    name='deskripsiUmum'
-                                    placeholder='Berguna untuk ...'
-                                    onChange={handleChange}
-                                >
-                                </textarea>
-                            </div>
-                        </div>
-                        <div className="col-12 d-flex justify-content-end">
-                            <Link to={"/admin/collaboration"}
-                                type="reset"
-                                className="btn btn-primary me-1 mb-1"
-                            >
-                                Batal
-                            </Link>
-                            <button
-                                type="submit"
-                                className="btn btn-success me-1 mb-1"
-                            >
-                                Simpan
-                            </button>
-
                         </div>
                     </div>
-                </div>
-            </form>
-        </AdminLayout>
+                </section>
+            </div>
+        </AdminLayout >
     );
 };
 
