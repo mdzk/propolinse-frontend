@@ -8,7 +8,6 @@ import ScrollToTopOnNavigation from './utilities/ScrollToTopOnNavigation';
 import Homepage from './pages/user/Homepage';
 import Contact from "./pages/user/Contact";
 import About from './pages/user/About';
-import Loginpage from './pages/user/Loginpage';
 import Faq from "./pages/user/Faq";
 import Findstore from "./pages/user/Findstore";
 import Privacypolicy from "./pages/user/Privacypolicy";
@@ -92,7 +91,6 @@ const AllRoutes = () => {
             <Route path="becomereseller" element={<Becomereseller />} />
             <Route path="findstore" element={<Findstore />} />
             <Route path="privacypolicy" element={<Privacypolicy />} />
-            <Route path="loginpage" element={<Loginpage />} />
             <Route path="bigsize" element={<BigSize />} />
             <Route path="travelsize" element={<TravelSize />} />
             <Route path="home" element={<Home />} />
@@ -105,19 +103,19 @@ const AllRoutes = () => {
 
           <Route path="/admin" >
             <Route index element={auth(<Dashboard />, "admin")} />
-            <Route path="kategori" element={<KategoriProduk />} />
-            <Route path="pesanan" element={<Pesanan />} />
-            <Route path="pembayaran" element={<Pembayaran />} />
-            <Route path="pelanggan" element={<Pelanggan />} />
-            <Route path="collaboration" element={<AdminCollaboration />} />
-            <Route path="bundling" element={<AdminBundling />} />
-            <Route path="home" element={<AdminHome />} />
-            <Route path="holiday" element={<AdminHoliday />} />
-            <Route path="bigsize" element={<AdminBigSize />} />
-            <Route path="travelsize" element={<AdminTravelSize />} />
-            <Route path="edit/:id" element={<UbahData />} />
-            <Route path="add/:tipe" element={<TambahData />} />
-            <Route path="login" element={<AdminLogin />} />
+            <Route path="kategori" element={auth(<KategoriProduk />, "admin")} />
+            <Route path="pesanan" element={auth(<Pesanan />, "admin")} />
+            <Route path="pembayaran" element={auth(<Pembayaran />, "admin")} />
+            <Route path="pelanggan" element={auth(<Pelanggan />, "admin")} />
+            <Route path="collaboration" element={auth(<AdminCollaboration />, "admin")} />
+            <Route path="bundling" element={auth(<AdminBundling />, "admin")} />
+            <Route path="home" element={auth(<AdminHome />, "admin")} />
+            <Route path="holiday" element={auth(<AdminHoliday />, "admin")} />
+            <Route path="bigsize" element={auth(<AdminBigSize />, "admin")} />
+            <Route path="travelsize" element={auth(<AdminTravelSize />, "admin")} />
+            <Route path="edit/:id" element={auth(<UbahData />, "admin")} />
+            <Route path="add/:tipe" element={auth(<TambahData />, "admin")} />
+            <Route path="login" element={auth(<AdminLogin />, "admin")} />
           </Route>
 
         </Routes>

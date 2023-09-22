@@ -1,11 +1,8 @@
 import React from "react";
-import { Link, useLocation } from "react-router-dom";
 import { useAssets } from "../utilities/AssetsContext";
 
 function AuthLayout({ children }) {
     const { assets } = useAssets();
-    const location = useLocation();
-    const isActive = (path) => location.pathname === path;
     return (
         <>
             {assets && (

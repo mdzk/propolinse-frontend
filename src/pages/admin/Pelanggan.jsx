@@ -1,11 +1,40 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import AdminLayout from '../../layouts/AdminLayout';
+import axios from 'axios';
+import PelangganRow from '../../components/PelangganRow';
 
 const Pelanggan = () => {
+    const apiUrl = import.meta.env.VITE_API_URL + "api/";
+    const [data, setData] = useState({
+        data: [],
+    });
+    const [isLoading, setIsLoading] = useState(false);
+    const [isError, setIsError] = useState(false);
+
+    useEffect(() => {
+        setIsLoading(true);
+        axios
+            .get(apiUrl + "user/all")
+            .then((response) => {
+                setData(response.data);
+                console.log(response.data);
+                setIsLoading(false);
+            })
+            .catch((err) => {
+                setIsError(true);
+                setIsLoading(false);
+            });
+    }, []);
+
+    const handleDeleteItem = (itemId) => {
+        const updatedData = data.data.filter((data) => data.id !== itemId);
+        setData({ ...data, data: updatedData });
+    };
+
     return (
         <AdminLayout>
-            <div className="page-heading">
+            <div className="page-heading d-flex justify-content-between">
                 <h3>Daftar Pelanggan</h3>
             </div>
             <div className="page-content">
@@ -20,41 +49,28 @@ const Pelanggan = () => {
                                                 <th>No</th>
                                                 <th>Email</th>
                                                 <th>Nama Pelanggan</th>
-                                                <th>Tanggal Buat</th>
-                                                <th>Aksi</th>
+                                                <th>Tgl Buat</th>
+                                                <th className='text-center'>Aksi</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td>1</td>
-                                                <td>santa@mail.com</td>
-                                                <td>Santa</td>
-                                                <td>15 Mei 2023</td>
-                                                <td>
-                                                    <button type="button" className="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                                        Hapus
-                                                    </button>
-
-                                                    <div className="modal fade" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                                        <div className="modal-dialog">
-                                                            <div className="modal-content">
-                                                                <div className="modal-header">
-                                                                    <h1 className="modal-title fs-5" id="exampleModalLabel">Peringatan</h1>
-                                                                    <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                                </div>
-                                                                <div className="modal-body">
-                                                                    Data akan dihapus secara permanen, Apakah anda yakin ingin menghapus?
-                                                                </div>
-                                                                <div className="modal-footer">
-                                                                    <button type="button" className="btn btn-primary" data-bs-dismiss="modal">Batal</button>
-                                                                    <button type="button" className="btn btn-success">Iya</button>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
-                                                </td>
-                                            </tr>
+                                            {isLoading ? (
+                                                <tr>
+                                                    <td><p>Loading data ...</p></td>
+                                                </tr>
+                                            ) : (
+                                                data.data.map((product, index) => (
+                                                    <PelangganRow
+                                                        index={index + 1}
+                                                        key={product.id}
+                                                        id={product.id}
+                                                        email={product.email}
+                                                        name={product.name}
+                                                        date={product.tgl_lhr}
+                                                        onDelete={() => handleDeleteItem(product.id)} // Fungsi onDelete untuk menghapus item
+                                                    />
+                                                ))
+                                            )}
                                         </tbody>
                                     </table>
                                 </div>

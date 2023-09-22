@@ -18,6 +18,7 @@ const AdminBigSize = () => {
             .get(apiUrl + "kategori?category_name=bigsize")
             .then((response) => {
                 setData(response.data);
+                console.log(response.data);
                 setIsLoading(false);
             })
             .catch((err) => {
