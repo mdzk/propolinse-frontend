@@ -85,7 +85,7 @@ function LoginModal({ showRegistration, showLupaPassword }) {
                     <input type="password" name="password" value={formData.password} onChange={handleChange} placeholder="Password" className="form-control" />
                     <div className="d-flex justify-content-between">
                         <div>
-                            <input type="checkbox" className="mr-2" name="" id="" /> Remember Me
+                            <input type="checkbox" className="mr-2" name="remember" id="remember" /> <label htmlFor="remember">Remember Me</label>
                         </div>
                         <a style={{ cursor: "pointer" }} onClick={showLupaPassword}>
                             Forgot Password?

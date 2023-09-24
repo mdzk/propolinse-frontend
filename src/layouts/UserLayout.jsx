@@ -130,7 +130,7 @@ function UserLayout({ children }) {
                                 </form>
                             </div>
 
-                            <div className="header-login ml-3">
+                            <div className="header-login ml-3 d-flex justify-content-end">
 
                                 {isLoggedIn && userRole === 'user' ? (
                                     <Link to={"/user"}>
