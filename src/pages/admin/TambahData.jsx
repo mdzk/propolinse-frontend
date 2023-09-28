@@ -65,6 +65,7 @@ const TambahData = () => {
             if (error.response) {
                 console.error('Error:', error.response.data);
                 setApiErrors(error.response.data.errors);
+                console.error(error.response.data.errors);
             } else if (error.request) {
                 console.error('Network Error:', error.request);
             } else {

@@ -40,6 +40,7 @@ import AdminLogin from './pages/admin/AdminLogin';
 import DetailProduct from './pages/user/DetailProduct';
 import User from './pages/user/User';
 import axios from 'axios';
+import RegisterSuccess from './pages/user/RegisterSuccess';
 
 const AllRoutes = () => {
 
@@ -97,6 +98,7 @@ const AllRoutes = () => {
             <Route path="holiday" element={<Holiday />} />
             <Route path="collaboration" element={<Collaboration />} />
             <Route path="bundling" element={<Bundling />} />
+            <Route path="/success" element={<RegisterSuccess />} />
             <Route path="detail/:id" element={<DetailProduct />} />
             <Route path="user" element={auth(<User />, "user")} />
           </Route>

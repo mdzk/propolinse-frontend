@@ -11,7 +11,9 @@ const DetailProduct = () => {
     const [counter, setCounter] = useState(0);
 
     const handleClick1 = () => {
-        setCounter(counter + 1);
+        if (counter < data.stok) {
+            setCounter(counter + 1);
+        }
     };
 
     const handleClick2 = () => {
@@ -60,11 +62,10 @@ const DetailProduct = () => {
                         <div className="col-md-8 p-5">
                             <div className="product-details">
                                 <h4>{data.nm_brg}</h4>
-                                <p>Get Your "Nafas Segar Sepanjang Hari"</p>
+                                <p>{data.tag}</p>
                                 <div className="product-content">
                                     <p>
-                                        Obat kumur PIERAS PROPOLINSE terbuat dari propolis, ekstrak
-                                        teh hijau Jepang berkualitas tinggi dan xylitol alami.{" "}
+                                        {data.ket_brg}
                                     </p>
                                 </div>
                                 <h4>
@@ -94,89 +95,13 @@ const DetailProduct = () => {
                 <div className="bg-deskripsi">
                     <div className="container">
                         <div className="row">
-                            <div className="col-md-6 p-5">
+                            <div className="col-md-12 p-5">
                                 <div className="product-desc-content">
                                     <h2>Product Information</h2>
-                                    <ul className="widget-list p-0">
-                                        <p>🟡 Variant : Sakura </p>
-                                        <p>🟡 Volume : 600mL </p>
-                                        <p className="jarak-deskripsi">🟡 Berat : 800gr </p>
-                                    </ul>
-                                    <ul className="widget-list p-0">
-                                        <p className="jarak-deskripsi">
-                                            Obat kumur PIERAS PROPOLINSE terbuat dari propolis
-                                            extracts, green tea, bunga sakura Jepang dan natural
-                                            xylitol.
-                                        </p>
-                                    </ul>
-                                    <ul className="widget-list p-0">
-                                        <p>⚠️ PERHATIAN ⚠️</p>
-                                        <p className="jarak-deskripsi">
-                                            Hindari membeli barang di luar Official Store.
-                                            Barang diluar Official Store tidak memiliki BPOM,
-                                            expiry date ataupun kode keaslian. Sangat berbahaya
-                                            untuk kesehatan Anda karena barang tidak ber-BPOM
-                                            dan dapat mengakibatkan kanker mulut.
-                                        </p>
-                                    </ul>
-                                    <ul className="widget-list p-0">
-                                        <p>
-                                            Obat kumur PIERAS PROPOLINSE terbuat dari propolis
-                                            extracts, green tea, bunga sakura Jepang dan natural
-                                            xylitol.
-                                        </p>
-                                    </ul>
+                                    <p>
+                                        {data.desk_umum}
+                                    </p>
                                 </div>
-                            </div>
-                            <div className="col-md-6 p-5">
-                                <ul className="widget-list p-0">
-                                    <p>
-                                        1. Varian Propolinse Sakura tidak mengandung alkohol
-                                        dan cocok untuk anak sejak usia 3tahun.
-                                    </p>
-                                    <p>
-                                        2. Propolinse Mouthwash terbuat dari propolis, ekstrak
-                                        teh hijau Jepang berkualitas tinggi dan xylitol alami.
-                                    </p>
-                                    <p>
-                                        3.Helps maintain oral cleanliness (membantu menjaga
-                                        keberhisan dan kesehatan mulut dan gigi).
-                                    </p>
-                                    <p>
-                                        4. Membantu menyembuhkan sariawan, gusi berdarah, gusi
-                                        bengkak dan gusi bernanah.
-                                    </p>
-                                    <p>5. Menyembuhkan sakit gigi dengan sangat cepat.</p>
-                                    <p>
-                                        6. Prevent tooth decay (mencegah pembusukan gigi
-                                        karena faktor lidestyle/gaya hidup kurang baik dari
-                                        faktor makanan, lingkungan dan juga usia yang makin
-                                        bertambah).
-                                    </p>
-                                    <p>
-                                        7. Prevent tartar buildup (mencegah pertumbuhan karang
-                                        gigi).
-                                    </p>
-                                    <p>
-                                        8. Fight Cavites (melawan pembusukan gigi yang dapat
-                                        berkembang menjadi lubang gigi).
-                                    </p>
-                                    <p>
-                                        9. Remove bad breath, plaque and baceria
-                                        (menghilangkan bau mulut, plak gigi dan bakteri/virus
-                                        berbahaya).
-                                    </p>
-                                    <p>
-                                        10. Natural and safe (terbuat dari bahan-bahan alami
-                                        dan sangat aman untuk dipakai setiap hari setelah
-                                        gosok gigi)
-                                    </p>
-                                    <p>
-                                        11. Mencerahkan gigi jika dipadukan dengan varian
-                                        Whitening (gigi Anda akan lebih cerah dari hari ke
-                                        hari).
-                                    </p>
-                                </ul>
                             </div>
                         </div>
                     </div>

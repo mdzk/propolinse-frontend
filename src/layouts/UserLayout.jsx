@@ -4,7 +4,11 @@ import { useAssets } from "../utilities/AssetsContext";
 import Login from "../components/LoginModal"
 import Register from "../components/RegisterModal"
 import LupaPassword from "../components/LupaPasswordModal"
+import ResetCodeModal from "../components/ResetCodeModal"
+import ResetPasswordModal from "../components/ResetPasswordModal"
+import ResetSuccessModal from "../components/ResetSuccessModal"
 import axios from "axios";
+import CartItem from "../components/CartItem";
 
 function UserLayout({ children }) {
     const { assets } = useAssets();
@@ -12,6 +16,28 @@ function UserLayout({ children }) {
     const [showLogin, setShowLogin] = useState(true);
     const [showRegister, setShowRegister] = useState(false);
     const [showLupaPasswordModal, setShowLupaPasswordModal] = useState(false);
+    const [showResetCodeModal, setShowResetCodeModal] = useState(false);
+    const [showResetPasswordModal, setShowResetPasswordModal] = useState(false);
+    const [showResetSuccessModal, setShowResetSuccessModal] = useState(false);
+    const [resetCode, setResetCode] = useState("");
+
+    const showResetPassword = (code) => {
+        setShowResetPasswordModal(true);
+        setShowLogin(false);
+        setShowRegister(false);
+        setShowLupaPasswordModal(false);
+        setShowResetCodeModal(false);
+        setResetCode(code);
+    };
+
+    const showResetSuccess = () => {
+        setShowResetPasswordModal(false);
+        setShowResetSuccessModal(true);
+        setShowLogin(false);
+        setShowRegister(false);
+        setShowLupaPasswordModal(false);
+        setShowResetCodeModal(false);
+    };
 
     const toggleForm = () => {
         setShowLogin(!showLogin);
@@ -32,11 +58,19 @@ function UserLayout({ children }) {
     const showLoginFromRegister = () => {
         setShowLogin(true);
         setShowRegister(false);
+        setShowResetSuccessModal(false);
     };
 
     const showLoginFromLupaPassword = () => {
         setShowLogin(true);
         setShowLupaPasswordModal(false);
+    };
+
+    const showResetCode = () => {
+        setShowLogin(false);
+        setShowRegister(false);
+        setShowLupaPasswordModal(false);
+        setShowResetCodeModal(true);
     };
 
     // cek login
@@ -168,8 +202,27 @@ function UserLayout({ children }) {
                                                 {showLupaPasswordModal && (
                                                     <LupaPassword
                                                         showLoginFromLupaPassword={showLoginFromLupaPassword}
+                                                        showResetCode={showResetCode}
                                                     />
                                                 )}
+                                                {showResetCodeModal && (
+                                                    <ResetCodeModal
+                                                        showResetPassword={showResetPassword}
+                                                    />
+                                                )}
+                                                {showResetPasswordModal && (
+                                                    <ResetPasswordModal
+                                                        showResetSuccess={showResetSuccess}
+                                                        code={resetCode}
+                                                    />
+                                                )}
+
+                                                {showResetSuccessModal && (
+                                                    <ResetSuccessModal
+                                                        showLoginFromRegister={showLoginFromRegister}
+                                                    />
+                                                )}
+
                                             </div>
                                         </div>
                                     </>
@@ -178,102 +231,96 @@ function UserLayout({ children }) {
 
                             </div>
 
-                            <div className="dropdown cart-dropdown mr-3">
-                                <a href="#" className="dropdown-toggle" role="button" data-toggle="dropdown"
-                                    aria-haspopup="true"
-                                    aria-expanded="false"
-                                    data-display="static"
-                                >
-                                    <img
-                                        src={`${window.location.origin}/assets/images/keranjang.png`}
-                                        alt="color_atas"
-                                        width={19}
-                                        height={20}
-                                    />
-                                    <span className="cart-count">2</span>
-                                </a>
-                                <div className="dropdown-menu dropdown-menu-right">
-                                    <div className="dropdown-cart-products">
-                                        <div className="product">
-                                            <div className="product-cart-details">
-                                                <h4 className="product-title">
-                                                    <a href="product.html">
-                                                        Beige knitted elastic runner shoes
-                                                    </a>
-                                                </h4>
-                                                <span className="cart-product-info">
-                                                    <span className="cart-product-qty">1</span>x $84.00
-                                                </span>
-                                            </div>
-                                            {/* End .product-cart-details */}
-                                            <figure className="product-image-container">
-                                                <a href="product.html" className="product-image">
-                                                    <img
-                                                        src="assets/images/carousel/1.jpeg"
-                                                        alt="product"
-                                                    />
-                                                </a>
-                                            </figure>
+                            {!isLoggedIn ? (
+                                <>
+                                    <a type="button" className="ml-3" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                        <img
+                                            src={`${window.location.origin}/assets/images/keranjang.png`}
+                                            alt="color_atas"
+                                            width={22}
+                                            height={34}
+                                        />
+                                    </a>
+
+                                    <div className="modal fade" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div className="modal-dialog">
+                                            {showLogin && (
+                                                <Login
+                                                    showRegistration={showRegistration}
+                                                    showLupaPassword={showLupaPassword}
+                                                />
+                                            )}
+                                            {showRegister && (
+                                                <Register
+                                                    showLoginFromRegister={showLoginFromRegister}
+                                                />
+                                            )}
+                                            {showLupaPasswordModal && (
+                                                <LupaPassword
+                                                    showLoginFromLupaPassword={showLoginFromLupaPassword}
+                                                    showResetCode={showResetCode}
+                                                />
+                                            )}
+                                            {showResetCodeModal && (
+                                                <ResetCodeModal
+                                                    showResetPassword={showResetPassword}
+                                                />
+                                            )}
+                                            {showResetPasswordModal && (
+                                                <ResetPasswordModal
+                                                    showResetSuccess={showResetSuccess}
+                                                    code={resetCode}
+                                                />
+                                            )}
+
+                                            {showResetSuccessModal && (
+                                                <ResetSuccessModal
+                                                    showLoginFromRegister={showLoginFromRegister}
+                                                />
+                                            )}
+
+                                        </div>
+                                    </div>
+                                </>
+                            ) : (
+                                <div className="dropdown cart-dropdown mr-3">
+                                    <a href="#" className="dropdown-toggle" role="button" data-toggle="dropdown"
+                                        aria-haspopup="true"
+                                        aria-expanded="false"
+                                        data-display="static"
+                                    >
+                                        <img
+                                            src={`${window.location.origin}/assets/images/keranjang.png`}
+                                            alt="color_atas"
+                                            width={19}
+                                            height={20}
+                                        />
+                                        {/* <span className="cart-count">2</span> */}
+                                    </a>
+                                    <div className="dropdown-menu dropdown-menu-right">
+                                        <div className="dropdown-cart-products">
+                                            <CartItem />
+                                        </div>
+                                        <div className="dropdown-cart-total">
+                                            <span>Total</span>
+                                            <span className="cart-total-price">$160.00</span>
+                                        </div>
+                                        {/* End .dropdown-cart-total */}
+                                        <div className="dropdown-cart-action">
+                                            <a href="cart.html" className="btn btn-primary">
+                                                View Cart
+                                            </a>
                                             <a
-                                                href="#"
-                                                className="btn-remove"
-                                                title="Remove Product"
+                                                href="checkout.html"
+                                                className="btn btn-outline-primary-2"
                                             >
-                                                <i className="icon-close" />
+                                                <span>Checkout</span>
+                                                <i className="icon-long-arrow-right" />
                                             </a>
                                         </div>
-                                        {/* End .product */}
-                                        <div className="product">
-                                            <div className="product-cart-details">
-                                                <h4 className="product-title">
-                                                    <a href="product.html">
-                                                        Blue utility pinafore denim dress
-                                                    </a>
-                                                </h4>
-                                                <span className="cart-product-info">
-                                                    <span className="cart-product-qty">1</span>x $76.00
-                                                </span>
-                                            </div>
-                                            {/* End .product-cart-details */}
-                                            <figure className="product-image-container">
-                                                <a href="product.html" className="product-image">
-                                                    <img
-                                                        src="assets/images/carousel/2.jpeg"
-                                                        alt="product"
-                                                    />
-                                                </a>
-                                            </figure>
-                                            <a
-                                                href="#"
-                                                className="btn-remove"
-                                                title="Remove Product"
-                                            >
-                                                <i className="icon-close" />
-                                            </a>
-                                        </div>
-                                        {/* End .product */}
-                                    </div>
-                                    {/* End .cart-product */}
-                                    <div className="dropdown-cart-total">
-                                        <span>Total</span>
-                                        <span className="cart-total-price">$160.00</span>
-                                    </div>
-                                    {/* End .dropdown-cart-total */}
-                                    <div className="dropdown-cart-action">
-                                        <a href="cart.html" className="btn btn-primary">
-                                            View Cart
-                                        </a>
-                                        <a
-                                            href="checkout.html"
-                                            className="btn btn-outline-primary-2"
-                                        >
-                                            <span>Checkout</span>
-                                            <i className="icon-long-arrow-right" />
-                                        </a>
                                     </div>
                                 </div>
-                            </div>
-
+                            )}
                         </div>
                     </div>
                 </div>
