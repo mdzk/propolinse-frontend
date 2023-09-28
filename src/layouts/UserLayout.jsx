@@ -22,6 +22,7 @@ function UserLayout({ children, refreshUserLayout }) {
     const [resetCode, setResetCode] = useState("");
     const [cartItems, setCartItems] = useState([]);
     const [cartRefresh, setCartRefresh] = useState(false);
+    const hasItemsInCart = cartItems.length > 0;
 
     const showResetPassword = (code) => {
         setShowResetPasswordModal(true);
@@ -144,6 +145,8 @@ function UserLayout({ children, refreshUserLayout }) {
                     const updatedCartItems = prevCartItems.filter(item => item.id !== cartId);
                     return updatedCartItems;
                 });
+
+                setCartRefresh(true);
             })
             .catch(error => {
                 console.error('Error removing product:', error);
@@ -372,13 +375,21 @@ function UserLayout({ children, refreshUserLayout }) {
                                             {/* <a href="cart.html" className="btn btn-primary">
                                                 View Cart
                                             </a> */}
-                                            <a
-                                                href="checkout.html"
-                                                className="btn btn-outline-primary-2 w-100"
-                                            >
-                                                <span>View More</span>
-                                                <i className="icon-long-arrow-right" />
-                                            </a>
+                                            {hasItemsInCart ? (
+                                                <Link
+                                                    to={'/checkout'}
+                                                    className="btn btn-outline-primary-2 w-100"
+                                                >
+                                                    <span>View More</span>
+                                                    <i className="icon-long-arrow-right" />
+                                                </Link>
+                                            ) : (
+                                                <button
+                                                    className="btn disabled w-100"
+                                                >
+                                                    <span>No Product</span>
+                                                </button>
+                                            )}
                                         </div>
                                     </div>
                                 </div>

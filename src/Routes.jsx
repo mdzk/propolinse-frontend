@@ -41,6 +41,7 @@ import DetailProduct from './pages/user/DetailProduct';
 import User from './pages/user/User';
 import axios from 'axios';
 import RegisterSuccess from './pages/user/RegisterSuccess';
+import Checkout from './pages/user/Checkout';
 
 const AllRoutes = () => {
 
@@ -101,6 +102,7 @@ const AllRoutes = () => {
             <Route path="/success" element={<RegisterSuccess />} />
             <Route path="detail/:id" element={<DetailProduct />} />
             <Route path="user" element={auth(<User />, "user")} />
+            <Route path="checkout" element={auth(<Checkout />, "user")} />
           </Route>
 
           <Route path="/admin" >
