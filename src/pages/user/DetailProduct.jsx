@@ -7,6 +7,7 @@ import CurrencyFormat from 'react-currency-format';
 const DetailProduct = () => {
     const { id } = useParams();
     const apiUrl = import.meta.env.VITE_API_URL;
+    const [refreshUserLayout, setRefreshUserLayout] = useState(false);
 
     const [counter, setCounter] = useState(0);
 
@@ -64,7 +65,7 @@ const DetailProduct = () => {
     }, []);
 
     const handleAddToBag = () => {
-        const auth_token = localStorage.getItem('auth_token');
+        const auth_token = localStorage.getItem("auth_token");
 
         if (!auth_token) {
             return;
@@ -72,18 +73,22 @@ const DetailProduct = () => {
 
         const requestBody = {
             barang_id: id,
-            quantity: counter
+            quantity: counter,
         };
 
-        axios.post(apiUrl + "api/keranjang", requestBody, {
-            headers: {
-                Authorization: `Bearer ${auth_token}`
-            }
-        })
+        axios
+            .post(apiUrl + "api/keranjang", requestBody, {
+                headers: {
+                    Authorization: `Bearer ${auth_token}`,
+                },
+            })
             .then((response) => {
                 console.log("Added to bag:", response.data);
                 showSuccessMessage();
                 setCounter(0);
+
+                // Set state untuk memicu pembaruan tampilan di UserLayout
+                setRefreshUserLayout(!refreshUserLayout);
             })
             .catch((err) => {
                 console.error("Error adding to bag:", err);
@@ -91,7 +96,7 @@ const DetailProduct = () => {
     };
 
     return (
-        <UserLayout>
+        <UserLayout refreshUserLayout={refreshUserLayout}>
             {isLoading ? <p>Loading data</p> : null}
             <main className="main">
                 <div className="container">

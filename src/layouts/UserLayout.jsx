@@ -10,7 +10,7 @@ import ResetSuccessModal from "../components/ResetSuccessModal"
 import axios from "axios";
 import CartItem from "../components/CartItem";
 
-function UserLayout({ children }) {
+function UserLayout({ children, refreshUserLayout }) {
     const { assets } = useAssets();
 
     const [showLogin, setShowLogin] = useState(true);
@@ -21,6 +21,7 @@ function UserLayout({ children }) {
     const [showResetSuccessModal, setShowResetSuccessModal] = useState(false);
     const [resetCode, setResetCode] = useState("");
     const [cartItems, setCartItems] = useState([]);
+    const [cartRefresh, setCartRefresh] = useState(false);
 
     const showResetPassword = (code) => {
         setShowResetPasswordModal(true);
@@ -110,7 +111,26 @@ function UserLayout({ children }) {
                     console.error('Error fetching cart data:', error);
                 });
         }
-    }, []);
+        if (cartRefresh) {
+            loadCartData();
+        }
+    }, [cartRefresh, refreshUserLayout]);
+
+    const loadCartData = () => {
+        const authToken = localStorage.getItem('auth_token');
+        axios.get(`${import.meta.env.VITE_API_URL}api/carts/user/home`, {
+            headers: {
+                'Authorization': `Bearer ${authToken}`,
+            },
+        })
+            .then(response => {
+                setCartItems(response.data);
+                setCartRefresh(false);
+            })
+            .catch(error => {
+                console.error('Error fetching cart data:', error);
+            });
+    };
 
     const removeProduct = (cartId) => {
         const authToken = localStorage.getItem('auth_token');
@@ -121,8 +141,7 @@ function UserLayout({ children }) {
         })
             .then(response => {
                 setCartItems(prevCartItems => {
-                    const updatedCartItems = prevCartItems.filter(item => item.cartId !== cartId);
-                    console.log('Updated Cart Items:', updatedCartItems);
+                    const updatedCartItems = prevCartItems.filter(item => item.id !== cartId);
                     return updatedCartItems;
                 });
             })
@@ -266,7 +285,7 @@ function UserLayout({ children }) {
 
                             {!isLoggedIn ? (
                                 <>
-                                    <a type="button" className="ml-3" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                    <a type="button" className="ml-3" data-bs-toggle="modal" data-bs-target="#exampleModal1">
                                         <img
                                             src={`${window.location.origin}/assets/images/keranjang.png`}
                                             alt="color_atas"
@@ -275,7 +294,7 @@ function UserLayout({ children }) {
                                         />
                                     </a>
 
-                                    <div className="modal fade" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div className="modal fade" id="exampleModal1" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                         <div className="modal-dialog">
                                             {showLogin && (
                                                 <Login
@@ -332,15 +351,15 @@ function UserLayout({ children }) {
                                     </a>
                                     <div className="dropdown-menu dropdown-menu-right">
                                         <div className="dropdown-cart-products">
-                                            {cartItems.map(item => (
+                                            {cartItems.map((item, index) => (
                                                 <CartItem
-                                                    key={item.id} // Use cartId as the unique key
+                                                    key={index}
                                                     name={item.barang.nm_brg}
                                                     price={item.barang.hrg_brg}
                                                     quantity={item.quantity}
                                                     image={item.barang.image}
-                                                    cartId={item.id} // Pass the cartId as a prop
-                                                    removeProduct={removeProduct} // Pass the removeProduct callback
+                                                    cartId={item.id}
+                                                    onRemove={() => removeProduct(item.id)}
                                                 />
                                             ))}
                                         </div>

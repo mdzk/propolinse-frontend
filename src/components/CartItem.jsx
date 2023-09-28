@@ -28,7 +28,7 @@ function CartItem(props) {
             <button
                 className="btn-remove"
                 title="Remove Product"
-                onClick={() => props.removeProduct(props.cartId)}
+                onClick={props.onRemove}
             >
                 <i className="icon-close" />
             </button>
