@@ -36,6 +36,19 @@ const DetailProduct = () => {
     const [isLoading, setisLoading] = useState(false);
     const [isError, setisError] = useState(false);
 
+    // State untuk mengontrol tampilan modal sukses
+    const [showSuccessModal, setShowSuccessModal] = useState(false);
+
+    // Fungsi untuk menampilkan modal sukses
+    const showSuccessMessage = () => {
+        setShowSuccessModal(true);
+        // Setelah beberapa detik, sembunyikan modal sukses
+        setTimeout(() => {
+            setShowSuccessModal(false);
+            // Reset counter menjadi 0
+        }, 3000); // Misalnya, sembunyikan setelah 3 detik
+    };
+
     useEffect(() => {
         setisLoading(true);
         axios
@@ -49,6 +62,33 @@ const DetailProduct = () => {
                 setisLoading(false);
             });
     }, []);
+
+    const handleAddToBag = () => {
+        const auth_token = localStorage.getItem('auth_token');
+
+        if (!auth_token) {
+            return;
+        }
+
+        const requestBody = {
+            barang_id: id,
+            quantity: counter
+        };
+
+        axios.post(apiUrl + "api/keranjang", requestBody, {
+            headers: {
+                Authorization: `Bearer ${auth_token}`
+            }
+        })
+            .then((response) => {
+                console.log("Added to bag:", response.data);
+                showSuccessMessage();
+                setCounter(0);
+            })
+            .catch((err) => {
+                console.error("Error adding to bag:", err);
+            });
+    };
 
     return (
         <UserLayout>
@@ -80,9 +120,9 @@ const DetailProduct = () => {
                                     </div>
 
                                     <div className="col-lg-3 col-sm-12 col-xs-12 mt-2 p-0 mx-3">
-                                        <a href="#" className="h-100 w-100 btn btn-add p-3">
+                                        <button onClick={handleAddToBag} className="h-100 w-100 btn btn-add p-3">
                                             <span>Add to Bag</span>
-                                        </a>
+                                        </button>
                                     </div>
 
                                 </div>
@@ -90,7 +130,6 @@ const DetailProduct = () => {
                         </div>
                     </div>
                 </div>
-
 
                 <div className="bg-deskripsi">
                     <div className="container">
@@ -106,6 +145,37 @@ const DetailProduct = () => {
                         </div>
                     </div>
                 </div>
+                {/* Modal sukses */}
+                {showSuccessModal && (
+                    <div className="modal fade show" id="exampleModaltest" tabIndex="-1" aria-labelledby="exampleModalLabel" style={{ display: "block" }} aria-hidden="true">
+                        <div className="modal-dialog">
+                            <div className="modal-content">
+                                <div className="modal-header py-5">
+                                    <div className="modal-title w-100 text-center" id="exampleModalLabel">
+                                        <p>Peringatan</p>
+                                    </div>
+                                    <div onClick={() => setShowSuccessModal(false)}>
+                                        <img className="mr-2"
+                                            src={`${window.location.origin}/assets/images/close.png`}
+                                            style={{ cursor: "pointer" }}
+                                        />
+                                    </div>
+                                </div>
+                                <div className="modal-body py-3 px-5">
+                                    <p>Produk berhasil ditambahkan ke keranjang</p>
+
+                                    {/* Tombol Tutup */}
+                                    <button
+                                        onClick={() => setShowSuccessModal(false)} // Menutup modal saat tombol ditekan
+                                        className="w-100 btn btn-pink mt-3"
+                                    >
+                                        Tutup
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                )}
             </main>
         </UserLayout>
     );

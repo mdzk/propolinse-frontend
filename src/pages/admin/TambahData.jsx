@@ -98,7 +98,7 @@ const TambahData = () => {
                                                             type="text"
                                                             name="kodeBarang"
                                                             className={`form-control ${apiErrors.kd_brg && 'is-invalid'}`}
-                                                            placeholder="Teman Fokus"
+                                                            placeholder="001"
                                                             onChange={handleChange}
                                                         />
                                                         {apiErrors.kd_brg && (

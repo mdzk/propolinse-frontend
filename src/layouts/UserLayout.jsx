@@ -20,6 +20,7 @@ function UserLayout({ children }) {
     const [showResetPasswordModal, setShowResetPasswordModal] = useState(false);
     const [showResetSuccessModal, setShowResetSuccessModal] = useState(false);
     const [resetCode, setResetCode] = useState("");
+    const [cartItems, setCartItems] = useState([]);
 
     const showResetPassword = (code) => {
         setShowResetPasswordModal(true);
@@ -95,8 +96,40 @@ function UserLayout({ children }) {
                 .catch(error => {
                     console.error('Error fetching user data:', error);
                 });
+
+            // Mengambil data keranjang dari API
+            axios.get(`${import.meta.env.VITE_API_URL}api/carts/user/home`, {
+                headers: {
+                    'Authorization': `Bearer ${authToken}`,
+                },
+            })
+                .then(response => {
+                    setCartItems(response.data);
+                })
+                .catch(error => {
+                    console.error('Error fetching cart data:', error);
+                });
         }
     }, []);
+
+    const removeProduct = (cartId) => {
+        const authToken = localStorage.getItem('auth_token');
+        axios.delete(`${import.meta.env.VITE_API_URL}api/carts/del/${cartId}`, {
+            headers: {
+                'Authorization': `Bearer ${authToken}`,
+            },
+        })
+            .then(response => {
+                setCartItems(prevCartItems => {
+                    const updatedCartItems = prevCartItems.filter(item => item.cartId !== cartId);
+                    console.log('Updated Cart Items:', updatedCartItems);
+                    return updatedCartItems;
+                });
+            })
+            .catch(error => {
+                console.error('Error removing product:', error);
+            });
+    };
 
     return (
         <>
@@ -299,22 +332,32 @@ function UserLayout({ children }) {
                                     </a>
                                     <div className="dropdown-menu dropdown-menu-right">
                                         <div className="dropdown-cart-products">
-                                            <CartItem />
+                                            {cartItems.map(item => (
+                                                <CartItem
+                                                    key={item.id} // Use cartId as the unique key
+                                                    name={item.barang.nm_brg}
+                                                    price={item.barang.hrg_brg}
+                                                    quantity={item.quantity}
+                                                    image={item.barang.image}
+                                                    cartId={item.id} // Pass the cartId as a prop
+                                                    removeProduct={removeProduct} // Pass the removeProduct callback
+                                                />
+                                            ))}
                                         </div>
-                                        <div className="dropdown-cart-total">
+                                        {/* <div className="dropdown-cart-total">
                                             <span>Total</span>
                                             <span className="cart-total-price">$160.00</span>
-                                        </div>
+                                        </div> */}
                                         {/* End .dropdown-cart-total */}
-                                        <div className="dropdown-cart-action">
-                                            <a href="cart.html" className="btn btn-primary">
+                                        <div className="dropdown-cart-action mt-2">
+                                            {/* <a href="cart.html" className="btn btn-primary">
                                                 View Cart
-                                            </a>
+                                            </a> */}
                                             <a
                                                 href="checkout.html"
-                                                className="btn btn-outline-primary-2"
+                                                className="btn btn-outline-primary-2 w-100"
                                             >
-                                                <span>Checkout</span>
+                                                <span>View More</span>
                                                 <i className="icon-long-arrow-right" />
                                             </a>
                                         </div>

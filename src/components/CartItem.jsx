@@ -1,33 +1,37 @@
 import React from "react";
 
-function CartItem({ props }) {
+function CartItem(props) {
+    const handleRemoveClick = () => {
+        props.onRemove();
+    };
+
     return (
         <div className="product">
             <div className="product-cart-details">
                 <h4 className="product-title">
                     <a href="product.html">
-                        Beige knitted elastic runner shoes
+                        {props.name}
                     </a>
                 </h4>
                 <span className="cart-product-info">
-                    <span className="cart-product-qty">1</span>x $84.00
+                    <span className="cart-product-qty">{props.quantity}</span>x Rp{props.price}
                 </span>
             </div>
             <figure className="product-image-container">
                 <a href="product.html" className="product-image">
                     <img
-                        src="assets/images/carousel/1.jpeg"
+                        src={import.meta.env.VITE_API_URL + "storage/posts/" + props.image}
                         alt="product"
                     />
                 </a>
             </figure>
-            <a
-                href="#"
+            <button
                 className="btn-remove"
                 title="Remove Product"
+                onClick={() => props.removeProduct(props.cartId)}
             >
                 <i className="icon-close" />
-            </a>
+            </button>
         </div>
     );
 }
