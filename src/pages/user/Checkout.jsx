@@ -1,18 +1,19 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import UserLayout from "../../layouts/UserLayout";
 import axios from "axios";
 import CurrencyFormat from 'react-currency-format';
 
 const Checkout = () => {
     const [cartItems, setCartItems] = useState([]);
+    const navigate = useNavigate();
     const [totalPayment, setTotalPayment] = useState(0);
     const [formData, setFormData] = useState({
         nama: "",
         alamat: "",
         kode_pos: "",
         bank: "",
-        gambar: null // Ganti "gambar" dengan "gambar"
+        gambar: null
     });
 
     const authToken = localStorage.getItem('auth_token');
@@ -37,10 +38,11 @@ const Checkout = () => {
             });
     }, [authToken]);
 
+    const [apiErrors, setApiErrors] = useState({});
     const handleChange = (e) => {
         const { name, value, files } = e.target;
 
-        if (name === 'gambar') { // Ganti "gambar" dengan "gambar"
+        if (name === 'gambar') {
             setFormData({
                 ...formData,
                 [name]: files[0],
@@ -51,6 +53,7 @@ const Checkout = () => {
                 [name]: value,
             });
         }
+        setApiErrors({ ...apiErrors, [name]: '' });
     };
 
     const handleSubmit = (e) => {
@@ -65,20 +68,21 @@ const Checkout = () => {
         payload.append('pengiriman', 'jne');
         payload.append('ongkir', 42000);
         payload.append('bank', formData.bank);
-        payload.append('status', 'pending');
-        payload.append('image', formData.gambar); // Ganti "gambar" dengan "gambar"
+        payload.append('image', formData.gambar);
 
         const headers = {
             Authorization: `Bearer ${authToken}`,
-            'Content-Type': 'multipart/form-data', // Tambahkan header ini
+            'Content-Type': 'multipart/form-data',
         };
 
         axios.post(`${import.meta.env.VITE_API_URL}api/checkout/input`, payload, { headers })
             .then(response => {
                 console.log('Checkout berhasil:', response.data);
+                navigate('/checkout/success');
             })
             .catch(error => {
                 console.error('Error saat checkout:', error.response.data);
+                setApiErrors(error.response.data.errors);
             });
     };
 
@@ -121,34 +125,43 @@ const Checkout = () => {
                                     <h5>Nama</h5>
                                     <input
                                         type="text"
-                                        className="form-control"
+                                        className={`form-control ${apiErrors.nama && 'is-invalid'}`}
                                         placeholder="Budi"
                                         name="nama"
                                         value={formData.nama}
                                         onChange={handleChange}
                                     />
+                                    {apiErrors.nama && (
+                                        <div className="invalid-feedback">{apiErrors.nama[0]}</div>
+                                    )}
                                 </div>
                                 <div className="form-group mt-2">
                                     <h5>Alamat</h5>
                                     <input
                                         type="text"
-                                        className="form-control"
+                                        className={`form-control ${apiErrors.alamat && 'is-invalid'}`}
                                         placeholder="Lampung, Indonesia"
                                         name="alamat"
                                         value={formData.alamat}
                                         onChange={handleChange}
                                     />
+                                    {apiErrors.alamat && (
+                                        <div className="invalid-feedback">{apiErrors.alamat[0]}</div>
+                                    )}
                                 </div>
                                 <div className="form-group mt-2">
                                     <h5>Kode Pos</h5>
                                     <input
                                         type="number"
-                                        className="form-control"
+                                        className={`form-control ${apiErrors.kode_pos && 'is-invalid'}`}
                                         placeholder="34991"
                                         name="kode_pos"
                                         value={formData.kode_pos}
                                         onChange={handleChange}
                                     />
+                                    {apiErrors.kode_pos && (
+                                        <div className="invalid-feedback">{apiErrors.kode_pos[0]}</div>
+                                    )}
                                 </div>
                                 <div className="form-group mt-2">
                                     <h5>Pengiriman</h5>
@@ -173,15 +186,18 @@ const Checkout = () => {
                                     <h5>Transfer Dari Bank</h5>
                                     <select
                                         name="bank"
-                                        className="w-100 form-control"
+                                        className={`form-control w-100 ${apiErrors.bank && 'is-invalid'}`}
                                         value={formData.bank}
                                         onChange={handleChange}
                                     >
-                                        <option value="Mandiri">Mandiri</option>
+                                        <option value="Mandiri" selected>Mandiri</option>
                                         <option value="BNI">BNI</option>
                                         <option value="BRI">BRI</option>
                                         <option value="BCA">BCA</option>
                                     </select>
+                                    {apiErrors.bank && (
+                                        <div className="invalid-feedback">{apiErrors.bank[0]}</div>
+                                    )}
                                 </div>
                                 <div className="mt-5">
                                     <h5>Info Pembayaran</h5>
@@ -206,10 +222,13 @@ const Checkout = () => {
                                     <input
                                         type="file"
                                         name="gambar"
-                                        className="form-control"
+                                        className={`form-control ${apiErrors.image && 'is-invalid'}`}
                                         accept="image/*"
                                         onChange={handleChange}
                                     />
+                                    {apiErrors.image && (
+                                        <div className="invalid-feedback">{apiErrors.image[0]}</div>
+                                    )}
                                 </div>
                                 <button type="submit" className="btn btn-pink">Next Step</button>
                             </div>

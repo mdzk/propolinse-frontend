@@ -39,9 +39,12 @@ import AdminLogin from './pages/admin/AdminLogin';
 
 import DetailProduct from './pages/user/DetailProduct';
 import User from './pages/user/User';
+import Profile from './pages/user/Profile';
 import axios from 'axios';
 import RegisterSuccess from './pages/user/RegisterSuccess';
 import Checkout from './pages/user/Checkout';
+import CheckoutSuccess from './pages/user/CheckoutSuccess';
+import ProfileEdit from './pages/user/ProfileEdit';
 
 const AllRoutes = () => {
 
@@ -102,7 +105,10 @@ const AllRoutes = () => {
             <Route path="/success" element={<RegisterSuccess />} />
             <Route path="detail/:id" element={<DetailProduct />} />
             <Route path="user" element={auth(<User />, "user")} />
+            <Route path="profile" element={auth(<Profile />, "user")} />
+            <Route path="profile/edit" element={auth(<ProfileEdit />, "user")} />
             <Route path="checkout" element={auth(<Checkout />, "user")} />
+            <Route path="checkout/success" element={auth(<CheckoutSuccess />, "user")} />
           </Route>
 
           <Route path="/admin" >

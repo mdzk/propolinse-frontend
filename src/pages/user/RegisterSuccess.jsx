@@ -14,7 +14,6 @@ const RegisterSuccess = () => {
                         </h3>
                     </div>
 
-
                 </div>
                 <div className="container py-5">
                     <div className="text-center">

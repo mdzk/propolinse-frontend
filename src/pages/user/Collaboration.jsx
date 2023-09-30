@@ -30,7 +30,7 @@ const Collaboration = () => {
             <main className="main">
                 <div className="container bestsellers">
                     <div className="heading">
-                        <h2 className="title ">Collaboration (7)</h2>
+                        <h2 className="title ">Collaboration</h2>
                     </div>
 
                     <div className="row">

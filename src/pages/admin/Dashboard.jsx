@@ -1,8 +1,25 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import AdminLayout from '../../layouts/AdminLayout';
+import axios from 'axios';
 
 const Dashboard = () => {
+    const [data, setData] = useState({
+        produk: 0,
+        pesanan: 0,
+        pembayaran: 0,
+        pelanggan: 0,
+    });
+
+    useEffect(() => {
+        axios.get(`${import.meta.env.VITE_API_URL}api/admin/dashboard`)
+            .then((response) => {
+                setData(response.data);
+            })
+            .catch((error) => {
+                console.error('Error fetching dashboard data:', error);
+            });
+    }, []);
     return (
         <AdminLayout>
             <div className="page-content">
@@ -21,7 +38,7 @@ const Dashboard = () => {
                                                 </div>
                                                 <div className="ms-4">
                                                     <h6 className="text-muted font-semibold">Produk</h6>
-                                                    <h6 className="font-extrabold mb-0">4 Kategori</h6>
+                                                    <h6 className="font-extrabold mb-0">{data.produk} Kategori</h6>
                                                     <Link to={"/admin/kategori"}>More info ...</Link>
                                                 </div>
                                             </div>
@@ -41,7 +58,7 @@ const Dashboard = () => {
                                                 </div>
                                                 <div className="ms-4">
                                                     <h6 className="text-muted font-semibold">Pesanan</h6>
-                                                    <h6 className="font-extrabold mb-0">2 Orders</h6>
+                                                    <h6 className="font-extrabold mb-0">{data.pesanan} Orders</h6>
                                                     <Link to={"/admin/pesanan"}>More info ...</Link>
                                                 </div>
                                             </div>
@@ -61,7 +78,7 @@ const Dashboard = () => {
                                                 </div>
                                                 <div className="ms-4">
                                                     <h6 className="text-muted font-semibold">Pembayaran</h6>
-                                                    <h6 className="font-extrabold mb-0">1 Konfirmasi</h6>
+                                                    <h6 className="font-extrabold mb-0">{data.pembayaran} Konfirmasi</h6>
                                                     <Link to={"/admin/pembayaran"}>More info ...</Link>
                                                 </div>
                                             </div>
@@ -81,7 +98,7 @@ const Dashboard = () => {
                                                 </div>
                                                 <div className="ms-4">
                                                     <h6 className="text-muted font-semibold">Pelanggan</h6>
-                                                    <h6 className="font-extrabold mb-0">1 Users</h6>
+                                                    <h6 className="font-extrabold mb-0">{data.pelanggan} Users</h6>
                                                     <Link to={"/admin/pelanggan"}>More info ...</Link>
                                                 </div>
                                             </div>

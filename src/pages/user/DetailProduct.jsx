@@ -91,7 +91,7 @@ const DetailProduct = () => {
                 setRefreshUserLayout(!refreshUserLayout);
             })
             .catch((err) => {
-                console.error("Error adding to bag:", err);
+                console.error("Error adding to bag:", err.response.data);
             });
     };
 

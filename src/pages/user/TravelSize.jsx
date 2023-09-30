@@ -30,7 +30,7 @@ const TravelSize = () => {
       <main className="main">
         <div className="container bestsellers">
           <div className="heading">
-            <h2 className="title ">Mouthwash Travel Size (7)</h2>
+            <h2 className="title ">Mouthwash Travel Size</h2>
           </div>
 
           <div className="row">
